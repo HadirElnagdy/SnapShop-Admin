@@ -1,0 +1,6 @@
+framework module Pods_SnapShop_Admin_SnapShop_AdminUITests {
+  umbrella header "Pods-SnapShop-Admin-SnapShop-AdminUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

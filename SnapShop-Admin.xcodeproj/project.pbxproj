@@ -14,6 +14,9 @@
 		04F6B4082BFE0A4100EE890A /* SnapShop_AdminTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B4072BFE0A4100EE890A /* SnapShop_AdminTests.swift */; };
 		04F6B4122BFE0A4100EE890A /* SnapShop_AdminUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B4112BFE0A4100EE890A /* SnapShop_AdminUITests.swift */; };
 		04F6B4142BFE0A4100EE890A /* SnapShop_AdminUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B4132BFE0A4100EE890A /* SnapShop_AdminUITestsLaunchTests.swift */; };
+		A4E61E152D060B9212AD197F /* Pods_SnapShop_Admin_SnapShop_AdminUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD43B22F8EDA63CD3E4FE50 /* Pods_SnapShop_Admin_SnapShop_AdminUITests.framework */; };
+		B55E317AAAE4D8EA0BE3A84C /* Pods_SnapShop_Admin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6166A9D94E876846F80A9C3A /* Pods_SnapShop_Admin.framework */; };
+		BD7D73A3235B66CCBDB9AC24 /* Pods_SnapShop_AdminTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA85FBAE625C1BCFF69C79F /* Pods_SnapShop_AdminTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,15 @@
 		04F6B40D2BFE0A4100EE890A /* SnapShop-AdminUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SnapShop-AdminUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F6B4112BFE0A4100EE890A /* SnapShop_AdminUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapShop_AdminUITests.swift; sourceTree = "<group>"; };
 		04F6B4132BFE0A4100EE890A /* SnapShop_AdminUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapShop_AdminUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		52C7A8B33688BABBBC7A566F /* Pods-SnapShop-AdminTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapShop-AdminTests.release.xcconfig"; path = "Target Support Files/Pods-SnapShop-AdminTests/Pods-SnapShop-AdminTests.release.xcconfig"; sourceTree = "<group>"; };
+		6166A9D94E876846F80A9C3A /* Pods_SnapShop_Admin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapShop_Admin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		729A4D0E58BB203866458A96 /* Pods-SnapShop-AdminTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapShop-AdminTests.debug.xcconfig"; path = "Target Support Files/Pods-SnapShop-AdminTests/Pods-SnapShop-AdminTests.debug.xcconfig"; sourceTree = "<group>"; };
+		835262A89904DC2490EC3198 /* Pods-SnapShop-Admin-SnapShop-AdminUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapShop-Admin-SnapShop-AdminUITests.release.xcconfig"; path = "Target Support Files/Pods-SnapShop-Admin-SnapShop-AdminUITests/Pods-SnapShop-Admin-SnapShop-AdminUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AEE50B8F7197CFDA30544DF5 /* Pods-SnapShop-Admin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapShop-Admin.debug.xcconfig"; path = "Target Support Files/Pods-SnapShop-Admin/Pods-SnapShop-Admin.debug.xcconfig"; sourceTree = "<group>"; };
+		BFD43B22F8EDA63CD3E4FE50 /* Pods_SnapShop_Admin_SnapShop_AdminUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapShop_Admin_SnapShop_AdminUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB2454646C5BFD4A74103216 /* Pods-SnapShop-Admin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapShop-Admin.release.xcconfig"; path = "Target Support Files/Pods-SnapShop-Admin/Pods-SnapShop-Admin.release.xcconfig"; sourceTree = "<group>"; };
+		ECA85FBAE625C1BCFF69C79F /* Pods_SnapShop_AdminTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapShop_AdminTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9221337AB79660ACC76979C /* Pods-SnapShop-Admin-SnapShop-AdminUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapShop-Admin-SnapShop-AdminUITests.debug.xcconfig"; path = "Target Support Files/Pods-SnapShop-Admin-SnapShop-AdminUITests/Pods-SnapShop-Admin-SnapShop-AdminUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B55E317AAAE4D8EA0BE3A84C /* Pods_SnapShop_Admin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD7D73A3235B66CCBDB9AC24 /* Pods_SnapShop_AdminTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4E61E152D060B9212AD197F /* Pods_SnapShop_Admin_SnapShop_AdminUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +93,8 @@
 				04F6B4062BFE0A4100EE890A /* SnapShop-AdminTests */,
 				04F6B4102BFE0A4100EE890A /* SnapShop-AdminUITests */,
 				04F6B3F42BFE0A3C00EE890A /* Products */,
+				A8DDF0A601C34CC27B3DD95B /* Pods */,
+				3014FF6606039A07771BB39E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +144,30 @@
 			path = "SnapShop-AdminUITests";
 			sourceTree = "<group>";
 		};
+		3014FF6606039A07771BB39E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6166A9D94E876846F80A9C3A /* Pods_SnapShop_Admin.framework */,
+				BFD43B22F8EDA63CD3E4FE50 /* Pods_SnapShop_Admin_SnapShop_AdminUITests.framework */,
+				ECA85FBAE625C1BCFF69C79F /* Pods_SnapShop_AdminTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A8DDF0A601C34CC27B3DD95B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AEE50B8F7197CFDA30544DF5 /* Pods-SnapShop-Admin.debug.xcconfig */,
+				EB2454646C5BFD4A74103216 /* Pods-SnapShop-Admin.release.xcconfig */,
+				F9221337AB79660ACC76979C /* Pods-SnapShop-Admin-SnapShop-AdminUITests.debug.xcconfig */,
+				835262A89904DC2490EC3198 /* Pods-SnapShop-Admin-SnapShop-AdminUITests.release.xcconfig */,
+				729A4D0E58BB203866458A96 /* Pods-SnapShop-AdminTests.debug.xcconfig */,
+				52C7A8B33688BABBBC7A566F /* Pods-SnapShop-AdminTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04F6B4172BFE0A4100EE890A /* Build configuration list for PBXNativeTarget "SnapShop-Admin" */;
 			buildPhases = (
+				E57A95B81AB700C9D14D36E7 /* [CP] Check Pods Manifest.lock */,
 				04F6B3EF2BFE0A3C00EE890A /* Sources */,
 				04F6B3F02BFE0A3C00EE890A /* Frameworks */,
 				04F6B3F12BFE0A3C00EE890A /* Resources */,
+				B679927537D76856496CA111 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,6 +194,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04F6B41A2BFE0A4100EE890A /* Build configuration list for PBXNativeTarget "SnapShop-AdminTests" */;
 			buildPhases = (
+				BA84EEFD83FC62588759B5D8 /* [CP] Check Pods Manifest.lock */,
 				04F6B3FF2BFE0A4100EE890A /* Sources */,
 				04F6B4002BFE0A4100EE890A /* Frameworks */,
 				04F6B4012BFE0A4100EE890A /* Resources */,
@@ -169,9 +213,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04F6B41D2BFE0A4100EE890A /* Build configuration list for PBXNativeTarget "SnapShop-AdminUITests" */;
 			buildPhases = (
+				AC7988664BF1B1C9D989459E /* [CP] Check Pods Manifest.lock */,
 				04F6B4092BFE0A4100EE890A /* Sources */,
 				04F6B40A2BFE0A4100EE890A /* Frameworks */,
 				04F6B40B2BFE0A4100EE890A /* Resources */,
+				6B45501F5A0883863B51F332 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -251,6 +297,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6B45501F5A0883863B51F332 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SnapShop-Admin-SnapShop-AdminUITests/Pods-SnapShop-Admin-SnapShop-AdminUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SnapShop-Admin-SnapShop-AdminUITests/Pods-SnapShop-Admin-SnapShop-AdminUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SnapShop-Admin-SnapShop-AdminUITests/Pods-SnapShop-Admin-SnapShop-AdminUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC7988664BF1B1C9D989459E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SnapShop-Admin-SnapShop-AdminUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B679927537D76856496CA111 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SnapShop-Admin/Pods-SnapShop-Admin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SnapShop-Admin/Pods-SnapShop-Admin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SnapShop-Admin/Pods-SnapShop-Admin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA84EEFD83FC62588759B5D8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SnapShop-AdminTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E57A95B81AB700C9D14D36E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SnapShop-Admin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04F6B3EF2BFE0A3C00EE890A /* Sources */ = {
@@ -416,6 +565,7 @@
 		};
 		04F6B4182BFE0A4100EE890A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEE50B8F7197CFDA30544DF5 /* Pods-SnapShop-Admin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -445,6 +595,7 @@
 		};
 		04F6B4192BFE0A4100EE890A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB2454646C5BFD4A74103216 /* Pods-SnapShop-Admin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -474,6 +625,7 @@
 		};
 		04F6B41B2BFE0A4100EE890A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 729A4D0E58BB203866458A96 /* Pods-SnapShop-AdminTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -494,6 +646,7 @@
 		};
 		04F6B41C2BFE0A4100EE890A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52C7A8B33688BABBBC7A566F /* Pods-SnapShop-AdminTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -514,6 +667,7 @@
 		};
 		04F6B41E2BFE0A4100EE890A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9221337AB79660ACC76979C /* Pods-SnapShop-Admin-SnapShop-AdminUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -532,6 +686,7 @@
 		};
 		04F6B41F2BFE0A4100EE890A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 835262A89904DC2490EC3198 /* Pods-SnapShop-Admin-SnapShop-AdminUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
