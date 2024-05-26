@@ -9,11 +9,10 @@ import SwiftUI
 
 struct ProductsCustomCell: View {
     
-    var productImage: Image = Image(.imgPlaceholder)
+    var productImageURL: String?
     let productName: String
     let productCategory: String
     let productPrice: String
-    
     var body: some View {
         VStack(spacing: 8) {
             productImageView
@@ -25,10 +24,23 @@ struct ProductsCustomCell: View {
     
     private var productImageView: some View {
         ZStack(alignment: .topTrailing) {
-            productImage
-                .resizable()
-                .scaledToFit()
-                .clipShape(RoundedRectangle(cornerRadius: 24.0))
+            if productImageURL != nil{
+                AsyncImage(url: URL(string: productImageURL ?? "")){ image in
+                    image.resizable()
+                        .scaledToFit()
+                        .clipShape(RoundedRectangle(cornerRadius: 24.0))
+                } placeholder: {
+                    Image(.imgPlaceholder)
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(RoundedRectangle(cornerRadius: 24.0))
+                }
+            }else{
+                Image(.imgPlaceholder)
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(RoundedRectangle(cornerRadius: 24.0))
+            }
             
             deleteButton
         }
@@ -60,6 +72,8 @@ struct ProductsCustomCell: View {
                 .font(.headline)
         }
     }
+    
+    
 }
 
 #Preview {

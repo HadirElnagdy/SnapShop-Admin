@@ -18,6 +18,7 @@
 		043542A62C0344C800DE7E6A /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542A52C0344C800DE7E6A /* AppFonts.swift */; };
 		043542A92C034CE600DE7E6A /* CollectionsCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542A82C034CE600DE7E6A /* CollectionsCustomCell.swift */; };
 		043542AB2C0353EF00DE7E6A /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542AA2C0353EF00DE7E6A /* Tab.swift */; };
+		043542AD2C037D1800DE7E6A /* ProductsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542AC2C037D1700DE7E6A /* ProductsResponse.swift */; };
 		04F6B3F72BFE0A3C00EE890A /* SnapShop_AdminApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B3F62BFE0A3C00EE890A /* SnapShop_AdminApp.swift */; };
 		04F6B3F92BFE0A3C00EE890A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B3F82BFE0A3C00EE890A /* ContentView.swift */; };
 		04F6B3FB2BFE0A4000EE890A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F6B3FA2BFE0A4000EE890A /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		043542A52C0344C800DE7E6A /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		043542A82C034CE600DE7E6A /* CollectionsCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsCustomCell.swift; sourceTree = "<group>"; };
 		043542AA2C0353EF00DE7E6A /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		043542AC2C037D1700DE7E6A /* ProductsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsResponse.swift; sourceTree = "<group>"; };
 		04F6B3F32BFE0A3C00EE890A /* SnapShop-Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SnapShop-Admin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F6B3F62BFE0A3C00EE890A /* SnapShop_AdminApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapShop_AdminApp.swift; sourceTree = "<group>"; };
 		04F6B3F82BFE0A3C00EE890A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				043542AA2C0353EF00DE7E6A /* Tab.swift */,
+				043542AC2C037D1700DE7E6A /* ProductsResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 			files = (
 				043542A62C0344C800DE7E6A /* AppFonts.swift in Sources */,
 				043542902C03297000DE7E6A /* CustomTabBarView.swift in Sources */,
+				043542AD2C037D1800DE7E6A /* ProductsResponse.swift in Sources */,
 				0435427A2C03222700DE7E6A /* AddProductView.swift in Sources */,
 				0435429E2C03436B00DE7E6A /* CollectionsView.swift in Sources */,
 				043542832C03246E00DE7E6A /* AppColors.swift in Sources */,

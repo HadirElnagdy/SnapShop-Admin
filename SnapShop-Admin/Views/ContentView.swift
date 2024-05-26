@@ -14,7 +14,7 @@ struct ContentView: View {
         VStack {
             switch selectedTab{
             case .products:
-                ProductsView()
+                ProductsView(productsList: [])
             case .collections:
                 CollectionsView()
             case .coupons:
