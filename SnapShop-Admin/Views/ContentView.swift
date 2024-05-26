@@ -4,12 +4,25 @@
 //
 //  Created by Hadir on 22/05/2024.
 //
-
 import SwiftUI
-
 struct ContentView: View {
+    
+    @State var selectedTab: Tab = .products
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            switch selectedTab{
+            case .products:
+                ProductsView()
+            case .collections:
+                CollectionsView()
+            case .coupons:
+                CouponsView()
+          }
+            Spacer()
+            CustomTabBarView(selectedTab: $selectedTab)
+            
+        }.ignoresSafeArea(edges: .bottom)
     }
 }
 
