@@ -26,11 +26,13 @@ struct CustomTabBarView: View {
         return Button {
             selectedTab = tab
         } label: {
-            TabBarButton(buttonText: tab.title, imageName: tab.imageName, isActive: selectedTab == tab)
+            TabBarButton(tabTitle: tab.title, tabIcon: tab.imageName, isSelected: selectedTab == tab)
         }
         .tint(AppColors.primaryColor)
     }
 }
+
+
 #Preview {
     CustomTabBarView(selectedTab: .constant(.products))
 }
