@@ -14,9 +14,7 @@ struct CustomTabBarView: View {
     var body: some View {
         HStack (alignment: .center){
             tabBarItem(for: .products)
-            Spacer()
             tabBarItem(for: .collections)
-            Spacer()
             tabBarItem(for: .coupons)
            
         }.frame(height: 82 )
@@ -25,14 +23,10 @@ struct CustomTabBarView: View {
     }
     
     private func tabBarItem(for tab: Tab) -> some View {
-        let builder = TabBarItemBuilder(for: tab)
-            .setText(tab.title)
-            .setImageName(tab.imageName)
-
         return Button {
             selectedTab = tab
         } label: {
-            builder.build(isActive: selectedTab == tab)
+            TabBarButton(buttonText: tab.title, imageName: tab.imageName, isActive: selectedTab == tab)
         }
         .tint(AppColors.primaryColor)
     }
