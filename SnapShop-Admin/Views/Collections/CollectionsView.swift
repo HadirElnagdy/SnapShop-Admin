@@ -9,7 +9,28 @@ import SwiftUI
 
 struct CollectionsView: View {
     var body: some View {
-        Text("Collections")
+        NavigationStack {
+            
+            VStack{
+                //search bar
+                
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]){
+                    
+                }
+                
+            }
+            .navigationBarTitle("Collections")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button{
+                        
+                    }label: {
+                        Image(systemName: "plus.app")
+                            .font(.system(size: 24))
+                    }
+                }
+            }.ignoresSafeArea()
+        }
     }
 }
 

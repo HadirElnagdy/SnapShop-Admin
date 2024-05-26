@@ -18,7 +18,6 @@ struct ProductsCustomCell: View {
         VStack(spacing: 8) {
             productImageView
             productInfoView
-            Spacer()
         }
         .padding()
     }
