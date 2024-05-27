@@ -11,16 +11,13 @@ struct ProductsView: View {
     
     var productsList: [ProductsResponse]
     @State var openAddProductView: Bool = false
+    @State var searchQuery = ""
     
     var body: some View {
         NavigationStack {
             ScrollView {
-                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
-                    ForEach(productsList, id: \.id) { product in
-                        ProductsCustomCell(productImageURL: product.featuredImage, productName: product.title ?? "", productCategory: product.productType ?? "", productPrice: "\(product.priceRangeV2?.amount ?? "") \(product.priceRangeV2?.currencyCode ?? "")")
-                    }
-                }
-                .padding()
+                //Search bar goes here
+                ProductsGrid(productsList: productsList)
             }
             .navigationBarTitle("Products")
             .toolbar {
@@ -43,45 +40,34 @@ struct ProductsView: View {
 
 #Preview {
     ProductsView(productsList: [
-        ProductsResponse(title: "Classic Backpack",
-                         productType: "Backpack",
-                         description: "A timeless classic, perfect for everyday use.",
-                         id: "1",
-                         priceRangeV2: PriceRangeV2(amount: "89.99", currencyCode: "USD"),
-                         featuredImage: "https://cdn.shopify.com/s/files/1/0665/3709/5347/files/7883dc186e15bf29dad696e1e989e914_efe14d46-75f9-4434-8568-457cc0367ea6.jpg?v=1716294835"),
+        ProductsResponse(title: "ADIDAS | CLASSIC BACKPACK | LEGEND INK MULTICOLOUR",
+                         productType: "ACCESSORIES",
+                         description: nil,
+                         id: "gid://shopify/Product/7882327785651",
+                         priceRangeV2: PriceRangeV2(amount: "50.0", currencyCode: "EGP"),
+                         featuredImage: "https://cdn.shopify.com/s/files/1/0665/3709/5347/files/8072c8b5718306d4be25aac21836ce16_bbb5f91f-a37a-4b27-aacf-a87bf676f36d.jpg?v=1716294860"),
         
-        ProductsResponse(title: "Leather Messenger Bag",
-                         productType: "Messenger Bag",
-                         description: "Crafted from genuine leather, ideal for work or travel.",
-                         id: "2",
-                         priceRangeV2: PriceRangeV2(amount: "149.99", currencyCode: "USD"),
-                         featuredImage: "https://cdn.shopify.com/s/files/1/0665/3709/5347/files/0ea90fb43c087d165cbf985098cc951e_0d510f14-13cf-4833-8755-0ba1cc3e4b68.jpg?v=1716294829"),
+        ProductsResponse(title: "ADIDASOO | CLASSIC BACKPACK",
+                         productType: "ACCESSORIES",
+                         description: nil,
+                         id: "gid://shopify/Product/7882327752883",
+                         priceRangeV2: PriceRangeV2(amount: "70.0", currencyCode: "EGP"),
+                         featuredImage: "https://cdn.shopify.com/s/files/1/0665/3709/5347/files/85cc58608bf138a50036bcfe86a3a362_92d9af79-6a32-4653-93d7-704e5215c9b9.jpg?v=1716294856"),
         
-        ProductsResponse(title: "Sporty Sneakers",
-                         productType: "Footwear",
-                         description: "Stay active and comfortable with these stylish sneakers.",
-                         id: "3",
-                         priceRangeV2: PriceRangeV2(amount: "79.99", currencyCode: "USD"),
-                         featuredImage: "sporty_sneakers.jpg"),
+        ProductsResponse(title: "NIKE | SWOOSH PRO FLAT PEAK CAP",
+                         productType: "ACCESSORIES",
+                         description: nil,
+                         id: "gid://shopify/Product/7882327687347",
+                         priceRangeV2: PriceRangeV2(amount: "30.0", currencyCode: "EGP"),
+                         featuredImage: "https://cdn.shopify.com/s/files/1/0665/3709/5347/files/58262e66c5e9731050280eb16880d5a4_42cfd075-4bb3-4ae2-ad8e-bb68eaa00455.jpg?v=1716294853"),
         
-        ProductsResponse(title: "Vintage Sunglasses",
-                         productType: "Accessories",
-                         description: "Add a touch of retro charm to your look with these sunglasses.",
-                         id: "4",
-                         priceRangeV2: PriceRangeV2(amount: "59.99", currencyCode: "USD"),
-                         featuredImage: "vintage_sunglasses.jpg"),
-        
-        ProductsResponse(title: "Smart Watch",
-                         productType: "Electronics",
-                         description: "Stay connected and track your fitness goals with this smart watch.",
-                         id: "5",
-                         priceRangeV2: PriceRangeV2(amount: "199.99", currencyCode: "USD"),
-                         featuredImage: "smart_watch.jpg"),
-        
-        ProductsResponse(title: "Portable Bluetooth Speaker",
-                         productType: "Electronics",
-                         description: "Enjoy high-quality sound anywhere with this portable speaker.",
-                         id: "6",
-                         priceRangeV2: PriceRangeV2(amount: "129.99", currencyCode: "USD"),
-                         featuredImage: "bluetooth_speaker.jpg")])
+        ProductsResponse(title: "FLEX FIT | MINI OTTOMAN BLACK",
+                         productType: "ACCESSORIES",
+                         description: nil,
+                         id: "gid://shopify/Product/7882327621811",
+                         priceRangeV2: PriceRangeV2(amount: "29.99", currencyCode: "EGP"),
+                         featuredImage: "https://cdn.shopify.com/s/files/1/0665/3709/5347/files/6170fd62b8ebee856d0cbdeac874abfd_d99819cd-458e-44bf-a514-b1c1044d4b4e.jpg?v=1716294848")
+    ])
 }
+
+

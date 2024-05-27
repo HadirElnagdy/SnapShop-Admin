@@ -19,6 +19,7 @@
 		043542A92C034CE600DE7E6A /* CollectionsCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542A82C034CE600DE7E6A /* CollectionsCustomCell.swift */; };
 		043542AB2C0353EF00DE7E6A /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542AA2C0353EF00DE7E6A /* Tab.swift */; };
 		043542AD2C037D1800DE7E6A /* ProductsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542AC2C037D1700DE7E6A /* ProductsResponse.swift */; };
+		043542B02C047E6E00DE7E6A /* ProductsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542AF2C047E6E00DE7E6A /* ProductsGrid.swift */; };
 		04F6B3F72BFE0A3C00EE890A /* SnapShop_AdminApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B3F62BFE0A3C00EE890A /* SnapShop_AdminApp.swift */; };
 		04F6B3F92BFE0A3C00EE890A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B3F82BFE0A3C00EE890A /* ContentView.swift */; };
 		04F6B3FB2BFE0A4000EE890A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F6B3FA2BFE0A4000EE890A /* Assets.xcassets */; };
@@ -61,6 +62,7 @@
 		043542A82C034CE600DE7E6A /* CollectionsCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsCustomCell.swift; sourceTree = "<group>"; };
 		043542AA2C0353EF00DE7E6A /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		043542AC2C037D1700DE7E6A /* ProductsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsResponse.swift; sourceTree = "<group>"; };
+		043542AF2C047E6E00DE7E6A /* ProductsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsGrid.swift; sourceTree = "<group>"; };
 		04F6B3F32BFE0A3C00EE890A /* SnapShop-Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SnapShop-Admin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F6B3F62BFE0A3C00EE890A /* SnapShop_AdminApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapShop_AdminApp.swift; sourceTree = "<group>"; };
 		04F6B3F82BFE0A3C00EE890A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		0435428C2C03271700DE7E6A /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				043542AE2C047E4A00DE7E6A /* Grids */,
 				043542922C0329A100DE7E6A /* TabBar */,
 				043542912C03299400DE7E6A /* Cells */,
 			);
@@ -228,6 +231,14 @@
 			children = (
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		043542AE2C047E4A00DE7E6A /* Grids */ = {
+			isa = PBXGroup;
+			children = (
+				043542AF2C047E6E00DE7E6A /* ProductsGrid.swift */,
+			);
+			path = Grids;
 			sourceTree = "<group>";
 		};
 		04F6B3EA2BFE0A3C00EE890A = {
@@ -565,6 +576,7 @@
 				043542A92C034CE600DE7E6A /* CollectionsCustomCell.swift in Sources */,
 				0435428E2C03275300DE7E6A /* ProductsCustomCell.swift in Sources */,
 				043542952C032A2800DE7E6A /* TabBarButton.swift in Sources */,
+				043542B02C047E6E00DE7E6A /* ProductsGrid.swift in Sources */,
 				0435428B2C0326F400DE7E6A /* ProductsView.swift in Sources */,
 				043542AB2C0353EF00DE7E6A /* Tab.swift in Sources */,
 			);

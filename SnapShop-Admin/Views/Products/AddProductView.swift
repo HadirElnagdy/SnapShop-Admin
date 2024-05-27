@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct AddProductView: View {
+    @State var productFeaturedImage = ""
+    @State var productName = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form{
+            Image(.imgPlaceholder)
+                .resizable()
+                .scaledToFit()
+            
+            Section("Product Details") {
+                TextField("Product Name", text: $productName)
+            }
+        }
     }
 }
 

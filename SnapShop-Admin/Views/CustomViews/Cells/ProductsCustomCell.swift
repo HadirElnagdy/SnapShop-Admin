@@ -13,39 +13,55 @@ struct ProductsCustomCell: View {
     let productName: String
     let productCategory: String
     let productPrice: String
+    
     var body: some View {
         VStack(spacing: 8) {
             productImageView
             productInfoView
-        }
-        .padding()
+        }.padding([.leading, .trailing], 8)
+        
     }
-    
     
     private var productImageView: some View {
         ZStack(alignment: .topTrailing) {
-            if productImageURL != nil{
-                AsyncImage(url: URL(string: productImageURL ?? "")){ image in
-                    image.resizable()
-                        .scaledToFit()
-                        .clipShape(RoundedRectangle(cornerRadius: 24.0))
-                } placeholder: {
-                    Image(.imgPlaceholder)
-                        .resizable()
-                        .scaledToFit()
-                        .clipShape(RoundedRectangle(cornerRadius: 24.0))
+            if let url = productImageURL, let imageURL = URL(string: url) {
+                AsyncImage(url: imageURL) { phase in
+                    switch phase {
+                    case .empty:
+                        ProgressView()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    case .success(let image):
+                        image.resizable()
+                            .scaledToFit()
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                            .padding()
+                    case .failure:
+                        Image("imgPlaceholder")
+                            .resizable()
+                            .scaledToFit()
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                    @unknown default:
+                        Image("imgPlaceholder")
+                            .resizable()
+                            .scaledToFit()
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                    }
                 }
-            }else{
-                Image(.imgPlaceholder)
+            }else {
+                Image("imgPlaceholder")
                     .resizable()
                     .scaledToFit()
-                    .clipShape(RoundedRectangle(cornerRadius: 24.0))
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
             }
             
             deleteButton
         }
+        .background(
+            RoundedRectangle(cornerRadius: 16)
+                .fill(Color.white)
+                .shadow(radius: 5)
+        )
     }
-    
     
     private var deleteButton: some View {
         Button {
@@ -55,14 +71,13 @@ struct ProductsCustomCell: View {
                 .font(.title2)
                 .padding()
         }
-        .padding([.top, .trailing], 8)
     }
-    
     
     private var productInfoView: some View {
         VStack(alignment: .center) {
-            Text(productName)
-                .font(.title2)
+            Text(extractSecondPart(from: productName) ?? "")
+                .font(.callout)
+                .lineLimit(1)
             
             Text(productCategory)
                 .font(.subheadline)
@@ -73,11 +88,18 @@ struct ProductsCustomCell: View {
         }
     }
     
-    
+    func extractSecondPart(from title: String) -> String? {
+        let components = title.split(separator: "|").map { $0.trimmingCharacters(in: .whitespaces) }
+        guard components.count > 1 else { return nil }
+        return components[1]
+    }
 }
 
 #Preview {
-    ProductsCustomCell(productName: "CLASSIC BACKPACK", productCategory: "ACCESSORIES", productPrice: "300.0 USD")
+    ProductsCustomCell(
+        productImageURL: "https://cdn.shopify.com/s/files/1/0665/3709/5347/files/85cc58608bf138a50036bcfe86a3a362_92d9af79-6a32-4653-93d7-704e5215c9b9.jpg?v=1716294856",
+        productName: "ADIDAS | CLASSIC BACKPACK | LEGEND INK MULTICOLOUR",
+        productCategory: "ACCESSORIES",
+        productPrice: "50.0 EGP"
+    )
 }
-
-
