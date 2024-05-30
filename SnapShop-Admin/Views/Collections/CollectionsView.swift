@@ -12,6 +12,7 @@ struct CollectionsView: View {
         NavigationStack {
             
             VStack{
+                
                 //search bar
                 
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]){
@@ -23,7 +24,7 @@ struct CollectionsView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button{
-                        
+                        //open add new collection
                     }label: {
                         Image(systemName: "plus.app")
                             .font(.system(size: 24))

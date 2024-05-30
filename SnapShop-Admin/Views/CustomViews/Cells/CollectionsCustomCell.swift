@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct CollectionsCustomCell: View {
+    let collectionName: String
+    let collectionImageURL: String?
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            AsyncImage(url: URL(string: collectionImageURL ?? ""))
+            Text(collectionName)
+                .font(.largeTitle)
+        }
     }
 }
 
 #Preview {
-    CollectionsCustomCell()
+    CollectionsCustomCell(collectionName: "Nike", collectionImageURL: "https://cdn.shopify.com/s/files/1/0665/3709/5347/collections/52e93c3a86b9b62e023e5977ab218302.png?v=1716294342")
 }

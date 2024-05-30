@@ -7,7 +7,7 @@ target 'SnapShop-Admin' do
 
   # Pods for SnapShop-Admin
 
-pod "Apollo"
+#pod "Apollo"
 
   target 'SnapShop-AdminTests' do
     inherit! :search_paths

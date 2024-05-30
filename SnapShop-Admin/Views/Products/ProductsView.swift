@@ -28,9 +28,9 @@ struct ProductsView: View {
                         Image(systemName: "plus.app")
                             .font(.system(size: 24))
                     }
-                    .sheet(isPresented: $openAddProductView, content: {
+                    .sheet(isPresented: $openAddProductView){
                         AddProductView()
-                    })
+                    }
                 }
             }
         }
