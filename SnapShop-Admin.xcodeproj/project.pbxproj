@@ -35,8 +35,12 @@
 		04F6B4082BFE0A4100EE890A /* SnapShop_AdminTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B4072BFE0A4100EE890A /* SnapShop_AdminTests.swift */; };
 		04F6B4122BFE0A4100EE890A /* SnapShop_AdminUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B4112BFE0A4100EE890A /* SnapShop_AdminUITests.swift */; };
 		04F6B4142BFE0A4100EE890A /* SnapShop_AdminUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B4132BFE0A4100EE890A /* SnapShop_AdminUITestsLaunchTests.swift */; };
+		763E529D2C0A8468002EFF95 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763E529C2C0A8468002EFF95 /* AppButton.swift */; };
+		763E529F2C0A8A50002EFF95 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763E529E2C0A8A50002EFF95 /* LoginViewModel.swift */; };
+		763E52A12C0A8A85002EFF95 /* AppTextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763E52A02C0A8A85002EFF95 /* AppTextFieldValidator.swift */; };
+		763E52A32C0A9119002EFF95 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763E52A22C0A9119002EFF95 /* AppTextField.swift */; };
+		7698F4D62C09E2BE00DAB24B /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7698F4D52C09E2BE00DAB24B /* LoginScreen.swift */; };
 		A4E61E152D060B9212AD197F /* Pods_SnapShop_Admin_SnapShop_AdminUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD43B22F8EDA63CD3E4FE50 /* Pods_SnapShop_Admin_SnapShop_AdminUITests.framework */; };
-		B55E317AAAE4D8EA0BE3A84C /* Pods_SnapShop_Admin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6166A9D94E876846F80A9C3A /* Pods_SnapShop_Admin.framework */; };
 		BD7D73A3235B66CCBDB9AC24 /* Pods_SnapShop_AdminTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA85FBAE625C1BCFF69C79F /* Pods_SnapShop_AdminTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +90,11 @@
 		52C7A8B33688BABBBC7A566F /* Pods-SnapShop-AdminTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapShop-AdminTests.release.xcconfig"; path = "Target Support Files/Pods-SnapShop-AdminTests/Pods-SnapShop-AdminTests.release.xcconfig"; sourceTree = "<group>"; };
 		6166A9D94E876846F80A9C3A /* Pods_SnapShop_Admin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapShop_Admin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		729A4D0E58BB203866458A96 /* Pods-SnapShop-AdminTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapShop-AdminTests.debug.xcconfig"; path = "Target Support Files/Pods-SnapShop-AdminTests/Pods-SnapShop-AdminTests.debug.xcconfig"; sourceTree = "<group>"; };
+		763E529C2C0A8468002EFF95 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
+		763E529E2C0A8A50002EFF95 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		763E52A02C0A8A85002EFF95 /* AppTextFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextFieldValidator.swift; sourceTree = "<group>"; };
+		763E52A22C0A9119002EFF95 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
+		7698F4D52C09E2BE00DAB24B /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		835262A89904DC2490EC3198 /* Pods-SnapShop-Admin-SnapShop-AdminUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapShop-Admin-SnapShop-AdminUITests.release.xcconfig"; path = "Target Support Files/Pods-SnapShop-Admin-SnapShop-AdminUITests/Pods-SnapShop-Admin-SnapShop-AdminUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AEE50B8F7197CFDA30544DF5 /* Pods-SnapShop-Admin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapShop-Admin.debug.xcconfig"; path = "Target Support Files/Pods-SnapShop-Admin/Pods-SnapShop-Admin.debug.xcconfig"; sourceTree = "<group>"; };
 		BFD43B22F8EDA63CD3E4FE50 /* Pods_SnapShop_Admin_SnapShop_AdminUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapShop_Admin_SnapShop_AdminUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,7 +108,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B55E317AAAE4D8EA0BE3A84C /* Pods_SnapShop_Admin.framework in Frameworks */,
 				04C9D2752C089BBD004E9336 /* Apollo in Frameworks */,
 				04C9D27B2C089BBD004E9336 /* ApolloSQLite in Frameworks */,
 				04C9D27D2C089BBD004E9336 /* ApolloTestSupport in Frameworks */,
@@ -131,6 +139,7 @@
 		043542782C03220700DE7E6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				763E529A2C0A7F5B002EFF95 /* Authentication */,
 				04F6B3F82BFE0A3C00EE890A /* ContentView.swift */,
 				043542892C0326DE00DE7E6A /* Products */,
 				0435429B2C03430500DE7E6A /* Collections */,
@@ -145,6 +154,7 @@
 			children = (
 				043542822C03246E00DE7E6A /* AppColors.swift */,
 				043542A52C0344C800DE7E6A /* AppFonts.swift */,
+				763E52A02C0A8A85002EFF95 /* AppTextFieldValidator.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -185,6 +195,7 @@
 		0435428C2C03271700DE7E6A /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				763E529B2C0A844D002EFF95 /* AppButtons */,
 				043542AE2C047E4A00DE7E6A /* Grids */,
 				043542922C0329A100DE7E6A /* TabBar */,
 				043542912C03299400DE7E6A /* Cells */,
@@ -300,6 +311,7 @@
 				043542962C033DA300DE7E6A /* Resources */,
 				043542802C03244500DE7E6A /* Utils */,
 				04F6B3FC2BFE0A4000EE890A /* Preview Content */,
+				763E529E2C0A8A50002EFF95 /* LoginViewModel.swift */,
 			);
 			path = "SnapShop-Admin";
 			sourceTree = "<group>";
@@ -337,6 +349,23 @@
 				ECA85FBAE625C1BCFF69C79F /* Pods_SnapShop_AdminTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		763E529A2C0A7F5B002EFF95 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				7698F4D52C09E2BE00DAB24B /* LoginScreen.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		763E529B2C0A844D002EFF95 /* AppButtons */ = {
+			isa = PBXGroup;
+			children = (
+				763E529C2C0A8468002EFF95 /* AppButton.swift */,
+				763E52A22C0A9119002EFF95 /* AppTextField.swift */,
+			);
+			path = AppButtons;
 			sourceTree = "<group>";
 		};
 		A8DDF0A601C34CC27B3DD95B /* Pods */ = {
@@ -569,18 +598,23 @@
 				043542A62C0344C800DE7E6A /* AppFonts.swift in Sources */,
 				043542902C03297000DE7E6A /* CustomTabBarView.swift in Sources */,
 				043542AD2C037D1800DE7E6A /* ProductsResponse.swift in Sources */,
+				763E529D2C0A8468002EFF95 /* AppButton.swift in Sources */,
 				0435427A2C03222700DE7E6A /* AddProductView.swift in Sources */,
 				0435429E2C03436B00DE7E6A /* CollectionsView.swift in Sources */,
 				043542B22C0883D500DE7E6A /* CollectionsGrid.swift in Sources */,
+				7698F4D62C09E2BE00DAB24B /* LoginScreen.swift in Sources */,
 				043542832C03246E00DE7E6A /* AppColors.swift in Sources */,
 				04F6B3F92BFE0A3C00EE890A /* ContentView.swift in Sources */,
 				04F6B3F72BFE0A3C00EE890A /* SnapShop_AdminApp.swift in Sources */,
+				763E52A32C0A9119002EFF95 /* AppTextField.swift in Sources */,
 				043542A42C03440E00DE7E6A /* CouponsView.swift in Sources */,
 				043542A92C034CE600DE7E6A /* CollectionsCustomCell.swift in Sources */,
 				0435428E2C03275300DE7E6A /* ProductsCustomCell.swift in Sources */,
+				763E52A12C0A8A85002EFF95 /* AppTextFieldValidator.swift in Sources */,
 				043542952C032A2800DE7E6A /* TabBarButton.swift in Sources */,
 				043542B02C047E6E00DE7E6A /* ProductsGrid.swift in Sources */,
 				0435428B2C0326F400DE7E6A /* ProductsView.swift in Sources */,
+				763E529F2C0A8A50002EFF95 /* LoginViewModel.swift in Sources */,
 				043542AB2C0353EF00DE7E6A /* Tab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -754,6 +788,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -784,6 +819,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
