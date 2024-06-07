@@ -23,15 +23,15 @@ struct DiscountCodesRequest: Codable {
     }
 }
 
-struct DiscountCode: Codable {
+struct DiscountCode: Codable, Identifiable {
     let id: Int?
     let priceRuleId: Int
     let code: String
     let usageCount: Int?
-    let createdAt: Date?
-    let updatedAt: Date?
+    let createdAt: String?
+    let updatedAt: String?
     
-    init(id: Int? = nil, priceRuleId: Int, code: String, usageCount: Int? = nil, createdAt: Date? = nil, updatedAt: Date? = nil) {
+    init(id: Int? = nil, priceRuleId: Int, code: String, usageCount: Int? = nil, createdAt: String? = nil, updatedAt: String? = nil) {
         self.id = id
         self.priceRuleId = priceRuleId
         self.code = code
@@ -49,6 +49,4 @@ struct DiscountCode: Codable {
     }
 }
 
-struct DiscountCodeResponse: Codable {
-    let discountCodes: [DiscountCode]
-}
+

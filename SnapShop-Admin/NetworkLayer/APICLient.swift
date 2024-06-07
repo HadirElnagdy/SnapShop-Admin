@@ -21,6 +21,12 @@ class APIClient {
             print("Request Body:")
             print(requestBodyString)
         }
+        do {
+            let urlRequest = try route.asURLRequest()
+            print("URL: \(urlRequest.url?.absoluteString ?? "Invalid URL")")
+        } catch {
+            print("Error generating URL request: \(error)")
+        }
         AF.request(route).validate()
             .responseDecodable { (response: AFDataResponse<T>) in
                 switch response.result {
@@ -59,6 +65,9 @@ class APIClient {
     static func getPriceRules(completion: @escaping (Result<PriceRulesResponse, NetworkError>) -> Void){
         performRequest(route: APIRoute.getPriceRules, completion: completion)
     }
-    
+    static func getDiscountCodes(ruleId: String, completion: @escaping (Result<DiscountCodesResponse, NetworkError>) -> Void) {
+        let route = APIRoute.getDiscountCodes(ruleId: ruleId)
+        performRequest(route: route, completion: completion)
+    }
     
 }

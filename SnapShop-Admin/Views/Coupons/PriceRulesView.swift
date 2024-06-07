@@ -19,7 +19,6 @@ struct PriceRulesView: View {
                     PriceRuleCell(priceRule: rule)
 
                 }
-                
             }
             .navigationBarTitle("Price Rules")
             .toolbar {

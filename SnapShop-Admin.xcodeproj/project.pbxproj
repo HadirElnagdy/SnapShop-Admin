@@ -24,6 +24,8 @@
 		0400B1A12C13866100C307D5 /* PriceRulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B1A02C13866100C307D5 /* PriceRulesViewModel.swift */; };
 		0400B1A32C13877B00C307D5 /* DiscountCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B1A22C13877B00C307D5 /* DiscountCodes.swift */; };
 		0400B1A52C13882C00C307D5 /* PriceRuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B1A42C13882C00C307D5 /* PriceRuleCell.swift */; };
+		0400B1A72C138ACD00C307D5 /* DiscountCodesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B1A62C138ACD00C307D5 /* DiscountCodesView.swift */; };
+		0400B1A92C138BAA00C307D5 /* DiscountCodesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B1A82C138BAA00C307D5 /* DiscountCodesViewModel.swift */; };
 		0435427A2C03222700DE7E6A /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542792C03222700DE7E6A /* AddProductView.swift */; };
 		043542832C03246E00DE7E6A /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542822C03246E00DE7E6A /* AppColors.swift */; };
 		0435428B2C0326F400DE7E6A /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435428A2C0326F400DE7E6A /* ProductsView.swift */; };
@@ -91,6 +93,8 @@
 		0400B1A02C13866100C307D5 /* PriceRulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRulesViewModel.swift; sourceTree = "<group>"; };
 		0400B1A22C13877B00C307D5 /* DiscountCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodes.swift; sourceTree = "<group>"; };
 		0400B1A42C13882C00C307D5 /* PriceRuleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRuleCell.swift; sourceTree = "<group>"; };
+		0400B1A62C138ACD00C307D5 /* DiscountCodesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodesView.swift; sourceTree = "<group>"; };
+		0400B1A82C138BAA00C307D5 /* DiscountCodesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodesViewModel.swift; sourceTree = "<group>"; };
 		043542792C03222700DE7E6A /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
 		043542822C03246E00DE7E6A /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		0435428A2C0326F400DE7E6A /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
@@ -211,12 +215,13 @@
 			path = AppTextFields;
 			sourceTree = "<group>";
 		};
-		0400B19F2C13864400C307D5 /* DiscountCodes */ = {
+		0400B19F2C13864400C307D5 /* Coupons */ = {
 			isa = PBXGroup;
 			children = (
 				0400B1A02C13866100C307D5 /* PriceRulesViewModel.swift */,
+				0400B1A82C138BAA00C307D5 /* DiscountCodesViewModel.swift */,
 			);
-			path = DiscountCodes;
+			path = Coupons;
 			sourceTree = "<group>";
 		};
 		043542782C03220700DE7E6A /* Views */ = {
@@ -267,7 +272,7 @@
 		043542882C0326A700DE7E6A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				0400B19F2C13864400C307D5 /* DiscountCodes */,
+				0400B19F2C13864400C307D5 /* Coupons */,
 				0400B18D2C13022E00C307D5 /* Collections */,
 				0400B1742C12EBDB00C307D5 /* Product */,
 				0400B1732C12EBCB00C307D5 /* Authentication */,
@@ -338,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				043542A32C03440E00DE7E6A /* PriceRulesView.swift */,
+				0400B1A62C138ACD00C307D5 /* DiscountCodesView.swift */,
 			);
 			path = Coupons;
 			sourceTree = "<group>";
@@ -727,9 +733,11 @@
 				043542B22C0883D500DE7E6A /* CollectionsGrid.swift in Sources */,
 				7698F4D62C09E2BE00DAB24B /* LoginScreen.swift in Sources */,
 				043542832C03246E00DE7E6A /* AppColors.swift in Sources */,
+				0400B1A92C138BAA00C307D5 /* DiscountCodesViewModel.swift in Sources */,
 				04F6B3F92BFE0A3C00EE890A /* ContentView.swift in Sources */,
 				04F6B3F72BFE0A3C00EE890A /* SnapShop_AdminApp.swift in Sources */,
 				0400B1892C12FA1A00C307D5 /* AppGridView.swift in Sources */,
+				0400B1A72C138ACD00C307D5 /* DiscountCodesView.swift in Sources */,
 				0400B17E2C12EC9300C307D5 /* AppCommon.swift in Sources */,
 				763E52A32C0A9119002EFF95 /* AppTextField.swift in Sources */,
 				0400B1A32C13877B00C307D5 /* DiscountCodes.swift in Sources */,
