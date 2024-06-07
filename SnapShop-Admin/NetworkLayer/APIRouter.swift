@@ -10,41 +10,48 @@ import Alamofire
 
 enum APIRoute: URLRequestConvertible {
     
+    case getProducts
    
     
     var method: HTTPMethod {
         switch self {
-      
+        case .getProducts:
+            return .get
         }
     }
     
     var encoding: ParameterEncoding {
         switch self {
-       
+        case .getProducts:
+            return URLEncoding.default
         }
     }
     
     var parameters: [String: Any]? {
         switch self {
-        
+        case .getProducts:
+            return nil
         }
     }
     
     var path: String {
         switch self {
-       
+        case .getProducts:
+            return ShopifyResource.products.endpoint
         }
     }
     
     var authorizationHeader: HTTPHeaderField? {
         switch self {
-        
+        case .getProducts:
+            return .basicAuthorization
         }
     }
     
     var authorizationType: AuthorizationType {
         switch self {
-        
+        case .getProducts:
+            return .basic
         }
     }
     

@@ -48,6 +48,8 @@ class APIClient {
             }
     }
     
-   
+    static func getAllProducts(completion: @escaping (Result<ProductsResponse, NetworkError>) -> Void) {
+        performRequest(route: APIRoute.getProducts, completion: completion)
+    }
     
 }

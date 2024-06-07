@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct ProductsGrid: View {
-    var productsList: [ProductsResponse]
+    var productsList: [Product]
+    
     var body: some View {
         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
             ForEach(productsList, id: \.id) { product in
-                ProductsCustomCell(productImageURL: product.featuredImage, productName: product.title ?? "", productCategory: product.productType ?? "", productPrice: "\(product.priceRangeV2?.amount ?? "") \(product.priceRangeV2?.currencyCode ?? "")")
+                ProductsCustomCell(productImageURL: product.image?.src ?? "",
+                                   productName: product.title ?? "",
+                                   productCategory: product.productType ?? "",
+                                   productPrice: "\(product.variants?.first?.price ?? "") EGP")
             }
         }
         .padding()

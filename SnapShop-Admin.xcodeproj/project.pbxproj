@@ -25,7 +25,7 @@
 		043542A62C0344C800DE7E6A /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542A52C0344C800DE7E6A /* AppFonts.swift */; };
 		043542A92C034CE600DE7E6A /* CollectionsCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542A82C034CE600DE7E6A /* CollectionsCustomCell.swift */; };
 		043542AB2C0353EF00DE7E6A /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542AA2C0353EF00DE7E6A /* Tab.swift */; };
-		043542AD2C037D1800DE7E6A /* ProductsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542AC2C037D1700DE7E6A /* ProductsResponse.swift */; };
+		043542AD2C037D1800DE7E6A /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542AC2C037D1700DE7E6A /* Products.swift */; };
 		043542B02C047E6E00DE7E6A /* ProductsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542AF2C047E6E00DE7E6A /* ProductsGrid.swift */; };
 		043542B22C0883D500DE7E6A /* CollectionsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542B12C0883D500DE7E6A /* CollectionsGrid.swift */; };
 		04A698412C08C49700CC4B6D /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 04A698402C08C49700CC4B6D /* schema.json */; };
@@ -82,7 +82,7 @@
 		043542A52C0344C800DE7E6A /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		043542A82C034CE600DE7E6A /* CollectionsCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsCustomCell.swift; sourceTree = "<group>"; };
 		043542AA2C0353EF00DE7E6A /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
-		043542AC2C037D1700DE7E6A /* ProductsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsResponse.swift; sourceTree = "<group>"; };
+		043542AC2C037D1700DE7E6A /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		043542AF2C047E6E00DE7E6A /* ProductsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsGrid.swift; sourceTree = "<group>"; };
 		043542B12C0883D500DE7E6A /* CollectionsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsGrid.swift; sourceTree = "<group>"; };
 		04A698402C08C49700CC4B6D /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
@@ -203,7 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				043542AA2C0353EF00DE7E6A /* Tab.swift */,
-				043542AC2C037D1700DE7E6A /* ProductsResponse.swift */,
+				043542AC2C037D1700DE7E6A /* Products.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -658,7 +658,7 @@
 			files = (
 				043542A62C0344C800DE7E6A /* AppFonts.swift in Sources */,
 				043542902C03297000DE7E6A /* CustomTabBarView.swift in Sources */,
-				043542AD2C037D1800DE7E6A /* ProductsResponse.swift in Sources */,
+				043542AD2C037D1800DE7E6A /* Products.swift in Sources */,
 				763E529D2C0A8468002EFF95 /* AppButton.swift in Sources */,
 				0435427A2C03222700DE7E6A /* AddProductView.swift in Sources */,
 				0435429E2C03436B00DE7E6A /* CollectionsView.swift in Sources */,
