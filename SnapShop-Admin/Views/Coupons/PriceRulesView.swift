@@ -7,19 +7,21 @@
 
 import SwiftUI
 
-struct CouponsView: View {
+struct PriceRulesView: View {
+    @ObservedObject var viewModel = PriceRulesViewModel()
+    
     var body: some View {
         NavigationStack {
             
             VStack{
                 //search bar
-                
-                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]){
-                    
+                List(viewModel.priceRules){ rule in
+                    PriceRuleCell(priceRule: rule)
+
                 }
                 
             }
-            .navigationBarTitle("Coupons")
+            .navigationBarTitle("Price Rules")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button{
@@ -29,11 +31,13 @@ struct CouponsView: View {
                             .font(.system(size: 24))
                     }
                 }
-            }.ignoresSafeArea()
+            }.onAppear{
+                viewModel.getPriceRules()
+            }
         }
     }
 }
 
 #Preview {
-    CouponsView()
+    PriceRulesView()
 }

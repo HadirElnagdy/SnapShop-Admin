@@ -18,6 +18,12 @@
 		0400B1892C12FA1A00C307D5 /* AppGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B1882C12FA1A00C307D5 /* AppGridView.swift */; };
 		0400B18C2C1300CB00C307D5 /* AppImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B18B2C1300CB00C307D5 /* AppImageView.swift */; };
 		0400B18F2C13024700C307D5 /* CollectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B18E2C13024700C307D5 /* CollectionsViewModel.swift */; };
+		0400B1912C130CCD00C307D5 /* AddCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B1902C130CCD00C307D5 /* AddCollectionView.swift */; };
+		0400B1942C130EE700C307D5 /* InputWithTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B1932C130EE700C307D5 /* InputWithTitleView.swift */; };
+		0400B19E2C13861C00C307D5 /* PriceRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B19D2C13861C00C307D5 /* PriceRules.swift */; };
+		0400B1A12C13866100C307D5 /* PriceRulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B1A02C13866100C307D5 /* PriceRulesViewModel.swift */; };
+		0400B1A32C13877B00C307D5 /* DiscountCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B1A22C13877B00C307D5 /* DiscountCodes.swift */; };
+		0400B1A52C13882C00C307D5 /* PriceRuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B1A42C13882C00C307D5 /* PriceRuleCell.swift */; };
 		0435427A2C03222700DE7E6A /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542792C03222700DE7E6A /* AddProductView.swift */; };
 		043542832C03246E00DE7E6A /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542822C03246E00DE7E6A /* AppColors.swift */; };
 		0435428B2C0326F400DE7E6A /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435428A2C0326F400DE7E6A /* ProductsView.swift */; };
@@ -25,7 +31,7 @@
 		043542902C03297000DE7E6A /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435428F2C03297000DE7E6A /* CustomTabBarView.swift */; };
 		043542952C032A2800DE7E6A /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542942C032A2800DE7E6A /* TabBarButton.swift */; };
 		0435429E2C03436B00DE7E6A /* CollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435429D2C03436B00DE7E6A /* CollectionsView.swift */; };
-		043542A42C03440E00DE7E6A /* CouponsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542A32C03440E00DE7E6A /* CouponsView.swift */; };
+		043542A42C03440E00DE7E6A /* PriceRulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542A32C03440E00DE7E6A /* PriceRulesView.swift */; };
 		043542A62C0344C800DE7E6A /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542A52C0344C800DE7E6A /* AppFonts.swift */; };
 		043542A92C034CE600DE7E6A /* CollectionsCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542A82C034CE600DE7E6A /* CollectionsCustomCell.swift */; };
 		043542AB2C0353EF00DE7E6A /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542AA2C0353EF00DE7E6A /* Tab.swift */; };
@@ -79,6 +85,12 @@
 		0400B1882C12FA1A00C307D5 /* AppGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGridView.swift; sourceTree = "<group>"; };
 		0400B18B2C1300CB00C307D5 /* AppImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImageView.swift; sourceTree = "<group>"; };
 		0400B18E2C13024700C307D5 /* CollectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewModel.swift; sourceTree = "<group>"; };
+		0400B1902C130CCD00C307D5 /* AddCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollectionView.swift; sourceTree = "<group>"; };
+		0400B1932C130EE700C307D5 /* InputWithTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputWithTitleView.swift; sourceTree = "<group>"; };
+		0400B19D2C13861C00C307D5 /* PriceRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRules.swift; sourceTree = "<group>"; };
+		0400B1A02C13866100C307D5 /* PriceRulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRulesViewModel.swift; sourceTree = "<group>"; };
+		0400B1A22C13877B00C307D5 /* DiscountCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodes.swift; sourceTree = "<group>"; };
+		0400B1A42C13882C00C307D5 /* PriceRuleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRuleCell.swift; sourceTree = "<group>"; };
 		043542792C03222700DE7E6A /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
 		043542822C03246E00DE7E6A /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		0435428A2C0326F400DE7E6A /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
@@ -86,7 +98,7 @@
 		0435428F2C03297000DE7E6A /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
 		043542942C032A2800DE7E6A /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		0435429D2C03436B00DE7E6A /* CollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsView.swift; sourceTree = "<group>"; };
-		043542A32C03440E00DE7E6A /* CouponsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponsView.swift; sourceTree = "<group>"; };
+		043542A32C03440E00DE7E6A /* PriceRulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRulesView.swift; sourceTree = "<group>"; };
 		043542A52C0344C800DE7E6A /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		043542A82C034CE600DE7E6A /* CollectionsCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsCustomCell.swift; sourceTree = "<group>"; };
 		043542AA2C0353EF00DE7E6A /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
@@ -190,6 +202,23 @@
 			path = Collections;
 			sourceTree = "<group>";
 		};
+		0400B1922C130E0A00C307D5 /* AppTextFields */ = {
+			isa = PBXGroup;
+			children = (
+				763E52A22C0A9119002EFF95 /* AppTextField.swift */,
+				0400B1932C130EE700C307D5 /* InputWithTitleView.swift */,
+			);
+			path = AppTextFields;
+			sourceTree = "<group>";
+		};
+		0400B19F2C13864400C307D5 /* DiscountCodes */ = {
+			isa = PBXGroup;
+			children = (
+				0400B1A02C13866100C307D5 /* PriceRulesViewModel.swift */,
+			);
+			path = DiscountCodes;
+			sourceTree = "<group>";
+		};
 		043542782C03220700DE7E6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +258,8 @@
 				043542AA2C0353EF00DE7E6A /* Tab.swift */,
 				043542AC2C037D1700DE7E6A /* Products.swift */,
 				0400B1862C12F8DD00C307D5 /* Collections.swift */,
+				0400B19D2C13861C00C307D5 /* PriceRules.swift */,
+				0400B1A22C13877B00C307D5 /* DiscountCodes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -236,6 +267,7 @@
 		043542882C0326A700DE7E6A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				0400B19F2C13864400C307D5 /* DiscountCodes */,
 				0400B18D2C13022E00C307D5 /* Collections */,
 				0400B1742C12EBDB00C307D5 /* Product */,
 				0400B1732C12EBCB00C307D5 /* Authentication */,
@@ -255,6 +287,7 @@
 		0435428C2C03271700DE7E6A /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				0400B1922C130E0A00C307D5 /* AppTextFields */,
 				0400B18A2C1300B500C307D5 /* AppImages */,
 				763E529B2C0A844D002EFF95 /* AppButtons */,
 				043542AE2C047E4A00DE7E6A /* AppGrids */,
@@ -269,6 +302,7 @@
 			children = (
 				0435428D2C03275300DE7E6A /* ProductsCustomCell.swift */,
 				043542A82C034CE600DE7E6A /* CollectionsCustomCell.swift */,
+				0400B1A42C13882C00C307D5 /* PriceRuleCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -295,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				0435429D2C03436B00DE7E6A /* CollectionsView.swift */,
+				0400B1902C130CCD00C307D5 /* AddCollectionView.swift */,
 			);
 			path = Collections;
 			sourceTree = "<group>";
@@ -302,7 +337,7 @@
 		043542A22C0343FC00DE7E6A /* Coupons */ = {
 			isa = PBXGroup;
 			children = (
-				043542A32C03440E00DE7E6A /* CouponsView.swift */,
+				043542A32C03440E00DE7E6A /* PriceRulesView.swift */,
 			);
 			path = Coupons;
 			sourceTree = "<group>";
@@ -418,7 +453,6 @@
 			isa = PBXGroup;
 			children = (
 				763E529C2C0A8468002EFF95 /* AppButton.swift */,
-				763E52A22C0A9119002EFF95 /* AppTextField.swift */,
 			);
 			path = AppButtons;
 			sourceTree = "<group>";
@@ -678,12 +712,16 @@
 			files = (
 				043542A62C0344C800DE7E6A /* AppFonts.swift in Sources */,
 				043542902C03297000DE7E6A /* CustomTabBarView.swift in Sources */,
+				0400B1912C130CCD00C307D5 /* AddCollectionView.swift in Sources */,
+				0400B19E2C13861C00C307D5 /* PriceRules.swift in Sources */,
 				043542AD2C037D1800DE7E6A /* Products.swift in Sources */,
 				0400B18F2C13024700C307D5 /* CollectionsViewModel.swift in Sources */,
 				763E529D2C0A8468002EFF95 /* AppButton.swift in Sources */,
 				0435427A2C03222700DE7E6A /* AddProductView.swift in Sources */,
+				0400B1A52C13882C00C307D5 /* PriceRuleCell.swift in Sources */,
 				0435429E2C03436B00DE7E6A /* CollectionsView.swift in Sources */,
 				0400B18C2C1300CB00C307D5 /* AppImageView.swift in Sources */,
+				0400B1942C130EE700C307D5 /* InputWithTitleView.swift in Sources */,
 				0400B1852C12F11D00C307D5 /* NetworkError.swift in Sources */,
 				0400B17C2C12EC7100C307D5 /* Constants.swift in Sources */,
 				043542B22C0883D500DE7E6A /* CollectionsGrid.swift in Sources */,
@@ -694,8 +732,9 @@
 				0400B1892C12FA1A00C307D5 /* AppGridView.swift in Sources */,
 				0400B17E2C12EC9300C307D5 /* AppCommon.swift in Sources */,
 				763E52A32C0A9119002EFF95 /* AppTextField.swift in Sources */,
+				0400B1A32C13877B00C307D5 /* DiscountCodes.swift in Sources */,
 				0400B1762C12EBF400C307D5 /* ProductsViewModel.swift in Sources */,
-				043542A42C03440E00DE7E6A /* CouponsView.swift in Sources */,
+				043542A42C03440E00DE7E6A /* PriceRulesView.swift in Sources */,
 				043542A92C034CE600DE7E6A /* CollectionsCustomCell.swift in Sources */,
 				0435428E2C03275300DE7E6A /* ProductsCustomCell.swift in Sources */,
 				0400B1872C12F8DD00C307D5 /* Collections.swift in Sources */,
@@ -705,6 +744,7 @@
 				0400B1832C12F11100C307D5 /* APIRouter.swift in Sources */,
 				0435428B2C0326F400DE7E6A /* ProductsView.swift in Sources */,
 				763E529F2C0A8A50002EFF95 /* LoginViewModel.swift in Sources */,
+				0400B1A12C13866100C307D5 /* PriceRulesViewModel.swift in Sources */,
 				0400B1812C12F10300C307D5 /* APICLient.swift in Sources */,
 				043542AB2C0353EF00DE7E6A /* Tab.swift in Sources */,
 			);

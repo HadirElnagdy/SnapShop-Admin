@@ -12,24 +12,25 @@ enum APIRoute: URLRequestConvertible {
     
     case getProducts
     case getCollections
+    case getPriceRules
     
     var method: HTTPMethod {
         switch self {
-        case .getProducts, .getCollections:
+        case .getProducts, .getCollections, .getPriceRules:
             return .get
         }
     }
     
     var encoding: ParameterEncoding {
         switch self {
-        case .getProducts, .getCollections:
+        case .getProducts, .getCollections, .getPriceRules:
             return URLEncoding.default
         }
     }
     
     var parameters: [String: Any]? {
         switch self {
-        case .getProducts, .getCollections:
+        case .getProducts, .getCollections, .getPriceRules:
             return nil
         }
     }
@@ -40,19 +41,21 @@ enum APIRoute: URLRequestConvertible {
             return ShopifyResource.products.endpoint
         case .getCollections:
             return ShopifyResource.collections.endpoint
+        case .getPriceRules:
+            return ShopifyResource.priceRules.endpoint
         }
     }
     
     var authorizationHeader: HTTPHeaderField? {
         switch self {
-        case .getProducts, .getCollections:
+        case .getProducts, .getCollections, .getPriceRules:
             return .basicAuthorization
         }
     }
     
     var authorizationType: AuthorizationType {
         switch self {
-        case .getProducts, .getCollections:
+        case .getProducts, .getCollections, .getPriceRules:
             return .basic
         }
     }

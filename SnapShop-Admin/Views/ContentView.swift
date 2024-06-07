@@ -19,7 +19,7 @@ struct ContentView: View {
             case .collections:
                 CollectionsView()
             case .coupons:
-                CouponsView()
+                PriceRulesView()
           }
             Spacer()
             CustomTabBarView(selectedTab: $selectedTab)

@@ -10,6 +10,7 @@ import SwiftUI
 struct CollectionsView: View {
     
     @ObservedObject var collectionsViewModel = CollectionsViewModel()
+    @State var openAddCollectionView: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -24,11 +25,15 @@ struct CollectionsView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button{
-                        //open add new collection
+                        openAddCollectionView.toggle()
                     }label: {
                         Image(systemName: "plus.app")
                             .font(.system(size: 24))
                     }
+                    .sheet(isPresented: $openAddCollectionView){
+                        AddCollectionView()
+                    }
+                    
                 }
             }
                 .onAppear{

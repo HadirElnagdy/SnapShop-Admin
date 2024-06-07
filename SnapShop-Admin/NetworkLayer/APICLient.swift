@@ -56,4 +56,9 @@ class APIClient {
         performRequest(route: APIRoute.getCollections, completion: completion)
     }
     
+    static func getPriceRules(completion: @escaping (Result<PriceRulesResponse, NetworkError>) -> Void){
+        performRequest(route: APIRoute.getPriceRules, completion: completion)
+    }
+    
+    
 }

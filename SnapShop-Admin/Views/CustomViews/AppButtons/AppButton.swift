@@ -15,7 +15,7 @@ struct AppButton: View {
     private var bgColor: Color
     private var isFilled: Bool
     
-    init(text: String, width: CGFloat, height: CGFloat, bgColor: Color, isFilled: Bool = false) {
+    init(text: String, width: CGFloat, height: CGFloat, bgColor: Color = Color.black, isFilled: Bool = false) {
         self.text = text
         self.width = width
         self.height = height

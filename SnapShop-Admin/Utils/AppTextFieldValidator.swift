@@ -36,6 +36,7 @@ struct FieldModel {
 enum TextfieldType :FieldValidatorProtocol{
     case email
     case password
+    case basic(placeholder: String)
     
     var placeHolder :String {
  
@@ -44,7 +45,8 @@ enum TextfieldType :FieldValidatorProtocol{
             return "Email"
         case .password:
             return "Password"
-        
+        case .basic(let placeholder):
+            return placeholder
             
         }
     }

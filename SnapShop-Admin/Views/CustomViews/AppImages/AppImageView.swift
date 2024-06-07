@@ -37,10 +37,10 @@ struct AppImageView: View {
     }
 
     private var placeholderImage: some View {
-        Image("imgPlaceholder")
-            .resizable()
-            .scaledToFit()
-            .clipShape(RoundedRectangle(cornerRadius: 16))
+        Rectangle()
+            .fill(Color.gray.opacity(0.8))
+//                .frame(width: 100, height: 100)
+                .cornerRadius(16)
     }
 }
 

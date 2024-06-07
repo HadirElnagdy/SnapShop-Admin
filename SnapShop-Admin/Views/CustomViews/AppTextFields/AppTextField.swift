@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AppTextField: View {
+    
     var fieldModel: Binding<FieldModel>
     
     var body: some View {
@@ -19,7 +20,7 @@ struct AppTextField: View {
                             .stroke(AppColors.strokeColor, lineWidth: 1.5)
                        ).padding(.bottom,10)
             if let error = fieldModel.error.wrappedValue{
-                Text(error).foregroundStyle(Color.red).font(.system(size: 15)).multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/).padding([.horizontal],0)
+                Text(error).foregroundStyle(Color.red).font(.system(size: 15)).multilineTextAlignment(.leading).padding([.horizontal],0)
             }
         }
     }
