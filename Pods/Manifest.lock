@@ -1,3 +1,20 @@
-PODFILE CHECKSUM: bcf70465c56c9bdbd2b41bf9103a7e5cbc43cf0f
+PODS:
+  - Alamofire (5.9.1)
+  - ReachabilitySwift (5.2.2)
+
+DEPENDENCIES:
+  - Alamofire
+  - ReachabilitySwift
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - ReachabilitySwift
+
+SPEC CHECKSUMS:
+  Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
+  ReachabilitySwift: 2128f3a8c9107e1ad33574c6e58e8285d460b149
+
+PODFILE CHECKSUM: abcab0e023c6603ede1ea2ec01105a4a8c89f2d8
 
 COCOAPODS: 1.15.2

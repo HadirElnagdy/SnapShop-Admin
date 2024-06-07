@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0400B1762C12EBF400C307D5 /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B1752C12EBF400C307D5 /* ProductsViewModel.swift */; };
+		0400B17A2C12EC5100C307D5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 0400B1792C12EC5100C307D5 /* .gitignore */; };
+		0400B17C2C12EC7100C307D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B17B2C12EC7100C307D5 /* Constants.swift */; };
+		0400B17E2C12EC9300C307D5 /* AppCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B17D2C12EC9300C307D5 /* AppCommon.swift */; };
+		0400B1812C12F10300C307D5 /* APICLient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B1802C12F10300C307D5 /* APICLient.swift */; };
+		0400B1832C12F11100C307D5 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B1822C12F11100C307D5 /* APIRouter.swift */; };
+		0400B1852C12F11D00C307D5 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B1842C12F11D00C307D5 /* NetworkError.swift */; };
 		0435427A2C03222700DE7E6A /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542792C03222700DE7E6A /* AddProductView.swift */; };
 		043542832C03246E00DE7E6A /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542822C03246E00DE7E6A /* AppColors.swift */; };
 		0435428B2C0326F400DE7E6A /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435428A2C0326F400DE7E6A /* ProductsView.swift */; };
@@ -22,12 +29,6 @@
 		043542B02C047E6E00DE7E6A /* ProductsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542AF2C047E6E00DE7E6A /* ProductsGrid.swift */; };
 		043542B22C0883D500DE7E6A /* CollectionsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542B12C0883D500DE7E6A /* CollectionsGrid.swift */; };
 		04A698412C08C49700CC4B6D /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 04A698402C08C49700CC4B6D /* schema.json */; };
-		04C9D2752C089BBD004E9336 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 04C9D2742C089BBD004E9336 /* Apollo */; };
-		04C9D2772C089BBD004E9336 /* Apollo-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 04C9D2762C089BBD004E9336 /* Apollo-Dynamic */; };
-		04C9D2792C089BBD004E9336 /* ApolloAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 04C9D2782C089BBD004E9336 /* ApolloAPI */; };
-		04C9D27B2C089BBD004E9336 /* ApolloSQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 04C9D27A2C089BBD004E9336 /* ApolloSQLite */; };
-		04C9D27D2C089BBD004E9336 /* ApolloTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 04C9D27C2C089BBD004E9336 /* ApolloTestSupport */; };
-		04C9D27F2C089BBD004E9336 /* ApolloWebSocket in Frameworks */ = {isa = PBXBuildFile; productRef = 04C9D27E2C089BBD004E9336 /* ApolloWebSocket */; };
 		04F6B3F72BFE0A3C00EE890A /* SnapShop_AdminApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B3F62BFE0A3C00EE890A /* SnapShop_AdminApp.swift */; };
 		04F6B3F92BFE0A3C00EE890A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B3F82BFE0A3C00EE890A /* ContentView.swift */; };
 		04F6B3FB2BFE0A4000EE890A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F6B3FA2BFE0A4000EE890A /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		7698F4D62C09E2BE00DAB24B /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7698F4D52C09E2BE00DAB24B /* LoginScreen.swift */; };
 		A4E61E152D060B9212AD197F /* Pods_SnapShop_Admin_SnapShop_AdminUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD43B22F8EDA63CD3E4FE50 /* Pods_SnapShop_Admin_SnapShop_AdminUITests.framework */; };
 		BD7D73A3235B66CCBDB9AC24 /* Pods_SnapShop_AdminTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA85FBAE625C1BCFF69C79F /* Pods_SnapShop_AdminTests.framework */; };
+		CF75DF8DAEA7058D49B2D4C3 /* Pods_SnapShop_Admin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6166A9D94E876846F80A9C3A /* Pods_SnapShop_Admin.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0400B1752C12EBF400C307D5 /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
+		0400B1792C12EC5100C307D5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		0400B17B2C12EC7100C307D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0400B17D2C12EC9300C307D5 /* AppCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCommon.swift; sourceTree = "<group>"; };
+		0400B1802C12F10300C307D5 /* APICLient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICLient.swift; sourceTree = "<group>"; };
+		0400B1822C12F11100C307D5 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		0400B1842C12F11D00C307D5 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		043542792C03222700DE7E6A /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
 		043542822C03246E00DE7E6A /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		0435428A2C0326F400DE7E6A /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
@@ -108,12 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04C9D2752C089BBD004E9336 /* Apollo in Frameworks */,
-				04C9D27B2C089BBD004E9336 /* ApolloSQLite in Frameworks */,
-				04C9D27D2C089BBD004E9336 /* ApolloTestSupport in Frameworks */,
-				04C9D27F2C089BBD004E9336 /* ApolloWebSocket in Frameworks */,
-				04C9D2792C089BBD004E9336 /* ApolloAPI in Frameworks */,
-				04C9D2772C089BBD004E9336 /* Apollo-Dynamic in Frameworks */,
+				CF75DF8DAEA7058D49B2D4C3 /* Pods_SnapShop_Admin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,11 +140,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0400B1732C12EBCB00C307D5 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				763E529E2C0A8A50002EFF95 /* LoginViewModel.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		0400B1742C12EBDB00C307D5 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				0400B1752C12EBF400C307D5 /* ProductsViewModel.swift */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		0400B17F2C12F0CE00C307D5 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				0400B1802C12F10300C307D5 /* APICLient.swift */,
+				0400B1822C12F11100C307D5 /* APIRouter.swift */,
+				0400B1842C12F11D00C307D5 /* NetworkError.swift */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
 		043542782C03220700DE7E6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				763E529A2C0A7F5B002EFF95 /* Authentication */,
 				04F6B3F82BFE0A3C00EE890A /* ContentView.swift */,
+				763E529A2C0A7F5B002EFF95 /* Authentication */,
 				043542892C0326DE00DE7E6A /* Products */,
 				0435429B2C03430500DE7E6A /* Collections */,
 				043542A22C0343FC00DE7E6A /* Coupons */,
@@ -155,6 +185,8 @@
 				043542822C03246E00DE7E6A /* AppColors.swift */,
 				043542A52C0344C800DE7E6A /* AppFonts.swift */,
 				763E52A02C0A8A85002EFF95 /* AppTextFieldValidator.swift */,
+				0400B17B2C12EC7100C307D5 /* Constants.swift */,
+				0400B17D2C12EC9300C307D5 /* AppCommon.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -179,6 +211,8 @@
 		043542882C0326A700DE7E6A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				0400B1742C12EBDB00C307D5 /* Product */,
+				0400B1732C12EBCB00C307D5 /* Authentication */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -302,6 +336,7 @@
 		04F6B3F52BFE0A3C00EE890A /* SnapShop-Admin */ = {
 			isa = PBXGroup;
 			children = (
+				0400B17F2C12F0CE00C307D5 /* NetworkLayer */,
 				04A6983F2C08C45700CC4B6D /* GraphQL */,
 				043542872C03269E00DE7E6A /* Models */,
 				043542782C03220700DE7E6A /* Views */,
@@ -311,7 +346,7 @@
 				043542962C033DA300DE7E6A /* Resources */,
 				043542802C03244500DE7E6A /* Utils */,
 				04F6B3FC2BFE0A4000EE890A /* Preview Content */,
-				763E529E2C0A8A50002EFF95 /* LoginViewModel.swift */,
+				0400B1792C12EC5100C307D5 /* .gitignore */,
 			);
 			path = "SnapShop-Admin";
 			sourceTree = "<group>";
@@ -392,20 +427,13 @@
 				04F6B3EF2BFE0A3C00EE890A /* Sources */,
 				04F6B3F02BFE0A3C00EE890A /* Frameworks */,
 				04F6B3F12BFE0A3C00EE890A /* Resources */,
+				55AD43447CA286F7433F6473 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "SnapShop-Admin";
-			packageProductDependencies = (
-				04C9D2742C089BBD004E9336 /* Apollo */,
-				04C9D2762C089BBD004E9336 /* Apollo-Dynamic */,
-				04C9D2782C089BBD004E9336 /* ApolloAPI */,
-				04C9D27A2C089BBD004E9336 /* ApolloSQLite */,
-				04C9D27C2C089BBD004E9336 /* ApolloTestSupport */,
-				04C9D27E2C089BBD004E9336 /* ApolloWebSocket */,
-			);
 			productName = "SnapShop-Admin";
 			productReference = 04F6B3F32BFE0A3C00EE890A /* SnapShop-Admin.app */;
 			productType = "com.apple.product-type.application";
@@ -437,6 +465,7 @@
 				04F6B4092BFE0A4100EE890A /* Sources */,
 				04F6B40A2BFE0A4100EE890A /* Frameworks */,
 				04F6B40B2BFE0A4100EE890A /* Resources */,
+				E84E61928D4E2AC233213209 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -480,9 +509,6 @@
 				Base,
 			);
 			mainGroup = 04F6B3EA2BFE0A3C00EE890A;
-			packageReferences = (
-				04C9D2732C089BBD004E9336 /* XCRemoteSwiftPackageReference "apollo-ios" */,
-			);
 			productRefGroup = 04F6B3F42BFE0A3C00EE890A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -499,6 +525,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0400B17A2C12EC5100C307D5 /* .gitignore in Resources */,
 				04F6B3FE2BFE0A4000EE890A /* Preview Assets.xcassets in Resources */,
 				04A698412C08C49700CC4B6D /* schema.json in Resources */,
 				04F6B3FB2BFE0A4000EE890A /* Assets.xcassets in Resources */,
@@ -522,6 +549,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		55AD43447CA286F7433F6473 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SnapShop-Admin/Pods-SnapShop-Admin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SnapShop-Admin/Pods-SnapShop-Admin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SnapShop-Admin/Pods-SnapShop-Admin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AC7988664BF1B1C9D989459E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -588,6 +632,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E84E61928D4E2AC233213209 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SnapShop-Admin-SnapShop-AdminUITests/Pods-SnapShop-Admin-SnapShop-AdminUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SnapShop-Admin-SnapShop-AdminUITests/Pods-SnapShop-Admin-SnapShop-AdminUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SnapShop-Admin-SnapShop-AdminUITests/Pods-SnapShop-Admin-SnapShop-AdminUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -601,20 +662,26 @@
 				763E529D2C0A8468002EFF95 /* AppButton.swift in Sources */,
 				0435427A2C03222700DE7E6A /* AddProductView.swift in Sources */,
 				0435429E2C03436B00DE7E6A /* CollectionsView.swift in Sources */,
+				0400B1852C12F11D00C307D5 /* NetworkError.swift in Sources */,
+				0400B17C2C12EC7100C307D5 /* Constants.swift in Sources */,
 				043542B22C0883D500DE7E6A /* CollectionsGrid.swift in Sources */,
 				7698F4D62C09E2BE00DAB24B /* LoginScreen.swift in Sources */,
 				043542832C03246E00DE7E6A /* AppColors.swift in Sources */,
 				04F6B3F92BFE0A3C00EE890A /* ContentView.swift in Sources */,
 				04F6B3F72BFE0A3C00EE890A /* SnapShop_AdminApp.swift in Sources */,
+				0400B17E2C12EC9300C307D5 /* AppCommon.swift in Sources */,
 				763E52A32C0A9119002EFF95 /* AppTextField.swift in Sources */,
+				0400B1762C12EBF400C307D5 /* ProductsViewModel.swift in Sources */,
 				043542A42C03440E00DE7E6A /* CouponsView.swift in Sources */,
 				043542A92C034CE600DE7E6A /* CollectionsCustomCell.swift in Sources */,
 				0435428E2C03275300DE7E6A /* ProductsCustomCell.swift in Sources */,
 				763E52A12C0A8A85002EFF95 /* AppTextFieldValidator.swift in Sources */,
 				043542952C032A2800DE7E6A /* TabBarButton.swift in Sources */,
 				043542B02C047E6E00DE7E6A /* ProductsGrid.swift in Sources */,
+				0400B1832C12F11100C307D5 /* APIRouter.swift in Sources */,
 				0435428B2C0326F400DE7E6A /* ProductsView.swift in Sources */,
 				763E529F2C0A8A50002EFF95 /* LoginViewModel.swift in Sources */,
+				0400B1812C12F10300C307D5 /* APICLient.swift in Sources */,
 				043542AB2C0353EF00DE7E6A /* Tab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -953,50 +1020,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		04C9D2732C089BBD004E9336 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 1.12.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		04C9D2742C089BBD004E9336 /* Apollo */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 04C9D2732C089BBD004E9336 /* XCRemoteSwiftPackageReference "apollo-ios" */;
-			productName = Apollo;
-		};
-		04C9D2762C089BBD004E9336 /* Apollo-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 04C9D2732C089BBD004E9336 /* XCRemoteSwiftPackageReference "apollo-ios" */;
-			productName = "Apollo-Dynamic";
-		};
-		04C9D2782C089BBD004E9336 /* ApolloAPI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 04C9D2732C089BBD004E9336 /* XCRemoteSwiftPackageReference "apollo-ios" */;
-			productName = ApolloAPI;
-		};
-		04C9D27A2C089BBD004E9336 /* ApolloSQLite */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 04C9D2732C089BBD004E9336 /* XCRemoteSwiftPackageReference "apollo-ios" */;
-			productName = ApolloSQLite;
-		};
-		04C9D27C2C089BBD004E9336 /* ApolloTestSupport */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 04C9D2732C089BBD004E9336 /* XCRemoteSwiftPackageReference "apollo-ios" */;
-			productName = ApolloTestSupport;
-		};
-		04C9D27E2C089BBD004E9336 /* ApolloWebSocket */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 04C9D2732C089BBD004E9336 /* XCRemoteSwiftPackageReference "apollo-ios" */;
-			productName = ApolloWebSocket;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 04F6B3EB2BFE0A3C00EE890A /* Project object */;
 }
