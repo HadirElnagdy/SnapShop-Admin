@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct CollectionsView: View {
+    
+    @ObservedObject var collectionsViewModel = CollectionsViewModel()
+    
     var body: some View {
         NavigationStack {
             
-            VStack{
+            ScrollView{
                 
                 //search bar
                 
-                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]){
-                    
-                }
-                
+                CollectionsGrid(collections: collectionsViewModel.collections)
             }
             .navigationBarTitle("Collections")
             .toolbar {
@@ -30,7 +30,10 @@ struct CollectionsView: View {
                             .font(.system(size: 24))
                     }
                 }
-            }.ignoresSafeArea()
+            }
+                .onAppear{
+                    collectionsViewModel.getCollections()
+                }
         }
     }
 }

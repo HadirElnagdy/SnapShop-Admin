@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct CollectionsCustomCell: View {
+    
     let collectionName: String
     let collectionImageURL: String?
+    
     var body: some View {
         VStack{
-            AsyncImage(url: URL(string: collectionImageURL ?? ""))
+            AppImageView(imageURL: collectionImageURL)
             Text(collectionName)
-                .font(.largeTitle)
+                .font(.headline)
         }
     }
 }

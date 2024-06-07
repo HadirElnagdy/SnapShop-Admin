@@ -52,4 +52,8 @@ class APIClient {
         performRequest(route: APIRoute.getProducts, completion: completion)
     }
     
+    static func getAllCollections(completion: @escaping (Result<CollectionsResponse, NetworkError>) -> Void) {
+        performRequest(route: APIRoute.getCollections, completion: completion)
+    }
+    
 }

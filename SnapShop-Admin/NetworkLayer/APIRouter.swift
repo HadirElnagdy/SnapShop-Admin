@@ -11,25 +11,25 @@ import Alamofire
 enum APIRoute: URLRequestConvertible {
     
     case getProducts
-   
+    case getCollections
     
     var method: HTTPMethod {
         switch self {
-        case .getProducts:
+        case .getProducts, .getCollections:
             return .get
         }
     }
     
     var encoding: ParameterEncoding {
         switch self {
-        case .getProducts:
+        case .getProducts, .getCollections:
             return URLEncoding.default
         }
     }
     
     var parameters: [String: Any]? {
         switch self {
-        case .getProducts:
+        case .getProducts, .getCollections:
             return nil
         }
     }
@@ -38,19 +38,21 @@ enum APIRoute: URLRequestConvertible {
         switch self {
         case .getProducts:
             return ShopifyResource.products.endpoint
+        case .getCollections:
+            return ShopifyResource.collections.endpoint
         }
     }
     
     var authorizationHeader: HTTPHeaderField? {
         switch self {
-        case .getProducts:
+        case .getProducts, .getCollections:
             return .basicAuthorization
         }
     }
     
     var authorizationType: AuthorizationType {
         switch self {
-        case .getProducts:
+        case .getProducts, .getCollections:
             return .basic
         }
     }
