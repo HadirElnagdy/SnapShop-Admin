@@ -18,7 +18,7 @@ struct ProductRequest: Codable {
 }
 
 // MARK: - Product
-struct Product: Codable {
+struct Product: Codable, Identifiable {
     let id: Int?
     let title: String?
     let description: String?

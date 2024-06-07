@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AppTextField: View {
-    var fieldModel :Binding<FieldModel>
+    var fieldModel: Binding<FieldModel>
     
     var body: some View {
         VStack(alignment: .leading){

@@ -24,36 +24,7 @@ struct ProductsCustomCell: View {
     
     private var productImageView: some View {
         ZStack(alignment: .topTrailing) {
-            if let url = productImageURL, let imageURL = URL(string: url) {
-                AsyncImage(url: imageURL) { phase in
-                    switch phase {
-                    case .empty:
-                        ProgressView()
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    case .success(let image):
-                        image.resizable()
-                            .scaledToFit()
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
-                            .padding()
-                    case .failure:
-                        Image("imgPlaceholder")
-                            .resizable()
-                            .scaledToFit()
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
-                    @unknown default:
-                        Image("imgPlaceholder")
-                            .resizable()
-                            .scaledToFit()
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
-                    }
-                }
-            }else {
-                Image("imgPlaceholder")
-                    .resizable()
-                    .scaledToFit()
-                    .clipShape(RoundedRectangle(cornerRadius: 16))
-            }
-            
+            AppImageView(imageURL: productImageURL)
             deleteButton
         }
         .background(

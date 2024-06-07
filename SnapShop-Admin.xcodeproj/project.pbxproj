@@ -14,6 +14,10 @@
 		0400B1812C12F10300C307D5 /* APICLient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B1802C12F10300C307D5 /* APICLient.swift */; };
 		0400B1832C12F11100C307D5 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B1822C12F11100C307D5 /* APIRouter.swift */; };
 		0400B1852C12F11D00C307D5 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B1842C12F11D00C307D5 /* NetworkError.swift */; };
+		0400B1872C12F8DD00C307D5 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B1862C12F8DD00C307D5 /* Collections.swift */; };
+		0400B1892C12FA1A00C307D5 /* AppGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B1882C12FA1A00C307D5 /* AppGridView.swift */; };
+		0400B18C2C1300CB00C307D5 /* AppImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B18B2C1300CB00C307D5 /* AppImageView.swift */; };
+		0400B18F2C13024700C307D5 /* CollectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400B18E2C13024700C307D5 /* CollectionsViewModel.swift */; };
 		0435427A2C03222700DE7E6A /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542792C03222700DE7E6A /* AddProductView.swift */; };
 		043542832C03246E00DE7E6A /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542822C03246E00DE7E6A /* AppColors.swift */; };
 		0435428B2C0326F400DE7E6A /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435428A2C0326F400DE7E6A /* ProductsView.swift */; };
@@ -71,6 +75,10 @@
 		0400B1802C12F10300C307D5 /* APICLient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICLient.swift; sourceTree = "<group>"; };
 		0400B1822C12F11100C307D5 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		0400B1842C12F11D00C307D5 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		0400B1862C12F8DD00C307D5 /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
+		0400B1882C12FA1A00C307D5 /* AppGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGridView.swift; sourceTree = "<group>"; };
+		0400B18B2C1300CB00C307D5 /* AppImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImageView.swift; sourceTree = "<group>"; };
+		0400B18E2C13024700C307D5 /* CollectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewModel.swift; sourceTree = "<group>"; };
 		043542792C03222700DE7E6A /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
 		043542822C03246E00DE7E6A /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		0435428A2C0326F400DE7E6A /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
@@ -166,6 +174,22 @@
 			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
+		0400B18A2C1300B500C307D5 /* AppImages */ = {
+			isa = PBXGroup;
+			children = (
+				0400B18B2C1300CB00C307D5 /* AppImageView.swift */,
+			);
+			path = AppImages;
+			sourceTree = "<group>";
+		};
+		0400B18D2C13022E00C307D5 /* Collections */ = {
+			isa = PBXGroup;
+			children = (
+				0400B18E2C13024700C307D5 /* CollectionsViewModel.swift */,
+			);
+			path = Collections;
+			sourceTree = "<group>";
+		};
 		043542782C03220700DE7E6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +228,7 @@
 			children = (
 				043542AA2C0353EF00DE7E6A /* Tab.swift */,
 				043542AC2C037D1700DE7E6A /* Products.swift */,
+				0400B1862C12F8DD00C307D5 /* Collections.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -211,6 +236,7 @@
 		043542882C0326A700DE7E6A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				0400B18D2C13022E00C307D5 /* Collections */,
 				0400B1742C12EBDB00C307D5 /* Product */,
 				0400B1732C12EBCB00C307D5 /* Authentication */,
 			);
@@ -229,8 +255,9 @@
 		0435428C2C03271700DE7E6A /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				0400B18A2C1300B500C307D5 /* AppImages */,
 				763E529B2C0A844D002EFF95 /* AppButtons */,
-				043542AE2C047E4A00DE7E6A /* Grids */,
+				043542AE2C047E4A00DE7E6A /* AppGrids */,
 				043542922C0329A100DE7E6A /* TabBar */,
 				043542912C03299400DE7E6A /* Cells */,
 			);
@@ -264,13 +291,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		043542972C033DB000DE7E6A /* Builders */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Builders;
-			sourceTree = "<group>";
-		};
 		0435429B2C03430500DE7E6A /* Collections */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,13 +314,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		043542AE2C047E4A00DE7E6A /* Grids */ = {
+		043542AE2C047E4A00DE7E6A /* AppGrids */ = {
 			isa = PBXGroup;
 			children = (
 				043542AF2C047E6E00DE7E6A /* ProductsGrid.swift */,
 				043542B12C0883D500DE7E6A /* CollectionsGrid.swift */,
+				0400B1882C12FA1A00C307D5 /* AppGridView.swift */,
 			);
-			path = Grids;
+			path = AppGrids;
 			sourceTree = "<group>";
 		};
 		04A6983F2C08C45700CC4B6D /* GraphQL */ = {
@@ -341,7 +362,6 @@
 				043542872C03269E00DE7E6A /* Models */,
 				043542782C03220700DE7E6A /* Views */,
 				043542882C0326A700DE7E6A /* ViewModels */,
-				043542972C033DB000DE7E6A /* Builders */,
 				043542812C03244E00DE7E6A /* App */,
 				043542962C033DA300DE7E6A /* Resources */,
 				043542802C03244500DE7E6A /* Utils */,
@@ -659,9 +679,11 @@
 				043542A62C0344C800DE7E6A /* AppFonts.swift in Sources */,
 				043542902C03297000DE7E6A /* CustomTabBarView.swift in Sources */,
 				043542AD2C037D1800DE7E6A /* Products.swift in Sources */,
+				0400B18F2C13024700C307D5 /* CollectionsViewModel.swift in Sources */,
 				763E529D2C0A8468002EFF95 /* AppButton.swift in Sources */,
 				0435427A2C03222700DE7E6A /* AddProductView.swift in Sources */,
 				0435429E2C03436B00DE7E6A /* CollectionsView.swift in Sources */,
+				0400B18C2C1300CB00C307D5 /* AppImageView.swift in Sources */,
 				0400B1852C12F11D00C307D5 /* NetworkError.swift in Sources */,
 				0400B17C2C12EC7100C307D5 /* Constants.swift in Sources */,
 				043542B22C0883D500DE7E6A /* CollectionsGrid.swift in Sources */,
@@ -669,12 +691,14 @@
 				043542832C03246E00DE7E6A /* AppColors.swift in Sources */,
 				04F6B3F92BFE0A3C00EE890A /* ContentView.swift in Sources */,
 				04F6B3F72BFE0A3C00EE890A /* SnapShop_AdminApp.swift in Sources */,
+				0400B1892C12FA1A00C307D5 /* AppGridView.swift in Sources */,
 				0400B17E2C12EC9300C307D5 /* AppCommon.swift in Sources */,
 				763E52A32C0A9119002EFF95 /* AppTextField.swift in Sources */,
 				0400B1762C12EBF400C307D5 /* ProductsViewModel.swift in Sources */,
 				043542A42C03440E00DE7E6A /* CouponsView.swift in Sources */,
 				043542A92C034CE600DE7E6A /* CollectionsCustomCell.swift in Sources */,
 				0435428E2C03275300DE7E6A /* ProductsCustomCell.swift in Sources */,
+				0400B1872C12F8DD00C307D5 /* Collections.swift in Sources */,
 				763E52A12C0A8A85002EFF95 /* AppTextFieldValidator.swift in Sources */,
 				043542952C032A2800DE7E6A /* TabBarButton.swift in Sources */,
 				043542B02C047E6E00DE7E6A /* ProductsGrid.swift in Sources */,
