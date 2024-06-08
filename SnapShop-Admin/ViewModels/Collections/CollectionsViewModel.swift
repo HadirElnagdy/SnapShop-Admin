@@ -11,6 +11,20 @@ class CollectionsViewModel: ObservableObject {
     
     @Published var collections = [Collection]()
     @Published var isLoading = true
+    @Published var collectionImageURL: String = ""
+    @Published var collectionName: String = ""
+    
+    func createCollection() {
+        let collection = CollectionRequest(collection: Collection(title: collectionName, image: CollectionImage(src: collectionImageURL)))
+        APIClient.createCollection(collection: collection) { result in
+            switch result {
+            case .success(let createdCollection):
+                print("Collection created: \(createdCollection.collection)")
+            case .failure(let error):
+                print("Failed to create collection: \(error.localizedDescription)")
+            }
+        }
+    }
     
     func getCollections() {
         print("Fetching collections...")
@@ -28,7 +42,7 @@ class CollectionsViewModel: ObservableObject {
     func deleteCollection(collection: Collection) {
         if let index = collections.firstIndex(where: { $0.id == collection.id }) {
             collections.remove(at: index)
-                }
+        }
         APIClient.deleteCollection(collectionId: "\(collection.id ?? 0)") { result in
             switch result {
             case .success:

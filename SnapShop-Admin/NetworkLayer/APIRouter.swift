@@ -16,6 +16,7 @@ enum APIRoute: URLRequestConvertible {
     case getDiscountCodes(ruleId: String)
     case deleteProduct(productId: String)
     case deleteCollection(collectionId: String)
+    case createCollection(collection: CollectionRequest)
     
     var method: HTTPMethod {
         switch self {
@@ -23,6 +24,8 @@ enum APIRoute: URLRequestConvertible {
             return .get
         case .deleteProduct, .deleteCollection:
             return .delete
+        case .createCollection(collection: let collection):
+            return .post
         }
     }
     
@@ -30,6 +33,8 @@ enum APIRoute: URLRequestConvertible {
         switch self {
         case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection:
             return URLEncoding.default
+        case .createCollection(collection: let collection):
+            return JSONEncoding.default
         }
     }
     
@@ -37,6 +42,8 @@ enum APIRoute: URLRequestConvertible {
         switch self {
         case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection:
             return nil
+        case .createCollection(let collection):
+            return try? JSONSerialization.jsonObject(with: JSONEncoder().encode(collection)) as? [String: Any]
         }
     }
     
@@ -44,7 +51,7 @@ enum APIRoute: URLRequestConvertible {
         switch self {
         case .getProducts:
             return ShopifyResource.products.endpoint
-        case .getCollections:
+        case .getCollections, .createCollection:
             return ShopifyResource.collections.endpoint
         case .getPriceRules:
             return ShopifyResource.priceRules.endpoint
@@ -61,6 +68,8 @@ enum APIRoute: URLRequestConvertible {
         switch self {
         case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection:
             return .basicAuthorization
+        case .createCollection:
+            return .apiKeyAuthorization
         }
     }
     
@@ -68,6 +77,8 @@ enum APIRoute: URLRequestConvertible {
         switch self {
         case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection:
             return .basic
+        case .createCollection:
+            return .apiKey
         }
     }
     

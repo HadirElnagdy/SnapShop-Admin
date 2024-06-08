@@ -12,19 +12,26 @@ struct InputWithTitleView: View {
     var title: String
     var placeholder: String
     @Binding var text: String
-    @State private var fieldModel: FieldModel
+//    @State private var fieldModel: FieldModel
     
-    init(title: String, placeholder: String, text: Binding<String>) {
-        self.title = title
-        self.placeholder = placeholder
-        self._text = text
-        self._fieldModel = State(initialValue: FieldModel(value: text.wrappedValue, fieldType: .basic(placeholder: placeholder)))
-    }
+//    init(title: String, placeholder: String, text: Binding<String>) {
+//        self.title = title
+//        self.placeholder = placeholder
+//        self._text = text
+//        self._fieldModel = State(initialValue: FieldModel(value: text.wrappedValue, fieldType: .basic(placeholder: placeholder)))
+//    }
     
     var body: some View {
         VStack(alignment: .leading){
             Text(title)
-            AppTextField(fieldModel: $fieldModel)
+            TextField(placeholder, text: $text)
+                           .padding(10)
+                           .overlay(
+                               RoundedRectangle(cornerRadius: 5)
+                                   .stroke(Color.gray, lineWidth: 1.5)
+                           )
+                           .padding(.bottom, 10)
+//            AppTextField(fieldModel: $fieldModel)
         }
     }
 }

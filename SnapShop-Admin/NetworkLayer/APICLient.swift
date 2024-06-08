@@ -78,6 +78,9 @@ class APIClient {
         performRequest(route: APIRoute.deleteCollection(collectionId: collectionId), completion: completion)
     }
     
+    static func createCollection(collection: CollectionRequest, completion: @escaping (Result<CollectionRequest, NetworkError>) -> Void) {
+        performRequest(route: APIRoute.createCollection(collection: collection), completion: completion)
+    }
     
     
     

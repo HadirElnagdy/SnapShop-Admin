@@ -9,19 +9,21 @@ import SwiftUI
 
 struct AddCollectionView: View {
     
-    @State var collectionImageURL: String = ""
-    @State var collectionName: String = ""
-    
+    @ObservedObject var collectionsViewModel = CollectionsViewModel()
+    @Environment (\.dismiss) var dismiss
     var body: some View {
         VStack {
-            AppImageView(imageURL: collectionImageURL)
-                .padding()
-            InputWithTitleView(title: "Collection Name", placeholder: "Name", text: $collectionName)
+            AppImageView(imageURL: collectionsViewModel.collectionImageURL)
+            InputWithTitleView(title: "Collection Name", placeholder: "Name", text: $collectionsViewModel.collectionName)
             
-            InputWithTitleView(title: "Image URL", placeholder: "Image", text: $collectionImageURL)
+            InputWithTitleView(title: "Image URL", placeholder: "Image", text: $collectionsViewModel.collectionImageURL)
             
-            AppButton(text: "Add Collection", width: 350, height: 50, isFilled: true)
-        }
+            
+            AppButton(text: "Add Collection", width: 350, height: 50, isFilled: true) {
+                collectionsViewModel.createCollection()
+                dismiss()
+            }.padding(.bottom, 50)
+        }.padding()
     }
 }
 

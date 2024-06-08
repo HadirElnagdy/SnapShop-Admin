@@ -44,7 +44,7 @@ struct Collection: Codable, Identifiable {
     init(
             id: Int? = nil,
             handle: String? = nil,
-            title: String? = nil,
+            title: String?,
             updatedAt: String? = nil,
             bodyHTML: String? = nil,
             publishedAt: String? = nil,
@@ -54,7 +54,7 @@ struct Collection: Codable, Identifiable {
             rules: [Rule]? = nil,
             publishedScope: String? = nil,
             adminGraphqlApiID: String? = nil,
-            image: CollectionImage? = nil
+            image: CollectionImage?
         ) {
             self.id = id
             self.handle = handle
@@ -65,7 +65,7 @@ struct Collection: Codable, Identifiable {
             self.sortOrder = sortOrder
             self.templateSuffix = templateSuffix
             self.disjunctive = disjunctive
-            self.rules = rules
+            self.rules = [Rule(column: "vendor", relation: "equals", condition: title)]
             self.publishedScope = publishedScope
             self.adminGraphqlApiID = adminGraphqlApiID
             self.image = image

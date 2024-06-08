@@ -14,19 +14,22 @@ struct AppButton: View {
     private var height: CGFloat
     private var bgColor: Color
     private var isFilled: Bool
+    private var action: () -> Void
+
     
-    init(text: String, width: CGFloat, height: CGFloat, bgColor: Color = Color.black, isFilled: Bool = false) {
+    init(text: String, width: CGFloat, height: CGFloat, bgColor: Color = Color.black, isFilled: Bool = false, action: @escaping () -> Void) {
         self.text = text
         self.width = width
         self.height = height
         self.bgColor = bgColor
         self.isFilled = isFilled
+        self.action = action
     }
     
     var body: some View {
         ZStack {
             HStack {
-                Button(action: {}) {
+                Button(action: action) {
                     Text(text)
                        .font(.custom(FontTypes.bold.rawValue, size: CGFloat(FontSizes.subtitle.rawValue)))
                        .foregroundColor(isFilled ? Color.white : Color.black)
@@ -43,5 +46,7 @@ struct AppButton: View {
     }
 }
 #Preview {
-    AppButton(text: "confirm",width: 100,height: 50,bgColor: Color.black , isFilled: true)
+    AppButton(text: "confirm",width: 100,height: 50,bgColor: Color.black , isFilled: true){
+        print("Button tapped!")
+    }
 }

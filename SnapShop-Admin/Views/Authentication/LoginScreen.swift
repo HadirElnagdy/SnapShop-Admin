@@ -30,7 +30,9 @@ struct LoginScreen: View {
                 
             }.padding(.bottom,180)
             
-            AppButton(text: "Login", width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.05, bgColor: Color.black,isFilled: true).padding(.bottom,50)
+            AppButton(text: "Login", width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.05, bgColor: Color.black,isFilled: true){
+                //Login logic here
+            }.padding(.bottom,50)
                       
                       
         }.padding(.all,20)
