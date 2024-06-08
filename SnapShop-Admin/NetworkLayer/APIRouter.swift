@@ -15,26 +15,27 @@ enum APIRoute: URLRequestConvertible {
     case getPriceRules
     case getDiscountCodes(ruleId: String)
     case deleteProduct(productId: String)
+    case deleteCollection(collectionId: String)
     
     var method: HTTPMethod {
         switch self {
         case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes:
             return .get
-        case .deleteProduct:
+        case .deleteProduct, .deleteCollection:
             return .delete
         }
     }
     
     var encoding: ParameterEncoding {
         switch self {
-        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct:
+        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection:
             return URLEncoding.default
         }
     }
     
     var parameters: [String: Any]? {
         switch self {
-        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct:
+        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection:
             return nil
         }
     }
@@ -51,19 +52,21 @@ enum APIRoute: URLRequestConvertible {
             return "\(ShopifyResource.priceRules.endpoint)/\(ruleId)/\(ShopifyResource.discountCodes.endpoint)"
         case .deleteProduct(let productId):
             return "\(ShopifyResource.products.endpoint)/\(productId)"
+        case .deleteCollection(let collectionId):
+            return "\(ShopifyResource.collections.endpoint)/\(collectionId)"
         }
     }
     
     var authorizationHeader: HTTPHeaderField? {
         switch self {
-        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct:
+        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection:
             return .basicAuthorization
         }
     }
     
     var authorizationType: AuthorizationType {
         switch self {
-        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct:
+        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection:
             return .basic
         }
     }

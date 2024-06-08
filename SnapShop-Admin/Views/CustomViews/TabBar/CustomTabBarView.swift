@@ -15,7 +15,7 @@ struct CustomTabBarView: View {
         HStack (alignment: .center){
             tabBarItem(for: .products)
             tabBarItem(for: .collections)
-            tabBarItem(for: .coupons)
+            tabBarItem(for: .priceRules)
            
         }.frame(height: 82 )
             .ignoresSafeArea(edges: .bottom)

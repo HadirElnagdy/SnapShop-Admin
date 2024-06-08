@@ -10,10 +10,13 @@ import SwiftUI
 struct CollectionsGrid: View {
     
     var collections: [Collection]
+    var deleteCollection: (Collection) -> Void
     
     var body: some View {
         GridView(items: collections, columns: 2) { collection in
-            CollectionsCustomCell(collectionName: collection.title!, collectionImageURL: collection.image?.src)
+            CollectionsCustomCell(collectionName: collection.title!, collectionImageURL: collection.image?.src){
+                deleteCollection(collection)
+            }
         }
     }
 }

@@ -18,7 +18,7 @@ struct ContentView: View {
                 ProductsView()
             case .collections:
                 CollectionsView()
-            case .coupons:
+            case .priceRules:
                 PriceRulesView()
           }
             Spacer()

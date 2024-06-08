@@ -10,20 +10,21 @@ import Foundation
 enum Tab: Int {
     case products
     case collections
-    case coupons
+    case priceRules
     
     var title: String {
             switch self {
             case .products: return "Product"
             case .collections: return "Collections"
-            case .coupons: return "Coupons"
+            case .priceRules: return "Price Rules"
             }
         }
+    
         var imageName: String {
             switch self {
             case .products: return "ic_products"
             case .collections: return "ic_collections"
-            case .coupons: return "ic_coupons"
+            case .priceRules: return "ic_coupons"
             }
         }
 }

@@ -11,6 +11,7 @@ struct CollectionsView: View {
     
     @ObservedObject var collectionsViewModel = CollectionsViewModel()
     @State var openAddCollectionView: Bool = false
+    @State var selectedCollection: Collection? = nil
     
     var body: some View {
         NavigationStack {
@@ -19,7 +20,9 @@ struct CollectionsView: View {
                 
                 //search bar
                 
-                CollectionsGrid(collections: collectionsViewModel.collections)
+                CollectionsGrid(collections: collectionsViewModel.collections, deleteCollection: { collection in
+                    selectedCollection = collection
+                })
             }
             .navigationBarTitle("Collections")
             .toolbar {
@@ -35,10 +38,19 @@ struct CollectionsView: View {
                     }
                     
                 }
+            }.alert(item: $selectedCollection) { collection in
+                Alert(
+                    title: Text("Confirm Deletion"),
+                    message: Text("Are you sure you want to delete this collection?"),
+                    primaryButton: .destructive(Text("Delete")) {
+                        collectionsViewModel.deleteCollection(collection: collection)
+                    },
+                    secondaryButton: .cancel(Text("Cancel"))
+                )
             }
-                .onAppear{
-                    collectionsViewModel.getCollections()
-                }
+            .onAppear{
+                collectionsViewModel.getCollections()
+            }
         }
     }
 }
