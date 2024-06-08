@@ -16,13 +16,16 @@ enum APIRoute: URLRequestConvertible {
     case getDiscountCodes(ruleId: String)
     case deleteProduct(productId: String)
     case deleteCollection(collectionId: String)
+    case deletePriceRule(ruleId: String)
+    case deleteDiscountCodes(ruleId: String, codeId: String)
     case createCollection(collection: CollectionRequest)
     
+
     var method: HTTPMethod {
         switch self {
         case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes:
             return .get
-        case .deleteProduct, .deleteCollection:
+        case .deleteProduct, .deletePriceRule, .deleteCollection, .deleteDiscountCodes:
             return .delete
         case .createCollection(collection: let collection):
             return .post
@@ -31,7 +34,7 @@ enum APIRoute: URLRequestConvertible {
     
     var encoding: ParameterEncoding {
         switch self {
-        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection:
+        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection, .deletePriceRule, .deleteDiscountCodes:
             return URLEncoding.default
         case .createCollection(collection: let collection):
             return JSONEncoding.default
@@ -40,7 +43,7 @@ enum APIRoute: URLRequestConvertible {
     
     var parameters: [String: Any]? {
         switch self {
-        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection:
+        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection, .deletePriceRule, .deleteDiscountCodes:
             return nil
         case .createCollection(let collection):
             return try? JSONSerialization.jsonObject(with: JSONEncoder().encode(collection)) as? [String: Any]
@@ -61,12 +64,16 @@ enum APIRoute: URLRequestConvertible {
             return "\(ShopifyResource.products.endpoint)/\(productId)"
         case .deleteCollection(let collectionId):
             return "\(ShopifyResource.collections.endpoint)/\(collectionId)"
+        case .deletePriceRule(let ruleId):
+            return "\(ShopifyResource.priceRules.endpoint)/\(ruleId)"
+        case .deleteDiscountCodes(ruleId: let ruleId, codeId: let codeId):
+            return "\(ShopifyResource.priceRules.endpoint)/\(ruleId)/\(ShopifyResource.discountCodes.endpoint)/\(codeId)"
         }
     }
     
     var authorizationHeader: HTTPHeaderField? {
         switch self {
-        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection:
+        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection, .deletePriceRule, .deleteDiscountCodes:
             return .basicAuthorization
         case .createCollection:
             return .apiKeyAuthorization
@@ -75,7 +82,7 @@ enum APIRoute: URLRequestConvertible {
     
     var authorizationType: AuthorizationType {
         switch self {
-        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection:
+        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection, .deletePriceRule, .deleteDiscountCodes:
             return .basic
         case .createCollection:
             return .apiKey
