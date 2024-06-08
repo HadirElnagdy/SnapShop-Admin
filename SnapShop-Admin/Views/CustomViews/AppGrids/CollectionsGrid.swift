@@ -11,10 +11,11 @@ struct CollectionsGrid: View {
     
     var collections: [Collection]
     var deleteCollection: (Collection) -> Void
+    var viewModel: CollectionsViewModel
     
     var body: some View {
         GridView(items: collections, columns: 2) { collection in
-            NavigationLink(destination: AddCollectionView(collection: collection)) {
+            NavigationLink(destination: AddCollectionView(collectionsViewModel: viewModel, collection: collection)) {
                 CollectionsCustomCell(collectionName: collection.title!, collectionImageURL: collection.image?.src){
                     deleteCollection(collection)
                 }

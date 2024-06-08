@@ -38,6 +38,9 @@ struct AddCollectionView: View {
                 collectionsViewModel.collectionImageURL = collection.image?.src ?? ""
             }
         }
+        .onDisappear {
+                    collectionsViewModel.clearFields()
+                }
     }
 }
 

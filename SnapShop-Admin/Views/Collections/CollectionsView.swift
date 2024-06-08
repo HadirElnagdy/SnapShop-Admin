@@ -22,7 +22,7 @@ struct CollectionsView: View {
                 
                 CollectionsGrid(collections: collectionsViewModel.collections, deleteCollection: { collection in
                     selectedCollection = collection
-                })
+                }, viewModel: collectionsViewModel)
             }
             .navigationBarTitle("Collections")
             .toolbar {
