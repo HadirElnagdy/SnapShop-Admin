@@ -70,4 +70,8 @@ class APIClient {
         performRequest(route: route, completion: completion)
     }
     
+    static func deleteProduct(productId: String, completion: @escaping (Result<Empty, NetworkError>) -> Void) {
+        performRequest(route: APIRoute.deleteProduct(productId: productId), completion: completion)
+    }
+    
 }

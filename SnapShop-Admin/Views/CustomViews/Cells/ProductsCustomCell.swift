@@ -13,12 +13,24 @@ struct ProductsCustomCell: View {
     let productName: String
     let productCategory: String
     let productPrice: String
+    var deleteAction: () -> Void
+    @State private var showAlert = false
     
     var body: some View {
         VStack(spacing: 8) {
             productImageView
             productInfoView
         }.padding([.leading, .trailing], 8)
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Confirm Deletion"),
+                    message: Text("Are you sure you want to delete this product?"),
+                    primaryButton: .destructive(Text("Delete")) {
+                        deleteAction()
+                    },
+                    secondaryButton: .cancel(Text("Cancel"))
+                )
+            }
         
     }
     
@@ -36,7 +48,7 @@ struct ProductsCustomCell: View {
     
     private var deleteButton: some View {
         Button {
-            // Deleting action here
+            showAlert = true
         } label: {
             Image(systemName: "minus.circle.fill")
                 .font(.title2)
@@ -71,6 +83,7 @@ struct ProductsCustomCell: View {
         productImageURL: "https://cdn.shopify.com/s/files/1/0665/3709/5347/files/85cc58608bf138a50036bcfe86a3a362_92d9af79-6a32-4653-93d7-704e5215c9b9.jpg?v=1716294856",
         productName: "ADIDAS | CLASSIC BACKPACK | LEGEND INK MULTICOLOUR",
         productCategory: "ACCESSORIES",
-        productPrice: "50.0 EGP"
+        productPrice: "50.0 EGP",
+        deleteAction: {}
     )
 }

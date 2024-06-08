@@ -33,13 +33,12 @@ struct FieldModel {
 }
 
 
-enum TextfieldType :FieldValidatorProtocol{
+enum TextfieldType: FieldValidatorProtocol {
     case email
     case password
     case basic(placeholder: String)
-    
-    var placeHolder :String {
- 
+
+    var placeHolder: String {
         switch self {
         case .email:
             return "Email"
@@ -47,23 +46,32 @@ enum TextfieldType :FieldValidatorProtocol{
             return "Password"
         case .basic(let placeholder):
             return placeholder
-            
         }
     }
-    
+
     func validateField(value: String) -> String? {
-        return nil
+        switch self {
+        case .email:
+            return validateEmail(email: value)
+        case .password:
+            return nil
+        case .basic:
+            return validateBasic(value: value)
+        }
     }
-    
-    private func validateEmail(email:String) -> String?{
-        if email.isEmpty{
+
+    private func validateEmail(email: String) -> String? {
+        if email.isEmpty {
             return "Empty Value"
-        }else{
+        } else {
             let emailRegEx = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$"
-            let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+            let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
             return emailPredicate.evaluate(with: email) ? nil : "Please Enter a valid email"
         }
     }
-    
-    
+
+    private func validateBasic(value: String) -> String? {
+        return value.isEmpty ? "This field is required" : nil
+    }
 }
+

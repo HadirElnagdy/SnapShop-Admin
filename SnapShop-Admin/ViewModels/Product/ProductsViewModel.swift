@@ -23,4 +23,18 @@ class ProductsViewModel: ObservableObject {
         }
     }
     
+    func deleteProduct(product: Product){
+        if let index = productList.firstIndex(where: { $0.id == product.id }) {
+                    productList.remove(at: index)
+                }
+        APIClient.deleteProduct(productId: "\(product.id ?? 0)") { result in
+            switch result {
+            case .success(_):
+                print("Product Deleted Successfully!")
+            case .failure(let error):
+                print("Failed to delete product: \(error.localizedDescription)")
+            }
+        }
+    }
+    
 }

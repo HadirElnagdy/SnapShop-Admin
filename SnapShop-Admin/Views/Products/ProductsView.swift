@@ -18,7 +18,7 @@ struct ProductsView: View {
         NavigationStack {
             ScrollView {
                 //Search bar goes here
-                ProductsGrid(productsList: productsViewModel.productList)
+                ProductsGrid(productsList: productsViewModel.productList, deleteProduct: productsViewModel.deleteProduct)
             }
             .navigationBarTitle("Products")
             .toolbar {

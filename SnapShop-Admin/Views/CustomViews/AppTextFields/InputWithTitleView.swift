@@ -10,19 +10,22 @@ import SwiftUI
 struct InputWithTitleView: View {
     
     var title: String
+    var placeholder: String
     @Binding var text: String
+    @State private var fieldModel: FieldModel
+    
+    init(title: String, placeholder: String, text: Binding<String>) {
+        self.title = title
+        self.placeholder = placeholder
+        self._text = text
+        self._fieldModel = State(initialValue: FieldModel(value: text.wrappedValue, fieldType: .basic(placeholder: placeholder)))
+    }
     
     var body: some View {
         VStack(alignment: .leading){
             Text(title)
-            TextField(title, text: $text).padding(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 5)
-                        .stroke(AppColors.strokeColor, lineWidth: 1.5)
-                )
-                .autocorrectionDisabled()
-                .textCase(.none)
-        }.padding()
+            AppTextField(fieldModel: $fieldModel)
+        }
     }
 }
 

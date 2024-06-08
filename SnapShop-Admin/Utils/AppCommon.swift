@@ -7,6 +7,7 @@
 
 import Foundation
 import Reachability
+import SwiftUI
 
 class AppCommon{
     
@@ -36,6 +37,10 @@ class AppCommon{
     func isNetworkReachable() -> Bool {
         return reachability.connection != .unavailable
     }
+    
+ 
+
+
     
 }
     

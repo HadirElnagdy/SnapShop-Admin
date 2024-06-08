@@ -16,9 +16,9 @@ struct AddCollectionView: View {
         VStack {
             AppImageView(imageURL: collectionImageURL)
                 .padding()
-            InputWithTitleView(title: "Collection Name", text: $collectionName)
+            InputWithTitleView(title: "Collection Name", placeholder: "Name", text: $collectionName)
             
-            InputWithTitleView(title: "Image URL", text: $collectionImageURL)
+            InputWithTitleView(title: "Image URL", placeholder: "Image", text: $collectionImageURL)
             
             AppButton(text: "Add Collection", width: 350, height: 50, isFilled: true)
         }

@@ -10,13 +10,16 @@ import SwiftUI
 struct ProductsGrid: View {
     
     var productsList: [Product]
-    
+    var deleteProduct: (Product) -> Void
+
     var body: some View {
         GridView(items: productsList, columns: 2) { product in
             ProductsCustomCell(productImageURL: product.image?.src ?? "",
                                productName: product.title ?? "",
                                productCategory: product.productType ?? "",
-                               productPrice: "\(product.variants?.first?.price ?? "") EGP")
+                               productPrice: "\(product.variants?.first?.price ?? "") EGP"){
+                deleteProduct(product)
+            }
         }
     }
 }
