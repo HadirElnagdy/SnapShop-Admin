@@ -29,7 +29,7 @@ struct CollectionRequest: Codable {
 struct Collection: Codable, Identifiable {
     let id: Int?
     let handle: String?
-    let title: String?
+    var title: String?
     let updatedAt: String?
     let bodyHTML: String?
     let publishedAt: String?
@@ -39,7 +39,7 @@ struct Collection: Codable, Identifiable {
     let rules: [Rule]?
     let publishedScope: String?
     let adminGraphqlApiID: String?
-    let image: CollectionImage?
+    var image: CollectionImage?
 
     init(
             id: Int? = nil,
@@ -102,7 +102,7 @@ struct CollectionImage: Codable {
     let alt: String?
     let width: Int?
     let height: Int?
-    let src: String?
+    var src: String?
     
     init(createdAt: String? = nil, alt: String? = nil, width: Int? = nil, height: Int? = nil, src: String?) {
         self.createdAt = createdAt

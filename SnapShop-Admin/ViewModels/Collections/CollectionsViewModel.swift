@@ -39,6 +39,17 @@ class CollectionsViewModel: ObservableObject {
         }
     }
     
+    func updateCollection(collection: CollectionRequest) {
+        APIClient.updateCollection(collection: collection) { result in
+            switch result {
+            case .success(let updatedCollection):
+                print("Collection updated: \(updatedCollection.collection)")
+            case .failure(let error):
+                print("Failed to update collection: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     func deleteCollection(collection: Collection) {
         if let index = collections.firstIndex(where: { $0.id == collection.id }) {
             collections.remove(at: index)

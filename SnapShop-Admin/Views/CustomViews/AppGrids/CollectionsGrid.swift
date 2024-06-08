@@ -14,13 +14,13 @@ struct CollectionsGrid: View {
     
     var body: some View {
         GridView(items: collections, columns: 2) { collection in
-            CollectionsCustomCell(collectionName: collection.title!, collectionImageURL: collection.image?.src){
-                deleteCollection(collection)
+            NavigationLink(destination: AddCollectionView(collection: collection)) {
+                CollectionsCustomCell(collectionName: collection.title!, collectionImageURL: collection.image?.src){
+                    deleteCollection(collection)
+                }
             }
         }
     }
 }
 
-//#Preview {
-//    CollectionsGrid()
-//}
+

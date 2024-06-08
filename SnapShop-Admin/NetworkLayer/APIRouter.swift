@@ -17,6 +17,7 @@ enum APIRoute: URLRequestConvertible {
     case deleteProduct(productId: String)
     case deleteCollection(collectionId: String)
     case createCollection(collection: CollectionRequest)
+    case updateCollection(collection: CollectionRequest)
     
     var method: HTTPMethod {
         switch self {
@@ -24,8 +25,10 @@ enum APIRoute: URLRequestConvertible {
             return .get
         case .deleteProduct, .deleteCollection:
             return .delete
-        case .createCollection(collection: let collection):
+        case .createCollection:
             return .post
+        case .updateCollection:
+            return .put
         }
     }
     
@@ -33,7 +36,7 @@ enum APIRoute: URLRequestConvertible {
         switch self {
         case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection:
             return URLEncoding.default
-        case .createCollection(collection: let collection):
+        case .createCollection, .updateCollection:
             return JSONEncoding.default
         }
     }
@@ -42,7 +45,7 @@ enum APIRoute: URLRequestConvertible {
         switch self {
         case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection:
             return nil
-        case .createCollection(let collection):
+        case .createCollection(let collection), .updateCollection(let collection):
             return try? JSONSerialization.jsonObject(with: JSONEncoder().encode(collection)) as? [String: Any]
         }
     }
@@ -61,12 +64,14 @@ enum APIRoute: URLRequestConvertible {
             return "\(ShopifyResource.products.endpoint)/\(productId)"
         case .deleteCollection(let collectionId):
             return "\(ShopifyResource.collections.endpoint)/\(collectionId)"
+        case .updateCollection(let collection):
+            return "\(ShopifyResource.collections.endpoint)/\(collection.collection.id!)"
         }
     }
     
     var authorizationHeader: HTTPHeaderField? {
         switch self {
-        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection:
+        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection, .updateCollection:
             return .basicAuthorization
         case .createCollection:
             return .apiKeyAuthorization
@@ -75,7 +80,7 @@ enum APIRoute: URLRequestConvertible {
     
     var authorizationType: AuthorizationType {
         switch self {
-        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection:
+        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection, .updateCollection:
             return .basic
         case .createCollection:
             return .apiKey

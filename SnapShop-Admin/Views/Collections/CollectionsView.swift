@@ -34,7 +34,7 @@ struct CollectionsView: View {
                             .font(.system(size: 24))
                     }
                     .sheet(isPresented: $openAddCollectionView){
-                        AddCollectionView()
+                        AddCollectionView(collectionsViewModel: collectionsViewModel)
                     }
                     
                 }
