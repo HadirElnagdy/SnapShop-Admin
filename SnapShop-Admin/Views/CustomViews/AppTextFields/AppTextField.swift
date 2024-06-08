@@ -10,7 +10,7 @@ import SwiftUI
 struct AppTextField: View {
     
     var fieldModel: Binding<FieldModel>
-    
+     
     var body: some View {
         VStack(alignment: .leading){
             TextField(fieldModel.fieldType.wrappedValue.placeHolder, text: fieldModel.value)

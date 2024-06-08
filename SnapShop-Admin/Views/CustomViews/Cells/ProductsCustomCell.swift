@@ -14,23 +14,13 @@ struct ProductsCustomCell: View {
     let productCategory: String
     let productPrice: String
     var deleteAction: () -> Void
-    @State private var showAlert = false
     
     var body: some View {
         VStack(spacing: 8) {
             productImageView
             productInfoView
         }.padding([.leading, .trailing], 8)
-            .alert(isPresented: $showAlert) {
-                Alert(
-                    title: Text("Confirm Deletion"),
-                    message: Text("Are you sure you want to delete this product?"),
-                    primaryButton: .destructive(Text("Delete")) {
-                        deleteAction()
-                    },
-                    secondaryButton: .cancel(Text("Cancel"))
-                )
-            }
+            
         
     }
     
@@ -47,9 +37,7 @@ struct ProductsCustomCell: View {
     }
     
     private var deleteButton: some View {
-        Button {
-            showAlert = true
-        } label: {
+        Button (action: deleteAction) {
             Image(systemName: "minus.circle.fill")
                 .font(.title2)
                 .padding()

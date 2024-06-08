@@ -13,12 +13,14 @@ struct ProductsView: View {
     @State var openAddProductView: Bool = false
     @State var searchQuery = ""
     @ObservedObject var productsViewModel = ProductsViewModel()
+    @State var selectedProduct: Product? = nil
     
     var body: some View {
         NavigationStack {
             ScrollView {
-                //Search bar goes here
-                ProductsGrid(productsList: productsViewModel.productList, deleteProduct: productsViewModel.deleteProduct)
+                ProductsGrid(productsList: productsViewModel.productList, deleteProduct: { product in
+                    selectedProduct = product
+                })
             }
             .navigationBarTitle("Products")
             .toolbar {
@@ -34,6 +36,16 @@ struct ProductsView: View {
                     }
                 }
             }
+            .alert(item: $selectedProduct) { product in
+                            Alert(
+                                title: Text("Confirm Deletion"),
+                                message: Text("Are you sure you want to delete this product?"),
+                                primaryButton: .destructive(Text("Delete")) {
+                                    productsViewModel.deleteProduct(product: product)
+                                },
+                                secondaryButton: .cancel(Text("Cancel"))
+                            )
+                        }
             .onAppear{
                 productsViewModel.getProducts()
             }
