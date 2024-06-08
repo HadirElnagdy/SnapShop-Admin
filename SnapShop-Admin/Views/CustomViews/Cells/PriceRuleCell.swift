@@ -17,15 +17,15 @@ struct PriceRuleCell: View {
             Text(priceRule.title ?? "Rule...")
                 .font(.headline)
             HStack {
-                Text("Discount: \(priceRule.value)%")
+                Text("Discount: \(priceRule.value!)%")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                 Spacer()
                 VStack(alignment: .trailing) {
-                    Text("Start: \(formatDate(priceRule.startsAt))")
+                    Text("Start: \(formatDate(priceRule.startsAt ?? "Not specified") ?? "Not specified")")
                         .font(.caption)
                         .foregroundColor(.secondary)
-                    Text("End: \(formatDate(priceRule.endsAt))")
+                    Text("End: \(formatDate(priceRule.endsAt ?? "Not specified") ?? "Not specified")")
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }

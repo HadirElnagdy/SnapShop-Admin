@@ -16,8 +16,10 @@ struct PriceRulesView: View {
             VStack{
                 //search bar
                 List(viewModel.priceRules){ rule in
-                    PriceRuleCell(priceRule: rule)
-
+                    NavigationLink(destination: DiscountCodesView(ruleId: "\(rule.id!)")){
+                        PriceRuleCell(priceRule: rule)
+                        
+                    }
                 }
             }
             .navigationBarTitle("Price Rules")

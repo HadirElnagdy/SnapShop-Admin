@@ -8,15 +8,24 @@
 import SwiftUI
 
 struct DiscountCodesView: View {
+    
     let ruleId: String
     @ObservedObject var viewModel = DiscountCodeViewModel()
+    
     var body: some View {
-        List(viewModel.discountCodes) { codeDetails in
-            Text(codeDetails.code)
+        List {
+            ForEach(viewModel.discountCodes) { codeDetails in
+                Text(codeDetails.code)
+                
+            }.onDelete(perform: { indexSet in
+                //alert & delete
+                viewModel.discountCodes.remove(atOffsets: indexSet)
+            })
         }
         .onAppear{
             viewModel.getDiscountCodes(ruleId: ruleId)
         }
+        
     }
 }
 
