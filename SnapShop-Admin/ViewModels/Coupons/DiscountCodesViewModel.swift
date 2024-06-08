@@ -24,4 +24,15 @@ class DiscountCodeViewModel: ObservableObject {
             }
         }
     }
+    
+    func deleteDiscountCode(ruleId: String, codeId: String) {
+        APIClient.deleteDiscountCodes(ruleId: ruleId, codeId: codeId) { result in
+            switch result {
+            case .success:
+                print("Discount code deleted successfully!")
+            case .failure(let error):
+                print("Failed to delete discount code: \(error.localizedDescription)")
+            }
+        }
+    }
 }

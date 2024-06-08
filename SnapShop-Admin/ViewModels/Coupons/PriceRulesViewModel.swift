@@ -23,4 +23,15 @@ class PriceRulesViewModel: ObservableObject {
         }
     }
     
+    func deletePriceRule(ruleId: String) {
+        APIClient.deletePriceRule(ruleId: ruleId) { result in
+            switch result {
+            case .success:
+                print("Price rule Deleted Successfully!")
+            case .failure(let error):
+                print("Failed to delete price rule: \(error.localizedDescription)")
+            }
+        }
+    }
+    
 }
