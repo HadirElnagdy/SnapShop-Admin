@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProductsGrid: View {
     
+    var screenHeight: Double
     var productsList: [Product]
     var deleteProduct: (Product) -> Void
 
@@ -19,7 +20,7 @@ struct ProductsGrid: View {
                                productCategory: product.productType ?? "",
                                productPrice: "\(product.variants?.first?.price ?? "") EGP"){
                 deleteProduct(product)
-            }
+            }.frame(height: screenHeight*0.42)
         }
     }
 }

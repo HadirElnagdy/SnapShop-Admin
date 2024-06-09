@@ -17,12 +17,11 @@ struct CellImageView: View {
         ZStack(alignment: .topTrailing) {
             AppImageView(imageURL: imageURL, imageSide: imageSide)
             deleteButton
-                .offset(x: -10, y: 10)
         }
         .background(
             RoundedRectangle(cornerRadius: imageSide/8)
                 .fill(Color.white)
-                .shadow(radius: 5)
+                .shadow(radius: 2)
         )
         
     }

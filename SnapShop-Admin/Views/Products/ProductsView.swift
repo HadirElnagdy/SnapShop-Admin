@@ -19,7 +19,7 @@ struct ProductsView: View {
         NavigationStack {
             GeometryReader { geometry in
                 ScrollView {
-                    ProductsGrid(productsList: productsViewModel.productList, deleteProduct: { product in
+                    ProductsGrid(screenHeight: geometry.size.height, productsList: productsViewModel.productList, deleteProduct: { product in
                         selectedProduct = product
                     })
                 }

@@ -18,32 +18,42 @@ struct ProductsCustomCell: View {
     var body: some View {
         GeometryReader { geometry in
             let screenWidth = geometry.size.width
-            let screenHeight = geometry.size.height
             let cellWidth = screenWidth * 0.9
             let imageSide = cellWidth * 0.9
             let padding = (screenWidth - cellWidth) / 2
             
             VStack(spacing: 8) {
                 CellImageView(imageURL: productImageURL, imageSide: imageSide, deleteAction: deleteAction)
+                    .frame(width: cellWidth, height: cellWidth)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    
                 productInfoView
             }
-            
+            .padding(.horizontal, padding)
+            .padding(.vertical, 10)
+            .cornerRadius(10)
+            .shadow(radius: 5)
         }
-//        .frame(height: 200)
     }
     
     private var productInfoView: some View {
-        VStack(alignment: .center) {
+        VStack{
             Text(extractSecondPart(from: productName) ?? "")
                 .font(.callout)
                 .lineLimit(1)
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal, 5)
             
             Text(productCategory)
                 .font(.subheadline)
                 .foregroundColor(.gray)
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal, 5)
             
             Text(productPrice)
                 .font(.headline)
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal, 5)
         }
     }
     

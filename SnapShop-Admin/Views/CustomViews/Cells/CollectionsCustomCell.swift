@@ -16,14 +16,16 @@ struct CollectionsCustomCell: View {
     var body: some View {
         GeometryReader { geometry in
             let screenWidth = geometry.size.width
-            let imageSide = screenWidth * 0.44
-            let horizontalPadding = screenWidth * 0.04
-            
-            VStack(spacing: 8) {
+            let imageSide = screenWidth * 0.9 * 0.9
+            VStack(alignment: .center){
                 CellImageView(imageURL: collectionImageURL, imageSide: imageSide, deleteAction: deleteAction)
+                    .frame(width: screenWidth * 0.8, height: screenWidth * 0.8)
                 Text(collectionName)
                     .font(.headline)
-            }.padding([.leading, .trailing], 8)
+                
+            }
+            
+            
         }
     }
     

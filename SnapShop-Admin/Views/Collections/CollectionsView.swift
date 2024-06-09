@@ -15,41 +15,43 @@ struct CollectionsView: View {
     
     var body: some View {
         NavigationStack {
-            
-            ScrollView{
+            GeometryReader { geometry in
                 
-                //search bar
-                
-                CollectionsGrid(collections: collectionsViewModel.collections, deleteCollection: { collection in
-                    selectedCollection = collection
-                }, viewModel: collectionsViewModel)
-            }
-            .navigationBarTitle("Collections")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button{
-                        openAddCollectionView.toggle()
-                    }label: {
-                        Image(systemName: "plus.app")
-                            .font(.system(size: 24))
-                    }
-                    .sheet(isPresented: $openAddCollectionView){
-                        AddCollectionView(collectionsViewModel: collectionsViewModel)
-                    }
+                ScrollView{
                     
+                    //search bar
+                    
+                    CollectionsGrid(screenHeight: geometry.size.height, collections: collectionsViewModel.collections, deleteCollection: { collection in
+                        selectedCollection = collection
+                    }, viewModel: collectionsViewModel)
                 }
-            }.alert(item: $selectedCollection) { collection in
-                Alert(
-                    title: Text("Confirm Deletion"),
-                    message: Text("Are you sure you want to delete this collection?"),
-                    primaryButton: .destructive(Text("Delete")) {
-                        collectionsViewModel.deleteCollection(collection: collection)
-                    },
-                    secondaryButton: .cancel(Text("Cancel"))
-                )
-            }
-            .onAppear{
-                collectionsViewModel.getCollections()
+                .navigationBarTitle("Collections")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button{
+                            openAddCollectionView.toggle()
+                        }label: {
+                            Image(systemName: "plus.app")
+                                .font(.system(size: 24))
+                        }
+                        .sheet(isPresented: $openAddCollectionView){
+                            AddCollectionView(collectionsViewModel: collectionsViewModel)
+                        }
+                        
+                    }
+                }.alert(item: $selectedCollection) { collection in
+                    Alert(
+                        title: Text("Confirm Deletion"),
+                        message: Text("Are you sure you want to delete this collection?"),
+                        primaryButton: .destructive(Text("Delete")) {
+                            collectionsViewModel.deleteCollection(collection: collection)
+                        },
+                        secondaryButton: .cancel(Text("Cancel"))
+                    )
+                }
+                .onAppear{
+                    collectionsViewModel.getCollections()
+                }
             }
         }
     }

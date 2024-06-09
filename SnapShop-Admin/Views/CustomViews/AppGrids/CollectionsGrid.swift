@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CollectionsGrid: View {
     
+    var screenHeight: Double
     var collections: [Collection]
     var deleteCollection: (Collection) -> Void
     var viewModel: CollectionsViewModel
@@ -18,9 +19,11 @@ struct CollectionsGrid: View {
             NavigationLink(destination: AddCollectionView(collectionsViewModel: viewModel, collection: collection)) {
                 CollectionsCustomCell(collectionName: collection.title!, collectionImageURL: collection.image?.src){
                     deleteCollection(collection)
-                }
+                }.frame(height: screenHeight*0.37)
+                    
             }
         }
+        .padding(.leading)
     }
 }
 
