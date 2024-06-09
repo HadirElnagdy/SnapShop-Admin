@@ -12,6 +12,7 @@ class PriceRulesViewModel: ObservableObject {
     
     @Published var priceRules = [PriceRule]()
     
+    
     func getPriceRules(){
         APIClient.getPriceRules { [weak self] result in
             switch result {
@@ -19,6 +20,17 @@ class PriceRulesViewModel: ObservableObject {
                 self?.priceRules = response.priceRules ?? []
             case .failure(let failure):
                 print("Error fetching priceRules: \(failure.localizedDescription)")
+            }
+        }
+    }
+    
+    func deletePriceRule(ruleId: String) {
+        APIClient.deletePriceRule(ruleId: ruleId) { result in
+            switch result {
+            case .success:
+                print("Price rule Deleted Successfully!")
+            case .failure(let error):
+                print("Failed to delete price rule: \(error.localizedDescription)")
             }
         }
     }

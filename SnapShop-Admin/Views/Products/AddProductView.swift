@@ -8,21 +8,25 @@
 import SwiftUI
 
 struct AddProductView: View {
-    @State var productFeaturedImage = ""
-    @State var productName = ""
+    
+    @ObservedObject var viewModel: ProductsViewModel
+    @Environment(\.dismiss) var dismiss
+    var product: Product? = nil
+    
     var body: some View {
-        Form{
-            Image(.imgPlaceholder)
-                .resizable()
-                .scaledToFit()
+        
+        GeometryReader { geometry in
+            let screenWidth = geometry.size.width
+            let imageSide = screenWidth * 0.9
             
-            Section("Product Details") {
-                TextField("Product Name", text: $productName)
+            VStack {
+                
             }
         }
     }
 }
 
 #Preview {
-    AddProductView()
+    AddProductView(viewModel: ProductsViewModel())
 }
+

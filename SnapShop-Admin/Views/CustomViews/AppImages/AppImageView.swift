@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AppImageView: View {
     var imageURL: String?
+    var imageSide: Double
 
     var body: some View {
         Group {
@@ -22,7 +23,7 @@ struct AppImageView: View {
                         image
                             .resizable()
                             .scaledToFit()
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                            .clipShape(RoundedRectangle(cornerRadius: imageSide/8))
                             .padding()
                     case .failure:
                         placeholderImage
@@ -33,13 +34,13 @@ struct AppImageView: View {
             } else {
                 placeholderImage
             }
-        }
+        }.frame(width: imageSide, height: imageSide)
     }
 
     private var placeholderImage: some View {
         Rectangle()
             .fill(Color.gray.opacity(0.8))
-            .cornerRadius(16)
+            .cornerRadius(imageSide/8)
             .overlay(
                 Text("No Image")
                     .foregroundColor(.white)
@@ -50,7 +51,7 @@ struct AppImageView: View {
 
 
 #Preview {
-    AppImageView(imageURL: nil)
+    AppImageView(imageURL: nil, imageSide: 200.0)
         .previewLayout(.sizeThatFits)
                     .padding()
 }

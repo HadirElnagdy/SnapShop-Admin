@@ -14,33 +14,19 @@ struct CollectionsCustomCell: View {
     var deleteAction: () -> Void
     
     var body: some View {
-        VStack(spacing: 8) {
-            collectionImageView
-            Text(collectionName)
-                .font(.headline)
-        }.padding([.leading, .trailing], 8)
-    }
-    
-    
-    private var collectionImageView: some View {
-        ZStack(alignment: .topTrailing) {
-            AppImageView(imageURL: collectionImageURL)
-            deleteButton
-        }
-        .background(
-            RoundedRectangle(cornerRadius: 16)
-                .fill(Color.white)
-                .shadow(radius: 5)
-        )
-    }
-    
-    private var deleteButton: some View {
-        Button (action: deleteAction) {
-            Image(systemName: "minus.circle.fill")
-                .font(.title2)
-                .padding()
+        GeometryReader { geometry in
+            let screenWidth = geometry.size.width
+            let imageSide = screenWidth * 0.44
+            let horizontalPadding = screenWidth * 0.04
+            
+            VStack(spacing: 8) {
+                CellImageView(imageURL: collectionImageURL, imageSide: imageSide, deleteAction: deleteAction)
+                Text(collectionName)
+                    .font(.headline)
+            }.padding([.leading, .trailing], 8)
         }
     }
+    
 }
 
 #Preview {

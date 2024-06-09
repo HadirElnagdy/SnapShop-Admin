@@ -22,7 +22,7 @@ struct CollectionsView: View {
                 
                 CollectionsGrid(collections: collectionsViewModel.collections, deleteCollection: { collection in
                     selectedCollection = collection
-                })
+                }, viewModel: collectionsViewModel)
             }
             .navigationBarTitle("Collections")
             .toolbar {
@@ -34,7 +34,7 @@ struct CollectionsView: View {
                             .font(.system(size: 24))
                     }
                     .sheet(isPresented: $openAddCollectionView){
-                        AddCollectionView()
+                        AddCollectionView(collectionsViewModel: collectionsViewModel)
                     }
                     
                 }

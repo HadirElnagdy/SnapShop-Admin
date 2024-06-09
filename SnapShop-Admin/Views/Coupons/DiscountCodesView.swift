@@ -8,18 +8,46 @@
 import SwiftUI
 
 struct DiscountCodesView: View {
+    
     let ruleId: String
     @ObservedObject var viewModel = DiscountCodeViewModel()
+    @State private var showAlert = false
+    @State private var deletionIndex: Int?
+
     var body: some View {
-        List(viewModel.discountCodes) { codeDetails in
-            Text(codeDetails.code)
+        List {
+            ForEach(viewModel.discountCodes, id: \.id) { code in
+                Text(code.code)
+            }
+            .onDelete(perform: { indexSet in
+                if let index = indexSet.first {
+                    deletionIndex = index
+                    showAlert.toggle()
+                }
+            })
         }
-        .onAppear{
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("Confirm Deletion"),
+                message: Text("Are you sure you want to delete this discount code?"),
+                primaryButton: .destructive(Text("Delete")) {
+                    if let index = deletionIndex {
+                        viewModel.deleteDiscountCode(ruleId: ruleId, codeId: "\(viewModel.discountCodes[index].id!)")
+                        viewModel.discountCodes.remove(at: index)
+                    }
+                },
+                secondaryButton: .cancel(Text("Cancel")) {
+                    deletionIndex = nil 
+                }
+            )
+        }
+        .onAppear {
             viewModel.getDiscountCodes(ruleId: ruleId)
         }
     }
 }
 
-#Preview {
-    DiscountCodesView(ruleId: "1119217582259")
-}
+//
+//#Preview {
+//    DiscountCodesView(ruleId: "1119217582259")
+//}

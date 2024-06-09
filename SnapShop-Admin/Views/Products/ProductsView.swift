@@ -17,37 +17,39 @@ struct ProductsView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                ProductsGrid(productsList: productsViewModel.productList, deleteProduct: { product in
-                    selectedProduct = product
-                })
-            }
-            .navigationBarTitle("Products")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        openAddProductView.toggle()
-                    } label: {
-                        Image(systemName: "plus.app")
-                            .font(.system(size: 24))
-                    }
-                    .sheet(isPresented: $openAddProductView){
-                        AddProductView()
+            GeometryReader { geometry in
+                ScrollView {
+                    ProductsGrid(productsList: productsViewModel.productList, deleteProduct: { product in
+                        selectedProduct = product
+                    })
+                }
+                .navigationBarTitle("Products")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            openAddProductView.toggle()
+                        } label: {
+                            Image(systemName: "plus.app")
+                                .font(.system(size: 24))
+                        }
+                        .sheet(isPresented: $openAddProductView){
+                            AddProductView(viewModel: productsViewModel)
+                        }
                     }
                 }
-            }
-            .alert(item: $selectedProduct) { product in
-                            Alert(
-                                title: Text("Confirm Deletion"),
-                                message: Text("Are you sure you want to delete this product?"),
-                                primaryButton: .destructive(Text("Delete")) {
-                                    productsViewModel.deleteProduct(product: product)
-                                },
-                                secondaryButton: .cancel(Text("Cancel"))
-                            )
-                        }
-            .onAppear{
-                productsViewModel.getProducts()
+                .alert(item: $selectedProduct) { product in
+                    Alert(
+                        title: Text("Confirm Deletion"),
+                        message: Text("Are you sure you want to delete this product?"),
+                        primaryButton: .destructive(Text("Delete")) {
+                            productsViewModel.deleteProduct(product: product)
+                        },
+                        secondaryButton: .cancel(Text("Cancel"))
+                    )
+                }
+                .onAppear{
+                    productsViewModel.getProducts()
+                }
             }
         }
     }

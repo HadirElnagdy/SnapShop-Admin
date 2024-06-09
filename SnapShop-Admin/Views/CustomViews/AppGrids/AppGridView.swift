@@ -11,6 +11,7 @@ struct GridView<Item: Identifiable, ItemView: View>: View {
     var items: [Item]
     var columns: Int
     var content: (Item) -> ItemView
+
     
     var body: some View {
         let gridItems = Array(repeating: GridItem(.flexible()), count: columns)
@@ -18,11 +19,10 @@ struct GridView<Item: Identifiable, ItemView: View>: View {
         LazyVGrid(columns: gridItems) {
             ForEach(items) { item in
                 content(item)
+                    
             }
         }
         .padding()
     }
 }
-
-
 

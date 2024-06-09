@@ -10,6 +10,8 @@ import Foundation
 class ProductsViewModel: ObservableObject {
     
     @Published var productList = [Product]()
+    @Published var productImages = [ProductImage]()
+    @Published var featuredImage = ""
     
     func getProducts() {
         print("Fetching data...")

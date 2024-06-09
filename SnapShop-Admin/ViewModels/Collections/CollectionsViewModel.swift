@@ -16,9 +16,10 @@ class CollectionsViewModel: ObservableObject {
     
     func createCollection() {
         let collection = CollectionRequest(collection: Collection(title: collectionName, image: CollectionImage(src: collectionImageURL)))
-        APIClient.createCollection(collection: collection) { result in
+        APIClient.createCollection(collection: collection) { [weak self] result in
             switch result {
             case .success(let createdCollection):
+                self?.collections.append(createdCollection.collection)
                 print("Collection created: \(createdCollection.collection)")
             case .failure(let error):
                 print("Failed to create collection: \(error.localizedDescription)")
@@ -39,6 +40,18 @@ class CollectionsViewModel: ObservableObject {
         }
     }
     
+    func updateCollection(collection: CollectionRequest) {
+        APIClient.updateCollection(collection: collection) { [weak self] result in
+            switch result {
+            case .success(let updatedCollection):
+                self?.getCollections()
+                print("Collection updated: \(updatedCollection.collection)")
+            case .failure(let error):
+                print("Failed to update collection: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     func deleteCollection(collection: Collection) {
         if let index = collections.firstIndex(where: { $0.id == collection.id }) {
             collections.remove(at: index)
@@ -52,5 +65,10 @@ class CollectionsViewModel: ObservableObject {
             }
         }
     }
+    
+    func clearFields() {
+            collectionName = ""
+            collectionImageURL = ""
+        }
     
 }
