@@ -42,7 +42,7 @@ struct PriceRulesView: View {
                         }
                         .sheet(isPresented: $openAddPriceRule){
                             AddPriceRuleView(){ rule in
-                                //rule creation logic here
+                                viewModel.createPriceRule(rule: rule)
                             }
                         }
                     }

@@ -12,6 +12,17 @@ class PriceRulesViewModel: ObservableObject {
     
     @Published var priceRules = [PriceRule]()
     
+    func createPriceRule(rule: PriceRuleRequest){
+        APIClient.createPriceRule(rule: rule) {[weak self] result in
+            switch result {
+            case .success(let createdRule):
+                self?.priceRules.append(createdRule.priceRule)
+                print("Rule created: \(createdRule.priceRule)")
+            case .failure(let error):
+                print("Failed to create rule: \(error.localizedDescription)")
+            }
+        }
+    }
     
     func getPriceRules(){
         APIClient.getPriceRules { [weak self] result in

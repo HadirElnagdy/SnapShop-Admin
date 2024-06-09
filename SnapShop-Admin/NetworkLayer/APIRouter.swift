@@ -19,6 +19,7 @@ enum APIRoute: URLRequestConvertible {
     case deletePriceRule(ruleId: String)
     case deleteDiscountCodes(ruleId: String, codeId: String)
     case createCollection(collection: CollectionRequest)
+    case createPriceRule(rule: PriceRuleRequest)
     case updateCollection(collection: CollectionRequest)
     
 
@@ -28,7 +29,7 @@ enum APIRoute: URLRequestConvertible {
             return .get
         case .deleteProduct, .deletePriceRule, .deleteCollection, .deleteDiscountCodes:
             return .delete
-        case .createCollection:
+        case .createCollection, .createPriceRule:
             return .post
         case .updateCollection:
             return .put
@@ -39,7 +40,7 @@ enum APIRoute: URLRequestConvertible {
         switch self {
         case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection, .deletePriceRule, .deleteDiscountCodes:
             return URLEncoding.default
-        case .createCollection, .updateCollection:
+        case .createCollection, .updateCollection, .createPriceRule:
             return JSONEncoding.default
         }
     }
@@ -50,6 +51,8 @@ enum APIRoute: URLRequestConvertible {
             return nil
         case .createCollection(let collection), .updateCollection(let collection):
             return try? JSONSerialization.jsonObject(with: JSONEncoder().encode(collection)) as? [String: Any]
+        case .createPriceRule(let rule):
+            return try? JSONSerialization.jsonObject(with: JSONEncoder().encode(rule)) as? [String: Any]
         }
     }
     
@@ -59,7 +62,7 @@ enum APIRoute: URLRequestConvertible {
             return ShopifyResource.products.endpoint
         case .getCollections, .createCollection:
             return ShopifyResource.collections.endpoint
-        case .getPriceRules:
+        case .getPriceRules, .createPriceRule:
             return ShopifyResource.priceRules.endpoint
         case .getDiscountCodes(let ruleId):
             return "\(ShopifyResource.priceRules.endpoint)/\(ruleId)/\(ShopifyResource.discountCodes.endpoint)"
@@ -81,7 +84,7 @@ enum APIRoute: URLRequestConvertible {
         switch self {
         case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection, .deletePriceRule, .deleteDiscountCodes, .updateCollection:
             return .basicAuthorization
-        case .createCollection:
+        case .createCollection, .createPriceRule:
             return .apiKeyAuthorization
         }
     }
@@ -90,7 +93,7 @@ enum APIRoute: URLRequestConvertible {
         switch self {
         case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection, .deletePriceRule, .deleteDiscountCodes, .updateCollection:
             return .basic
-        case .createCollection:
+        case .createCollection, .createPriceRule:
             return .apiKey
         }
     }

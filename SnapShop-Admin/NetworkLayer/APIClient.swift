@@ -88,7 +88,10 @@ class APIClient {
     static func createCollection(collection: CollectionRequest, completion: @escaping (Result<CollectionRequest, NetworkError>) -> Void) {
         performRequest(route: APIRoute.createCollection(collection: collection), completion: completion)
     }
-    
+    static func createPriceRule(rule: PriceRuleRequest, completion: @escaping (Result<PriceRuleRequest, NetworkError>) -> Void) {
+        performRequest(route: APIRoute.createPriceRule(rule: rule), completion: completion)
+    }
+
     static func updateCollection(collection: CollectionRequest, completion: @escaping (Result<CollectionRequest, NetworkError>) -> Void) {
         performRequest(route: APIRoute.updateCollection(collection: collection), completion: completion)
     }
