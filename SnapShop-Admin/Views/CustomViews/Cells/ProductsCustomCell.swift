@@ -16,32 +16,20 @@ struct ProductsCustomCell: View {
     var deleteAction: () -> Void
     
     var body: some View {
-        VStack(spacing: 8) {
-            productImageView
-            productInfoView
-        }.padding([.leading, .trailing], 8)
+        GeometryReader { geometry in
+            let screenWidth = geometry.size.width
+            let screenHeight = geometry.size.height
+            let cellWidth = screenWidth * 0.9
+            let imageSide = cellWidth * 0.9
+            let padding = (screenWidth - cellWidth) / 2
             
-        
-    }
-    
-    private var productImageView: some View {
-        ZStack(alignment: .topTrailing) {
-            AppImageView(imageURL: productImageURL)
-            deleteButton
+            VStack(spacing: 8) {
+                CellImageView(imageURL: productImageURL, imageSide: imageSide, deleteAction: deleteAction)
+                productInfoView
+            }
+            
         }
-        .background(
-            RoundedRectangle(cornerRadius: 16)
-                .fill(Color.white)
-                .shadow(radius: 5)
-        )
-    }
-    
-    private var deleteButton: some View {
-        Button (action: deleteAction) {
-            Image(systemName: "minus.circle.fill")
-                .font(.title2)
-                .padding()
-        }
+//        .frame(height: 200)
     }
     
     private var productInfoView: some View {
@@ -65,6 +53,7 @@ struct ProductsCustomCell: View {
         return components[1]
     }
 }
+
 
 #Preview {
     ProductsCustomCell(

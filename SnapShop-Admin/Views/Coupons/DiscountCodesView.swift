@@ -47,7 +47,7 @@ struct DiscountCodesView: View {
     }
 }
 
-
-#Preview {
-    DiscountCodesView(ruleId: "1119217582259")
-}
+//
+//#Preview {
+//    DiscountCodesView(ruleId: "1119217582259")
+//}
