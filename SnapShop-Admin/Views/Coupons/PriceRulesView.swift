@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct PriceRulesView: View {
+    
     @ObservedObject var viewModel = PriceRulesViewModel()
     @State private var deletionIndex: Int?
     @State private var showAlert = false
+    @State private var openAddPriceRule = false
+    
     
     var body: some View {
         NavigationStack {
@@ -32,10 +35,15 @@ struct PriceRulesView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
-                            // Add action for adding new price rule
+                            openAddPriceRule.toggle()
                         } label: {
                             Image(systemName: "plus.app")
                                 .font(.system(size: 24))
+                        }
+                        .sheet(isPresented: $openAddPriceRule){
+                            AddPriceRuleView(){ rule in
+                                //rule creation logic here
+                            }
                         }
                     }
                 }

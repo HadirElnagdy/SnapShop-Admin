@@ -44,6 +44,8 @@
 		04CC29682C149DB700B8FB47 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC29672C149DB700B8FB47 /* SkeletonView.swift */; };
 		04CC296A2C149E6A00B8FB47 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC29692C149E6A00B8FB47 /* ListViewModel.swift */; };
 		04CC296C2C1594C100B8FB47 /* CellImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC296B2C1594C100B8FB47 /* CellImageView.swift */; };
+		04CC296E2C15AE4700B8FB47 /* AddPriceRuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC296D2C15AE4700B8FB47 /* AddPriceRuleView.swift */; };
+		04CC29702C15BAA800B8FB47 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC296F2C15BAA800B8FB47 /* DateFormatter.swift */; };
 		04F6B3F72BFE0A3C00EE890A /* SnapShop_AdminApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B3F62BFE0A3C00EE890A /* SnapShop_AdminApp.swift */; };
 		04F6B3F92BFE0A3C00EE890A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B3F82BFE0A3C00EE890A /* ContentView.swift */; };
 		04F6B3FB2BFE0A4000EE890A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F6B3FA2BFE0A4000EE890A /* Assets.xcassets */; };
@@ -116,6 +118,8 @@
 		04CC29672C149DB700B8FB47 /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
 		04CC29692C149E6A00B8FB47 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		04CC296B2C1594C100B8FB47 /* CellImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellImageView.swift; sourceTree = "<group>"; };
+		04CC296D2C15AE4700B8FB47 /* AddPriceRuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPriceRuleView.swift; sourceTree = "<group>"; };
+		04CC296F2C15BAA800B8FB47 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		04F6B3F32BFE0A3C00EE890A /* SnapShop-Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SnapShop-Admin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F6B3F62BFE0A3C00EE890A /* SnapShop_AdminApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapShop_AdminApp.swift; sourceTree = "<group>"; };
 		04F6B3F82BFE0A3C00EE890A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -253,6 +257,7 @@
 				763E52A02C0A8A85002EFF95 /* AppTextFieldValidator.swift */,
 				0400B17B2C12EC7100C307D5 /* Constants.swift */,
 				0400B17D2C12EC9300C307D5 /* AppCommon.swift */,
+				04CC296F2C15BAA800B8FB47 /* DateFormatter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 			children = (
 				043542A32C03440E00DE7E6A /* PriceRulesView.swift */,
 				0400B1A62C138ACD00C307D5 /* DiscountCodesView.swift */,
+				04CC296D2C15AE4700B8FB47 /* AddPriceRuleView.swift */,
 			);
 			path = Coupons;
 			sourceTree = "<group>";
@@ -741,6 +747,7 @@
 				0400B17C2C12EC7100C307D5 /* Constants.swift in Sources */,
 				043542B22C0883D500DE7E6A /* CollectionsGrid.swift in Sources */,
 				7698F4D62C09E2BE00DAB24B /* LoginScreen.swift in Sources */,
+				04CC29702C15BAA800B8FB47 /* DateFormatter.swift in Sources */,
 				043542832C03246E00DE7E6A /* AppColors.swift in Sources */,
 				0400B1A92C138BAA00C307D5 /* DiscountCodesViewModel.swift in Sources */,
 				04F6B3F92BFE0A3C00EE890A /* ContentView.swift in Sources */,
@@ -750,6 +757,7 @@
 				0400B1A72C138ACD00C307D5 /* DiscountCodesView.swift in Sources */,
 				0400B17E2C12EC9300C307D5 /* AppCommon.swift in Sources */,
 				763E52A32C0A9119002EFF95 /* AppTextField.swift in Sources */,
+				04CC296E2C15AE4700B8FB47 /* AddPriceRuleView.swift in Sources */,
 				0400B1A32C13877B00C307D5 /* DiscountCodes.swift in Sources */,
 				0400B1762C12EBF400C307D5 /* ProductsViewModel.swift in Sources */,
 				04CC296C2C1594C100B8FB47 /* CellImageView.swift in Sources */,

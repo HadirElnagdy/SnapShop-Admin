@@ -12,6 +12,7 @@ class PriceRulesViewModel: ObservableObject {
     
     @Published var priceRules = [PriceRule]()
     
+    
     func getPriceRules(){
         APIClient.getPriceRules { [weak self] result in
             switch result {

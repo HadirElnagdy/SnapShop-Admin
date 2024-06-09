@@ -22,10 +22,10 @@ struct PriceRuleCell: View {
                     .foregroundColor(.secondary)
                 Spacer()
                 VStack(alignment: .trailing) {
-                    Text("Start: \(formatDate(priceRule.startsAt ?? "Not specified") ?? "Not specified")")
+                    Text("Start: \(DateFormatterHelper.shared.convertFromIsoFormat(priceRule.startsAt ?? "Not specified") ?? "Not specified")")
                         .font(.caption)
                         .foregroundColor(.secondary)
-                    Text("End: \(formatDate(priceRule.endsAt ?? "Not specified") ?? "Not specified")")
+                    Text("End: \(DateFormatterHelper.shared.convertFromIsoFormat(priceRule.endsAt ?? "Not specified") ?? "Not specified")")
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
@@ -37,17 +37,7 @@ struct PriceRuleCell: View {
         .shadow(radius: 1)
     }
     
-    private func formatDate(_ dateString: String?) -> String? {
-        let inputFormatter = DateFormatter()
-        inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        if let date = inputFormatter.date(from: dateString ?? "") {
-            let outputFormatter = DateFormatter()
-            outputFormatter.dateStyle = .short
-            outputFormatter.timeStyle = .none
-            return outputFormatter.string(from: date)
-        }
-        return dateString
-    }
+    
 }
 
 

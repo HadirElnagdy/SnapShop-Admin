@@ -85,7 +85,7 @@ struct PriceRule: Codable, Identifiable {
     init(
         id: Int? = nil,
         title: String,
-        valueType: String? = "percentage",
+        valueType: String?,
         value: String,
         customerSelection: String? = "all",
         targetType: String? = "line_item",
