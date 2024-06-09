@@ -25,6 +25,20 @@ class DiscountCodeViewModel: ObservableObject {
         }
     }
     
+    func createDiscountCode(ruleId: Int, code: String) {
+        let dicountCodeRequest = DiscountCodesResponse(discountCodes: [DiscountCode(priceRuleId: ruleId, code: code)])
+        APIClient.createDiscountCodes(codes: dicountCodeRequest) {[weak self] result in
+            switch result {
+            case .success(let response):
+                let createdCode = DiscountCode(id: response.discountCodeCreation.id, priceRuleId: response.discountCodeCreation.priceRuleID, code: code)
+                self?.discountCodes.append(createdCode)
+            case .failure(let error):
+                print("Failed to create discount codes: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    
     func deleteDiscountCode(ruleId: String, codeId: String) {
         APIClient.deleteDiscountCodes(ruleId: ruleId, codeId: codeId) { result in
             switch result {

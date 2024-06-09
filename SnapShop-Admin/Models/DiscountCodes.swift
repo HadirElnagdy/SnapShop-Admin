@@ -15,14 +15,6 @@ struct DiscountCodesResponse: Codable {
     }
 }
 
-struct DiscountCodesRequest: Codable {
-    let discountCode: DiscountCode
-    
-    enum CodingKeys: String, CodingKey {
-        case discountCode = "discount_code"
-    }
-}
-
 struct DiscountCode: Codable, Identifiable {
     let id: Int?
     let priceRuleId: Int
@@ -49,4 +41,40 @@ struct DiscountCode: Codable, Identifiable {
     }
 }
 
+// MARK: - DiscountCodeCreationResponse
+struct DiscountCodeCreationResponse: Codable {
+    let discountCodeCreation: DiscountCodeCreation
+    
+    enum CodingKeys: String, CodingKey {
+        case discountCodeCreation = "discount_code_creation"
+    }
+}
 
+
+struct DiscountCodeCreation: Codable {
+    let id: Int
+    let priceRuleID: Int
+    let startedAt: String?
+    let completedAt: String?
+    let createdAt: String
+    let updatedAt: String
+    let status: String
+    let codesCount: Int
+    let importedCount: Int
+    let failedCount: Int
+    
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case priceRuleID = "price_rule_id"
+        case startedAt = "started_at"
+        case completedAt = "completed_at"
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+        case status
+        case codesCount = "codes_count"
+        case importedCount = "imported_count"
+        case failedCount = "failed_count"
+      
+    }
+}
