@@ -84,7 +84,9 @@ class APIClient {
         let route = APIRoute.deleteDiscountCodes(ruleId: ruleId, codeId: codeId)
         performRequest(route: route, completion: completion)
     }
-    
+    static func createProduct(product: ProductRequest, completion: @escaping (Result<ProductRequest, NetworkError>) -> Void) {
+        performRequest(route: APIRoute.createProduct(product: product), completion: completion)
+    }
     static func createCollection(collection: CollectionRequest, completion: @escaping (Result<CollectionRequest, NetworkError>) -> Void) {
         performRequest(route: APIRoute.createCollection(collection: collection), completion: completion)
     }
@@ -95,7 +97,10 @@ class APIClient {
         let route = APIRoute.createDiscountCodes(codes: codes)
         performRequest(route: route, completion: completion)
     }
-
+    static func updateProduct(product: ProductRequest, completion: @escaping (Result<ProductRequest, NetworkError>) -> Void) {
+        performRequest(route: APIRoute.updateProduct(product: product), completion: completion)
+    }
+    
     static func updateCollection(collection: CollectionRequest, completion: @escaping (Result<CollectionRequest, NetworkError>) -> Void) {
         performRequest(route: APIRoute.updateCollection(collection: collection), completion: completion)
     }

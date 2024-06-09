@@ -18,9 +18,11 @@ enum APIRoute: URLRequestConvertible {
     case deleteCollection(collectionId: String)
     case deletePriceRule(ruleId: String)
     case deleteDiscountCodes(ruleId: String, codeId: String)
+    case createProduct(product: ProductRequest)
     case createCollection(collection: CollectionRequest)
     case createPriceRule(rule: PriceRuleRequest)
     case createDiscountCodes(codes: DiscountCodesResponse)
+    case updateProduct(product: ProductRequest)
     case updateCollection(collection: CollectionRequest)
     
 
@@ -30,9 +32,9 @@ enum APIRoute: URLRequestConvertible {
             return .get
         case .deleteProduct, .deletePriceRule, .deleteCollection, .deleteDiscountCodes:
             return .delete
-        case .createCollection, .createPriceRule, .createDiscountCodes:
+        case .createProduct, .createCollection, .createPriceRule, .createDiscountCodes:
             return .post
-        case .updateCollection:
+        case .updateProduct, .updateCollection:
             return .put
         }
     }
@@ -41,7 +43,7 @@ enum APIRoute: URLRequestConvertible {
         switch self {
         case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection, .deletePriceRule, .deleteDiscountCodes:
             return URLEncoding.default
-        case .createCollection, .updateCollection, .createPriceRule, .createDiscountCodes:
+        case .createProduct, .updateProduct, .createCollection, .updateCollection, .createPriceRule, .createDiscountCodes:
             return JSONEncoding.default
         }
     }
@@ -50,6 +52,8 @@ enum APIRoute: URLRequestConvertible {
         switch self {
         case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection, .deletePriceRule, .deleteDiscountCodes:
             return nil
+        case .createProduct(let product), .updateProduct(let product):
+            return try? JSONSerialization.jsonObject(with: JSONEncoder().encode(product)) as? [String: Any]
         case .createCollection(let collection), .updateCollection(let collection):
             return try? JSONSerialization.jsonObject(with: JSONEncoder().encode(collection)) as? [String: Any]
         case .createPriceRule(let rule):
@@ -61,8 +65,10 @@ enum APIRoute: URLRequestConvertible {
     
     var path: String {
         switch self {
-        case .getProducts:
+        case .getProducts, .createProduct:
             return ShopifyResource.products.endpoint
+        case .updateProduct(let product):
+            return "\(ShopifyResource.products.endpoint)/\(product.product.id!)"
         case .getCollections, .createCollection:
             return ShopifyResource.collections.endpoint
         case .getPriceRules, .createPriceRule:
@@ -87,18 +93,18 @@ enum APIRoute: URLRequestConvertible {
     
     var authorizationHeader: HTTPHeaderField? {
         switch self {
-        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection, .deletePriceRule, .deleteDiscountCodes, .updateCollection:
+        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection, .deletePriceRule, .deleteDiscountCodes, .updateCollection, .updateProduct:
             return .basicAuthorization
-        case .createCollection, .createPriceRule, .createDiscountCodes:
+        case .createCollection, .createPriceRule, .createDiscountCodes, .createProduct:
             return .apiKeyAuthorization
         }
     }
     
     var authorizationType: AuthorizationType {
         switch self {
-        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection, .deletePriceRule, .deleteDiscountCodes, .updateCollection:
+        case .getProducts, .getCollections, .getPriceRules, .getDiscountCodes, .deleteProduct, .deleteCollection, .deletePriceRule, .deleteDiscountCodes, .updateCollection, .updateProduct:
             return .basic
-        case .createCollection, .createPriceRule, .createDiscountCodes:
+        case .createCollection, .createPriceRule, .createDiscountCodes, .createProduct:
             return .apiKey
         }
     }

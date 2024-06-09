@@ -25,6 +25,28 @@ class ProductsViewModel: ObservableObject {
         }
     }
     
+    func createProduct(product: ProductRequest) {
+            APIClient.createProduct(product: product) { result in
+                switch result {
+                case .success(let createdProduct):
+                    print("Product created: \(createdProduct.product)")
+                case .failure(let error):
+                    print("Failed to create product: \(error.localizedDescription)")
+                }
+            }
+        }
+    
+    func updateProduct(product: ProductRequest) {
+        APIClient.updateProduct(product: product) { result in
+            switch result {
+            case .success(let updatedProduct):
+                print("Product updated: \(updatedProduct.product)")
+            case .failure(let error):
+                print("Failed to update product: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     func deleteProduct(product: Product){
         if let index = productList.firstIndex(where: { $0.id == product.id }) {
                     productList.remove(at: index)
