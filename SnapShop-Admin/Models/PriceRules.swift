@@ -156,3 +156,17 @@ struct EntitlementPurchase: Codable {
         case prerequisiteAmount = "prerequisite_amount"
     }
 }
+
+enum ValueType: String, CaseIterable {
+    case percentage = "Percentage"
+    case fixed = "Fixed Amount"
+    
+    var type: String {
+        switch self {
+        case .percentage:
+            return "percentage"
+        case .fixed:
+            return "fixed_amount"
+        }
+    }
+}

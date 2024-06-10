@@ -33,7 +33,7 @@ struct ProductsView: View {
                                 .font(.system(size: 24))
                         }
                         .sheet(isPresented: $openAddProductView){
-                            AddProductView(viewModel: productsViewModel)
+                            AddProductView(productsViewModel: productsViewModel)
                         }
                     }
                 }

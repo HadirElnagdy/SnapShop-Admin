@@ -32,7 +32,6 @@ struct ProductsCustomCell: View {
             .padding(.horizontal, padding)
             .padding(.vertical, 10)
             .cornerRadius(10)
-            .shadow(radius: 5)
         }
     }
     

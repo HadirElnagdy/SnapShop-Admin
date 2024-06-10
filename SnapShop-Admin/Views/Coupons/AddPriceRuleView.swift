@@ -20,60 +20,49 @@ struct AddPriceRuleView: View {
     
     
     var body: some View {
-        VStack{
-            InputWithTitleView(title: "Name", placeholder: "Price Rule Name", text: $name)
-            InputWithTitleView(title: "Value", placeholder: "Discount value", text: $discountValue)
-            
-            HStack(content: {
-                Text("Value Type: ")
-                Picker("Value Type", selection: $selectedValueType) {
-                    ForEach(ValueType.allCases, id: \.self) { valueType in
-                        Text(valueType.rawValue).tag(valueType)
-                    }
-                }
-                .pickerStyle(MenuPickerStyle())
+        GeometryReader{ geo in
+            VStack{
+                InputWithTitleView(title: "Name", placeholder: "Price Rule Name", text: $name)
+                InputWithTitleView(title: "Value", placeholder: "Discount value", text: $discountValue)
                 
-            })
-            
-            DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
-                .datePickerStyle(DefaultDatePickerStyle())
-            
-            DatePicker("End Date", selection: $endDate, displayedComponents: .date)
-                .datePickerStyle(DefaultDatePickerStyle())
-            
-            Toggle(isOn: $oncePerCustomer) {
-                            Text("Once Per Customer")
+                HStack(content: {
+                    Text("Value Type: ")
+                    Picker("Value Type", selection: $selectedValueType) {
+                        ForEach(ValueType.allCases, id: \.self) { valueType in
+                            Text(valueType.rawValue).tag(valueType)
                         }
-            
-            Spacer()
-            AppButton(text: "Add Rule", width: 350, height: 50, isFilled: true) {
-                let start = DateFormatterHelper.shared.convertToIsoFormat(startDate)
-                let end = DateFormatterHelper.shared.convertToIsoFormat(endDate)
-                let newRule = PriceRuleRequest(priceRule: PriceRule(title: name, valueType: selectedValueType.type, value: "-\(discountValue)", oncePerCustomer: oncePerCustomer, startsAt: start, endsAt: end))
+                    }
+                    .pickerStyle(MenuPickerStyle())
+                    
+                })
                 
-                addPriceRuleAction(newRule)
-                dismiss()
-            }.padding(.bottom, 50)
-            
-        }.padding()
-    }
-}
-
-
-
-enum ValueType: String, CaseIterable {
-    case percentage = "Percentage"
-    case fixed = "Fixed Amount"
-    
-    var type: String {
-        switch self {
-        case .percentage:
-            return "percentage"
-        case .fixed:
-            return "fixed_amount"
+                DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
+                    .datePickerStyle(DefaultDatePickerStyle())
+                
+                DatePicker("End Date", selection: $endDate, displayedComponents: .date)
+                    .datePickerStyle(DefaultDatePickerStyle())
+                
+                Toggle(isOn: $oncePerCustomer) {
+                    Text("Once Per Customer")
+                }
+                
+                Spacer()
+                AppButton(text: "Add Rule", width: geo.size.width * 0.9, height: geo.size.height * 0.06, isFilled: true) {
+                    let start = DateFormatterHelper.shared.convertToIsoFormat(startDate)
+                    let end = DateFormatterHelper.shared.convertToIsoFormat(endDate)
+                    let newRule = PriceRuleRequest(priceRule: PriceRule(title: name, valueType: selectedValueType.type, value: "-\(discountValue)", oncePerCustomer: oncePerCustomer, startsAt: start, endsAt: end))
+                    
+                    addPriceRuleAction(newRule)
+                    dismiss()
+                }.padding(.bottom, 50)
+                
+            }.padding()
         }
     }
 }
+
+
+
 
 #Preview {
     AddPriceRuleView(){_ in

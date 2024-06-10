@@ -27,6 +27,8 @@ struct CollectionRequest: Codable {
 
 // MARK: - Collection
 struct Collection: Codable, Identifiable {
+
+    
     let id: Int?
     let handle: String?
     var title: String?
@@ -65,7 +67,7 @@ struct Collection: Codable, Identifiable {
             self.sortOrder = sortOrder
             self.templateSuffix = templateSuffix
             self.disjunctive = disjunctive
-            self.rules = [Rule(column: "vendor", relation: "equals", condition: title)]
+            self.rules = [Rule(column: "title", relation: "contains", condition: title)]
             self.publishedScope = publishedScope
             self.adminGraphqlApiID = adminGraphqlApiID
             self.image = image
@@ -118,5 +120,21 @@ struct CollectionImage: Codable {
         case width
         case height
         case src
+    }
+}
+
+
+extension Collection: Hashable {
+    func hash(into hasher: inout Hasher) {
+        if let id = id {
+            hasher.combine(id)
+        }
+    }
+   
+}
+
+extension Collection: Equatable {
+    static func == (lhs: Collection, rhs: Collection) -> Bool {
+        lhs.id == rhs.id
     }
 }

@@ -26,7 +26,7 @@ struct AddCollectionView: View {
                 
                 InputWithTitleView(title: "Image URL", placeholder: "Image", text: $collectionsViewModel.collectionImageURL)
                 Spacer()
-                AppButton(text: collection == nil ? "Add Collection" : "Update Collection", width: 350, height: 50, isFilled: true) {
+                AppButton(text: collection == nil ? "Add Collection" : "Update Collection", width: geometry.size.width * 0.9, height: geometry.size.height * 0.06, isFilled: true) {
                     if collection == nil {
                         collectionsViewModel.createCollection()
                     } else {

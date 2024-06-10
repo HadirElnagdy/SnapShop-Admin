@@ -281,3 +281,11 @@ struct Variant: Codable {
         self.imageID = imageID
     }
 }
+
+
+enum ProductType: String, CaseIterable {
+    case tShirts = "T-SHIRTS"
+    case accessories = "ACCESSORIES"
+    case shoes = "SHOES"
+    
+}
