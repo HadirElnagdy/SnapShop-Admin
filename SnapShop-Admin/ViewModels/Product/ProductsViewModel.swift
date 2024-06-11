@@ -12,6 +12,7 @@ class ProductsViewModel: ObservableObject {
     @Published var productList = [Product]()
     @Published var featuredImage = ""
     @Published var imageURLs: [String] = []
+    @Published var selectedCollection = ""
     
     func getProducts() {
         print("Fetching data...")
@@ -26,10 +27,11 @@ class ProductsViewModel: ObservableObject {
     }
     
     func createProduct(product: ProductRequest) {
-            APIClient.createProduct(product: product) { result in
+            APIClient.createProduct(product: product) {[weak self] result in
                 switch result {
                 case .success(let createdProduct):
                     print("Product created: \(createdProduct.product)")
+                    self?.productList.append(createdProduct.product)
                 case .failure(let error):
                     print("Failed to create product: \(error.localizedDescription)")
                 }
@@ -37,10 +39,11 @@ class ProductsViewModel: ObservableObject {
         }
     
     func updateProduct(product: ProductRequest) {
-        APIClient.updateProduct(product: product) { result in
+        APIClient.updateProduct(product: product) {[weak self] result in
             switch result {
             case .success(let updatedProduct):
                 print("Product updated: \(updatedProduct.product)")
+                self?.getProducts()
             case .failure(let error):
                 print("Failed to update product: \(error.localizedDescription)")
             }

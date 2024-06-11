@@ -15,12 +15,14 @@ struct ProductsGrid: View {
 
     var body: some View {
         GridView(items: productsList, columns: 2) { product in
+            NavigationLink(destination: AddProductView(product: product)){
             ProductsCustomCell(productImageURL: product.image?.src ?? "",
                                productName: product.title ?? "",
                                productCategory: product.productType ?? "",
                                productPrice: "\(product.variants?.first?.price ?? "") EGP"){
                 deleteProduct(product)
             }.frame(height: screenHeight*0.42)
+        }
         }
     }
 }
