@@ -78,7 +78,7 @@ struct AddProductView: View {
                                 .font(.title3)
                         }
                     }
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))], spacing: 20) {
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
                         ForEach(productsViewModel.imageURLs, id: \.self) { imageURL in
                             CellImageView(imageURL: imageURL, imageSide: geo.size.width * 0.3 , deleteAction: {
                                 if let index = productsViewModel.imageURLs.firstIndex(of: imageURL) {

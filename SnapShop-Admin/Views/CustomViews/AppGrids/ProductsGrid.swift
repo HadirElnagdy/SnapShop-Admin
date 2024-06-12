@@ -19,7 +19,7 @@ struct ProductsGrid: View {
             ProductsCustomCell(productImageURL: product.image?.src ?? "",
                                productName: product.title ?? "",
                                productCategory: product.productType ?? "",
-                               productPrice: "\(product.variants?.first?.price ?? "") EGP"){
+                               productPrice: "\(product.variants?.first?.price ?? "") USD"){
                 deleteProduct(product)
             }.frame(height: screenHeight*0.42)
         }

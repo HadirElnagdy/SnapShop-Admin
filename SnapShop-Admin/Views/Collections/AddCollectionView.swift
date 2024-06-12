@@ -19,32 +19,34 @@ struct AddCollectionView: View {
             let screenWidth = geometry.size.width
             let imageSide = screenWidth * 0.9
             
-            VStack {
-                AppImageView(imageURL: collectionsViewModel.collectionImageURL, imageSide: imageSide)
-                
-                InputWithTitleView(title: "Collection Name", placeholder: "Name", text: $collectionsViewModel.collectionName)
-                
-                InputWithTitleView(title: "Image URL", placeholder: "Image", text: $collectionsViewModel.collectionImageURL)
-                Spacer()
-                AppButton(text: collection == nil ? "Add Collection" : "Update Collection", width: geometry.size.width * 0.9, height: geometry.size.height * 0.06, isFilled: true) {
-                    if collection == nil {
-                        collectionsViewModel.createCollection()
-                    } else {
-                        let updatedCollection = CollectionRequest(collection: Collection(id: collection?.id, title: collectionsViewModel.collectionName, image: CollectionImage(src: collectionsViewModel.collectionImageURL)))
-                        collectionsViewModel.updateCollection(collection: updatedCollection)
-                    }
-                    dismiss()
-                }.padding(.bottom, 50)
-            }
-            .padding()
-            .onAppear {
-                if let collection = collection {
-                    collectionsViewModel.collectionName = collection.title ?? ""
-                    collectionsViewModel.collectionImageURL = collection.image?.src ?? ""
+            ScrollView {
+                VStack {
+                    AppImageView(imageURL: collectionsViewModel.collectionImageURL, imageSide: imageSide)
+                    
+                    InputWithTitleView(title: "Collection Name", placeholder: "Name", text: $collectionsViewModel.collectionName)
+                    
+                    InputWithTitleView(title: "Image URL", placeholder: "Image", text: $collectionsViewModel.collectionImageURL)
+                    Spacer()
+                    AppButton(text: collection == nil ? "Add Collection" : "Update Collection", width: geometry.size.width * 0.9, height: geometry.size.height * 0.06, isFilled: true) {
+                        if collection == nil {
+                            collectionsViewModel.createCollection()
+                        } else {
+                            let updatedCollection = CollectionRequest(collection: Collection(id: collection?.id, title: collectionsViewModel.collectionName, image: CollectionImage(src: collectionsViewModel.collectionImageURL)))
+                            collectionsViewModel.updateCollection(collection: updatedCollection)
+                        }
+                        dismiss()
+                    }.padding(.bottom, 50)
                 }
+                .padding()
+                .onAppear {
+                    if let collection = collection {
+                        collectionsViewModel.collectionName = collection.title ?? ""
+                        collectionsViewModel.collectionImageURL = collection.image?.src ?? ""
+                    }
+                }
+                .onDisappear {
+                    collectionsViewModel.clearFields()
             }
-            .onDisappear {
-                collectionsViewModel.clearFields()
             }
         }
     }

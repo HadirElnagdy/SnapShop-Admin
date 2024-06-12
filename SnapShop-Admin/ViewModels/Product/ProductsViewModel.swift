@@ -13,12 +13,14 @@ class ProductsViewModel: ObservableObject {
     @Published var featuredImage = ""
     @Published var imageURLs: [String] = []
     @Published var selectedCollection = ""
+    @Published var isLoading = true
     
     func getProducts() {
         print("Fetching data...")
         APIClient.getAllProducts{[weak self] result in
             switch result {
             case .success(let success):
+                self?.isLoading = false
                 self?.productList = success.products ?? []
             case .failure(let failure):
                 print(failure.localizedDescription)

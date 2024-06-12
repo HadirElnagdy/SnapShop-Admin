@@ -30,7 +30,7 @@ struct DiscountCodesView: View {
                         showAlert.toggle()
                     }
                 })
-            }
+            }.listStyle(.plain)
             .alert(isPresented: $showAlert) {
                 Alert(
                     title: Text("Confirm Deletion"),

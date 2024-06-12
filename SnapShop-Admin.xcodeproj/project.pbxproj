@@ -40,7 +40,9 @@
 		043542AD2C037D1800DE7E6A /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542AC2C037D1700DE7E6A /* Products.swift */; };
 		043542B02C047E6E00DE7E6A /* ProductsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542AF2C047E6E00DE7E6A /* ProductsGrid.swift */; };
 		043542B22C0883D500DE7E6A /* CollectionsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542B12C0883D500DE7E6A /* CollectionsGrid.swift */; };
-		04CC29682C149DB700B8FB47 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC29672C149DB700B8FB47 /* SkeletonView.swift */; };
+		04C5994D2C1983F500D8E6EC /* ShoppingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C5994C2C1983F500D8E6EC /* ShoppingAnimation.json */; };
+		04C5994F2C19843000D8E6EC /* LoadingLottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5994E2C19843000D8E6EC /* LoadingLottieView.swift */; };
+		04C599522C19974400D8E6EC /* NetworkStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C599512C19974400D8E6EC /* NetworkStatusView.swift */; };
 		04CC296A2C149E6A00B8FB47 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC29692C149E6A00B8FB47 /* ListViewModel.swift */; };
 		04CC296C2C1594C100B8FB47 /* CellImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC296B2C1594C100B8FB47 /* CellImageView.swift */; };
 		04CC296E2C15AE4700B8FB47 /* AddPriceRuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC296D2C15AE4700B8FB47 /* AddPriceRuleView.swift */; };
@@ -113,7 +115,9 @@
 		043542AC2C037D1700DE7E6A /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		043542AF2C047E6E00DE7E6A /* ProductsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsGrid.swift; sourceTree = "<group>"; };
 		043542B12C0883D500DE7E6A /* CollectionsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsGrid.swift; sourceTree = "<group>"; };
-		04CC29672C149DB700B8FB47 /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
+		04C5994C2C1983F500D8E6EC /* ShoppingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ShoppingAnimation.json; sourceTree = "<group>"; };
+		04C5994E2C19843000D8E6EC /* LoadingLottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLottieView.swift; sourceTree = "<group>"; };
+		04C599512C19974400D8E6EC /* NetworkStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusView.swift; sourceTree = "<group>"; };
 		04CC29692C149E6A00B8FB47 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		04CC296B2C1594C100B8FB47 /* CellImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellImageView.swift; sourceTree = "<group>"; };
 		04CC296D2C15AE4700B8FB47 /* AddPriceRuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPriceRuleView.swift; sourceTree = "<group>"; };
@@ -236,7 +240,6 @@
 		043542782C03220700DE7E6A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				04CC29672C149DB700B8FB47 /* SkeletonView.swift */,
 				04F6B3F82BFE0A3C00EE890A /* ContentView.swift */,
 				763E529A2C0A7F5B002EFF95 /* Authentication */,
 				043542892C0326DE00DE7E6A /* Products */,
@@ -304,6 +307,8 @@
 		0435428C2C03271700DE7E6A /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				04C599502C19972600D8E6EC /* NetworkStatus */,
+				04C5994B2C197A3800D8E6EC /* Lotties */,
 				0400B1922C130E0A00C307D5 /* AppTextFields */,
 				0400B18A2C1300B500C307D5 /* AppImages */,
 				763E529B2C0A844D002EFF95 /* AppButtons */,
@@ -336,6 +341,7 @@
 		043542962C033DA300DE7E6A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				04C5994C2C1983F500D8E6EC /* ShoppingAnimation.json */,
 				043542A72C03453100DE7E6A /* Fonts */,
 				04F6B3FA2BFE0A4000EE890A /* Assets.xcassets */,
 			);
@@ -376,6 +382,22 @@
 				0400B1882C12FA1A00C307D5 /* AppGridView.swift */,
 			);
 			path = AppGrids;
+			sourceTree = "<group>";
+		};
+		04C5994B2C197A3800D8E6EC /* Lotties */ = {
+			isa = PBXGroup;
+			children = (
+				04C5994E2C19843000D8E6EC /* LoadingLottieView.swift */,
+			);
+			path = Lotties;
+			sourceTree = "<group>";
+		};
+		04C599502C19972600D8E6EC /* NetworkStatus */ = {
+			isa = PBXGroup;
+			children = (
+				04C599512C19974400D8E6EC /* NetworkStatusView.swift */,
+			);
+			path = NetworkStatus;
 			sourceTree = "<group>";
 		};
 		04F6B3EA2BFE0A3C00EE890A = {
@@ -591,6 +613,7 @@
 			files = (
 				0400B17A2C12EC5100C307D5 /* .gitignore in Resources */,
 				04F6B3FE2BFE0A4000EE890A /* Preview Assets.xcassets in Resources */,
+				04C5994D2C1983F500D8E6EC /* ShoppingAnimation.json in Resources */,
 				04F6B3FB2BFE0A4000EE890A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -720,10 +743,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				043542A62C0344C800DE7E6A /* AppFonts.swift in Sources */,
+				04C599522C19974400D8E6EC /* NetworkStatusView.swift in Sources */,
 				043542902C03297000DE7E6A /* CustomTabBarView.swift in Sources */,
 				0400B1912C130CCD00C307D5 /* AddCollectionView.swift in Sources */,
 				0400B19E2C13861C00C307D5 /* PriceRules.swift in Sources */,
 				043542AD2C037D1800DE7E6A /* Products.swift in Sources */,
+				04C5994F2C19843000D8E6EC /* LoadingLottieView.swift in Sources */,
 				0400B18F2C13024700C307D5 /* CollectionsViewModel.swift in Sources */,
 				763E529D2C0A8468002EFF95 /* AppButton.swift in Sources */,
 				0435427A2C03222700DE7E6A /* AddProductView.swift in Sources */,
@@ -741,7 +766,6 @@
 				04F6B3F92BFE0A3C00EE890A /* ContentView.swift in Sources */,
 				04F6B3F72BFE0A3C00EE890A /* SnapShop_AdminApp.swift in Sources */,
 				0400B1892C12FA1A00C307D5 /* AppGridView.swift in Sources */,
-				04CC29682C149DB700B8FB47 /* SkeletonView.swift in Sources */,
 				0400B1A72C138ACD00C307D5 /* DiscountCodesView.swift in Sources */,
 				0400B17E2C12EC9300C307D5 /* AppCommon.swift in Sources */,
 				763E52A32C0A9119002EFF95 /* AppTextField.swift in Sources */,

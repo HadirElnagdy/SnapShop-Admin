@@ -33,6 +33,7 @@ struct AddPriceRuleView: View {
                         }
                     }
                     .pickerStyle(MenuPickerStyle())
+                    Spacer()
                     
                 })
                 

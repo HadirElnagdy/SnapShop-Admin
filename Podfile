@@ -10,6 +10,7 @@ target 'SnapShop-Admin' do
 #pod "Apollo"
 pod 'Alamofire'
 pod 'ReachabilitySwift'
+pod 'lottie-ios'
 
   target 'SnapShop-AdminTests' do
     inherit! :search_paths
