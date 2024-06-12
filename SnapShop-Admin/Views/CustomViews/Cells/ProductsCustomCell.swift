@@ -18,7 +18,7 @@ struct ProductsCustomCell: View {
     var body: some View {
         GeometryReader { geometry in
             let screenWidth = geometry.size.width
-            let cellWidth = screenWidth * 0.9
+            let cellWidth = screenWidth
             let imageSide = cellWidth * 0.9
             let padding = (screenWidth - cellWidth) / 2
             
@@ -30,7 +30,6 @@ struct ProductsCustomCell: View {
                 productInfoView
             }
             .padding(.horizontal, padding)
-            .padding(.vertical, 10)
             .cornerRadius(10)
         }
     }

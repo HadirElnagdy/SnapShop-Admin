@@ -24,10 +24,13 @@ struct AddProductView: View {
     var body: some View {
         GeometryReader { geo in
             ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .center, spacing: 20) {
                     AppImageView(imageURL: productsViewModel.imageURLs.first, imageSide: geo.size.width * 0.92)
                     InputWithTitleView(title: "Name", placeholder: "Product Name", text: $productName)
-                    Text("Description")
+                    HStack{
+                        Text("Description")
+                        Spacer()
+                    }
                     TextEditor(text: $description)
                         .frame(height: 100)
                         .overlay(
@@ -47,6 +50,7 @@ struct AddProductView: View {
                             }
                         }
                         .pickerStyle(MenuPickerStyle())
+                        Spacer()
                     }
                     
                     HStack {
@@ -57,10 +61,14 @@ struct AddProductView: View {
                             }
                         }
                         .pickerStyle(MenuPickerStyle())
+                        Spacer()
                     }
                     
                     InputWithTitleView(title: "Tags", placeholder: "Classic, backpack", text: $tags)
-                    Text("Image URL")
+                    HStack{
+                        Text("Image URL")
+                        Spacer()
+                    }
                     HStack {
                         TextField("Image URL", text: $newImageURL)
                             .padding(10)

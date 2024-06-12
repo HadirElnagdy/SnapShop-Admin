@@ -21,7 +21,8 @@ struct ProductsGrid: View {
                                productCategory: product.productType ?? "",
                                productPrice: "\(product.variants?.first?.price ?? "") USD"){
                 deleteProduct(product)
-            }.frame(height: screenHeight*0.42)
+            }.frame(height: screenHeight * 0.40)
+                    .padding()
         }
         }
     }

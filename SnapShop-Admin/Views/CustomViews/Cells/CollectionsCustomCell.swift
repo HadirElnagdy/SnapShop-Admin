@@ -16,10 +16,10 @@ struct CollectionsCustomCell: View {
     var body: some View {
         GeometryReader { geometry in
             let screenWidth = geometry.size.width
-            let imageSide = screenWidth * 0.9 * 0.9
+            let imageSide = screenWidth * 0.9 
             VStack(alignment: .center){
                 CellImageView(imageURL: collectionImageURL, imageSide: imageSide, deleteAction: deleteAction)
-                    .frame(width: screenWidth * 0.8, height: screenWidth * 0.8)
+                    .frame(width: screenWidth * 0.9, height: screenWidth * 0.9)
                 Text(collectionName)
                     .font(.headline)
                 

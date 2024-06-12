@@ -14,8 +14,9 @@ struct SnapShop_AdminApp: App {
             ContentView()
                 .overlay(
                     NetworkStatusView()
-                        .frame(height: 50),
-                    alignment: .top
+                        .frame(height: 50)
+                        .ignoresSafeArea(),
+                    alignment: .bottom
                 )
         }
     }

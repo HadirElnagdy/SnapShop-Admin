@@ -11,6 +11,7 @@ import Foundation
 class PriceRulesViewModel: ObservableObject {
     
     @Published var priceRules = [PriceRule]()
+    @Published var isLoading = true
     
     func createPriceRule(rule: PriceRuleRequest){
         APIClient.createPriceRule(rule: rule) {[weak self] result in
@@ -29,6 +30,7 @@ class PriceRulesViewModel: ObservableObject {
             switch result {
             case .success(let response):
                 self?.priceRules = response.priceRules ?? []
+                self?.isLoading = false
             case .failure(let failure):
                 print("Error fetching priceRules: \(failure.localizedDescription)")
             }

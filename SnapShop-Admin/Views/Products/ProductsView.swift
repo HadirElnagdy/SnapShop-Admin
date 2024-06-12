@@ -19,9 +19,18 @@ struct ProductsView: View {
         NavigationStack {
             GeometryReader { geometry in
                 ScrollView {
-                    ProductsGrid(screenHeight: geometry.size.height, productsList: productsViewModel.productList, deleteProduct: { product in
-                        selectedProduct = product
-                    })
+                    if productsViewModel.isLoading{
+                        LoadingLottieView()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    }else{
+                        ProductsGrid(screenHeight: geometry.size.height, productsList: productsViewModel.productList, deleteProduct: { product in
+                            selectedProduct = product
+                        })
+                    }
+                    
+                }
+                .refreshable {
+                    productsViewModel.getProducts()
                 }
                 .navigationBarTitle("Products")
                 .toolbar {
@@ -52,10 +61,13 @@ struct ProductsView: View {
                 }
             }
         }
+       
     }
 }
 
-
+#Preview {
+    ProductsView()
+}
 
 
 

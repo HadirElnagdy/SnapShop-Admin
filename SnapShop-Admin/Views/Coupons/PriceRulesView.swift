@@ -17,19 +17,26 @@ struct PriceRulesView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                List {
-                    ForEach(viewModel.priceRules) { rule in
+            if viewModel.isLoading{
+                LoadingLottieView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .onAppear {
+                        viewModel.getPriceRules()
+                    }
+            }else{
+                VStack {
+                    List {
+                        ForEach(viewModel.priceRules) { rule in
                             PriceRuleCell(priceRule: rule)
                                 .listRowSeparator(.hidden)
-                    }
-                    .onDelete(perform: { indexSet in
-                        if let index = indexSet.first {
-                            deletionIndex = index
-                            showAlert.toggle()
                         }
-                    })
-                }
+                        .onDelete(perform: { indexSet in
+                            if let index = indexSet.first {
+                                deletionIndex = index
+                                showAlert.toggle()
+                            }
+                        })
+                    }
                     .listStyle(.plain)
                     .navigationBarTitle("Price Rules")
                     .toolbar {
@@ -47,9 +54,6 @@ struct PriceRulesView: View {
                             }
                         }
                     }
-                    .onAppear {
-                        viewModel.getPriceRules()
-                    }
                     .alert(isPresented: $showAlert) {
                         Alert(
                             title: Text("Confirm Deletion"),
@@ -66,6 +70,7 @@ struct PriceRulesView: View {
                             }
                         )
                     }
+                }
             }
         }
     }

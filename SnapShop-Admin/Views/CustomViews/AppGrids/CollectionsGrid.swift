@@ -19,7 +19,9 @@ struct CollectionsGrid: View {
             NavigationLink(destination: AddCollectionView(collectionsViewModel: viewModel, collection: collection)) {
                 CollectionsCustomCell(collectionName: collection.title!, collectionImageURL: collection.image?.src){
                     deleteCollection(collection)
-                }.frame(height: screenHeight*0.37)
+                        
+                }.frame(height: screenHeight * 0.31)
+                    .padding()
                     
             }
         }
