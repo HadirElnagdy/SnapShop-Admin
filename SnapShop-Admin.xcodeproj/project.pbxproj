@@ -49,6 +49,9 @@
 		04C5996A2C1B616200D8E6EC /* MockAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C599692C1B616200D8E6EC /* MockAPIClient.swift */; };
 		04C5996C2C1B65DA00D8E6EC /* APIClient_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5996B2C1B65DA00D8E6EC /* APIClient_Tests.swift */; };
 		04C5996E2C1B65EF00D8E6EC /* ProductsViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5996D2C1B65EF00D8E6EC /* ProductsViewModel_Tests.swift */; };
+		04C599702C1B6C8B00D8E6EC /* CollectionsViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5996F2C1B6C8B00D8E6EC /* CollectionsViewModel_Tests.swift */; };
+		04C599722C1B6C9F00D8E6EC /* PriceRulesViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C599712C1B6C9F00D8E6EC /* PriceRulesViewModel_Tests.swift */; };
+		04C599742C1B6CB100D8E6EC /* DiscountCodesViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C599732C1B6CB000D8E6EC /* DiscountCodesViewModel_Tests.swift */; };
 		04CC296C2C1594C100B8FB47 /* CellImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC296B2C1594C100B8FB47 /* CellImageView.swift */; };
 		04CC296E2C15AE4700B8FB47 /* AddPriceRuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC296D2C15AE4700B8FB47 /* AddPriceRuleView.swift */; };
 		04CC29702C15BAA800B8FB47 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC296F2C15BAA800B8FB47 /* DateFormatter.swift */; };
@@ -129,6 +132,9 @@
 		04C599692C1B616200D8E6EC /* MockAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIClient.swift; sourceTree = "<group>"; };
 		04C5996B2C1B65DA00D8E6EC /* APIClient_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient_Tests.swift; sourceTree = "<group>"; };
 		04C5996D2C1B65EF00D8E6EC /* ProductsViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel_Tests.swift; sourceTree = "<group>"; };
+		04C5996F2C1B6C8B00D8E6EC /* CollectionsViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewModel_Tests.swift; sourceTree = "<group>"; };
+		04C599712C1B6C9F00D8E6EC /* PriceRulesViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRulesViewModel_Tests.swift; sourceTree = "<group>"; };
+		04C599732C1B6CB000D8E6EC /* DiscountCodesViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodesViewModel_Tests.swift; sourceTree = "<group>"; };
 		04CC296B2C1594C100B8FB47 /* CellImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellImageView.swift; sourceTree = "<group>"; };
 		04CC296D2C15AE4700B8FB47 /* AddPriceRuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPriceRuleView.swift; sourceTree = "<group>"; };
 		04CC296F2C15BAA800B8FB47 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
@@ -432,6 +438,9 @@
 			isa = PBXGroup;
 			children = (
 				04C5996D2C1B65EF00D8E6EC /* ProductsViewModel_Tests.swift */,
+				04C5996F2C1B6C8B00D8E6EC /* CollectionsViewModel_Tests.swift */,
+				04C599712C1B6C9F00D8E6EC /* PriceRulesViewModel_Tests.swift */,
+				04C599732C1B6CB000D8E6EC /* DiscountCodesViewModel_Tests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -843,10 +852,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04C599722C1B6C9F00D8E6EC /* PriceRulesViewModel_Tests.swift in Sources */,
 				04C5996C2C1B65DA00D8E6EC /* APIClient_Tests.swift in Sources */,
 				04F6B4082BFE0A4100EE890A /* SnapShop_AdminTests.swift in Sources */,
 				04C5996E2C1B65EF00D8E6EC /* ProductsViewModel_Tests.swift in Sources */,
 				04C5996A2C1B616200D8E6EC /* MockAPIClient.swift in Sources */,
+				04C599702C1B6C8B00D8E6EC /* CollectionsViewModel_Tests.swift in Sources */,
+				04C599742C1B6CB100D8E6EC /* DiscountCodesViewModel_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
