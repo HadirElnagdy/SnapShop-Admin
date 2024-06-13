@@ -8,9 +8,8 @@
 import Foundation
 @testable import SnapShop_Admin
 
-
 class MockAPIClient: APIClientType {
-   
+
     static var shouldReturnError = false
     
     static func getAllProducts(completion: @escaping (Result<ProductsResponse, NetworkError>) -> Void) {
@@ -38,7 +37,7 @@ class MockAPIClient: APIClientType {
         }
     }
     
-    static func deleteProduct(productId: String, completion: @escaping (Result<Empty, NetworkError>) -> Void){
+    static func deleteProduct(productId: String, completion: @escaping (Result<Empty, NetworkError>) -> Void) {
         if shouldReturnError {
             completion(.failure(.other("Mock error!")))
         } else {
@@ -46,47 +45,87 @@ class MockAPIClient: APIClientType {
         }
     }
     
-    
-    static func getAllCollections(completion: @escaping (Result<SnapShop_Admin.CollectionsResponse, SnapShop_Admin.NetworkError>) -> Void) {
-        
+    static func getAllCollections(completion: @escaping (Result<CollectionsResponse, NetworkError>) -> Void) {
+        if shouldReturnError {
+            completion(.failure(.other("Mock error!")))
+        } else {
+            let collections = [Collection(id: 1, title: "Mock collection 1", bodyHTML: "Mock collection body HTML", image: nil)]
+            completion(.success(CollectionsResponse(collections: collections)))
+        }
     }
     
-    static func getPriceRules(completion: @escaping (Result<SnapShop_Admin.PriceRulesResponse, SnapShop_Admin.NetworkError>) -> Void) {
-        
+    static func getPriceRules(completion: @escaping (Result<PriceRulesResponse, NetworkError>) -> Void) {
+        if shouldReturnError {
+            completion(.failure(.other("Mock error!")))
+        } else {
+            let priceRules = [PriceRule(id: 1, title: "Mock price rule 1", valueType: "Percentage", value: "10")]
+            completion(.success(PriceRulesResponse(priceRules: priceRules)))
+        }
     }
     
-    static func getDiscountCodes(ruleId: String, completion: @escaping (Result<SnapShop_Admin.DiscountCodesResponse, SnapShop_Admin.NetworkError>) -> Void) {
-        
+    static func getDiscountCodes(ruleId: String, completion: @escaping (Result<DiscountCodesResponse, NetworkError>) -> Void) {
+        if shouldReturnError {
+            completion(.failure(.other("Mock error!")))
+        } else {
+            let discountCodes = [DiscountCode(id: 1, priceRuleId: 1, code: "MOCKCODE")]
+            completion(.success(DiscountCodesResponse(discountCodes: discountCodes)))
+        }
     }
     
-    static func deleteCollection(collectionId: String, completion: @escaping (Result<SnapShop_Admin.Empty, SnapShop_Admin.NetworkError>) -> Void) {
-        
+    static func deleteCollection(collectionId: String, completion: @escaping (Result<Empty, NetworkError>) -> Void) {
+        if shouldReturnError {
+            completion(.failure(.other("Mock error!")))
+        } else {
+            completion(.success(Empty()))
+        }
     }
     
-    static func deletePriceRule(ruleId: String, completion: @escaping (Result<SnapShop_Admin.Empty, SnapShop_Admin.NetworkError>) -> Void) {
-        
+    static func deletePriceRule(ruleId: String, completion: @escaping (Result<Empty, NetworkError>) -> Void) {
+        if shouldReturnError {
+            completion(.failure(.other("Mock error!")))
+        } else {
+            completion(.success(Empty()))
+        }
     }
     
-    static func deleteDiscountCodes(ruleId: String, codeId: String, completion: @escaping (Result<SnapShop_Admin.Empty, SnapShop_Admin.NetworkError>) -> Void) {
-        
+    static func deleteDiscountCodes(ruleId: String, codeId: String, completion: @escaping (Result<Empty, NetworkError>) -> Void) {
+        if shouldReturnError {
+            completion(.failure(.other("Mock error!")))
+        } else {
+            completion(.success(Empty()))
+        }
     }
     
-    static func createCollection(collection: SnapShop_Admin.CollectionRequest, completion: @escaping (Result<SnapShop_Admin.CollectionRequest, SnapShop_Admin.NetworkError>) -> Void) {
-        
+    static func createCollection(collection: CollectionRequest, completion: @escaping (Result<CollectionRequest, NetworkError>) -> Void) {
+        if shouldReturnError {
+            completion(.failure(.other("Mock error!")))
+        } else {
+            completion(.success(collection))
+        }
     }
     
-    static func createPriceRule(rule: SnapShop_Admin.PriceRuleRequest, completion: @escaping (Result<SnapShop_Admin.PriceRuleRequest, SnapShop_Admin.NetworkError>) -> Void) {
-        
+    static func createPriceRule(rule: PriceRuleRequest, completion: @escaping (Result<PriceRuleRequest, NetworkError>) -> Void) {
+        if shouldReturnError {
+            completion(.failure(.other("Mock error!")))
+        } else {
+            completion(.success(rule))
+        }
     }
     
-    static func createDiscountCodes(codes: SnapShop_Admin.DiscountCodesResponse, completion: @escaping (Result<SnapShop_Admin.DiscountCodeCreationResponse, SnapShop_Admin.NetworkError>) -> Void) {
-        
+    static func createDiscountCodes(codes: DiscountCodesResponse, completion: @escaping (Result<DiscountCodeCreationResponse, NetworkError>) -> Void) {
+        if shouldReturnError {
+            completion(.failure(.other("Mock error!")))
+        } else {
+            let response = DiscountCodeCreationResponse(discountCodeCreation: DiscountCodeCreation(id: 1, priceRuleID: 1, startedAt: "", completedAt: "", createdAt: "", updatedAt: "", status: "", codesCount: 2, importedCount: 2, failedCount: 0))
+            completion(.success(response))
+        }
     }
     
-    static func updateCollection(collection: SnapShop_Admin.CollectionRequest, completion: @escaping (Result<SnapShop_Admin.CollectionRequest, SnapShop_Admin.NetworkError>) -> Void) {
-        
+    static func updateCollection(collection: CollectionRequest, completion: @escaping (Result<CollectionRequest, NetworkError>) -> Void) {
+        if shouldReturnError {
+            completion(.failure(.other("Mock error!")))
+        } else {
+            completion(.success(collection))
+        }
     }
-    
-    
-    
 }
