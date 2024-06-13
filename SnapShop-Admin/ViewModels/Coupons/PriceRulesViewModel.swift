@@ -12,9 +12,15 @@ class PriceRulesViewModel: ObservableObject {
     
     @Published var priceRules = [PriceRule]()
     @Published var isLoading = true
+    var apiClient: APIClientType.Type
+    
+    init(apiClient: APIClientType.Type = APIClient.self) {
+        self.apiClient = apiClient
+    }
+    
     
     func createPriceRule(rule: PriceRuleRequest){
-        APIClient.createPriceRule(rule: rule) {[weak self] result in
+        apiClient.createPriceRule(rule: rule) {[weak self] result in
             switch result {
             case .success(let createdRule):
                 self?.priceRules.append(createdRule.priceRule)
@@ -26,7 +32,7 @@ class PriceRulesViewModel: ObservableObject {
     }
     
     func getPriceRules(){
-        APIClient.getPriceRules { [weak self] result in
+        apiClient.getPriceRules { [weak self] result in
             switch result {
             case .success(let response):
                 self?.priceRules = response.priceRules ?? []
@@ -38,7 +44,7 @@ class PriceRulesViewModel: ObservableObject {
     }
     
     func deletePriceRule(ruleId: String) {
-        APIClient.deletePriceRule(ruleId: ruleId) { result in
+        apiClient.deletePriceRule(ruleId: ruleId) { result in
             switch result {
             case .success:
                 print("Price rule Deleted Successfully!")

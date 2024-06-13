@@ -11,9 +11,15 @@ import Foundation
 class DiscountCodeViewModel: ObservableObject {
     
     @Published var discountCodes = [DiscountCode]()
+    var apiClient: APIClientType.Type
+    
+    init(apiClient: APIClientType.Type = APIClient.self) {
+        self.apiClient = apiClient
+    }
+    
     
     func getDiscountCodes(ruleId: String) {
-        APIClient.getDiscountCodes(ruleId: ruleId) { [weak self] result in
+        apiClient.getDiscountCodes(ruleId: ruleId) { [weak self] result in
             print("Fetching codes ...")
             switch result {
             case .success(let codes):
@@ -27,7 +33,7 @@ class DiscountCodeViewModel: ObservableObject {
     
     func createDiscountCode(ruleId: Int, code: String) {
         let dicountCodeRequest = DiscountCodesResponse(discountCodes: [DiscountCode(priceRuleId: ruleId, code: code)])
-        APIClient.createDiscountCodes(codes: dicountCodeRequest) {[weak self] result in
+        apiClient.createDiscountCodes(codes: dicountCodeRequest) {[weak self] result in
             switch result {
             case .success(let response):
                 let createdCode = DiscountCode(id: response.discountCodeCreation.id, priceRuleId: response.discountCodeCreation.priceRuleID, code: code)
@@ -40,7 +46,7 @@ class DiscountCodeViewModel: ObservableObject {
     
     
     func deleteDiscountCode(ruleId: String, codeId: String) {
-        APIClient.deleteDiscountCodes(ruleId: ruleId, codeId: codeId) { result in
+        apiClient.deleteDiscountCodes(ruleId: ruleId, codeId: codeId) { result in
             switch result {
             case .success:
                 print("Discount code deleted successfully!")

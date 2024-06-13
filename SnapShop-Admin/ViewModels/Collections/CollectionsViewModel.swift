@@ -14,9 +14,15 @@ class CollectionsViewModel: ObservableObject {
     @Published var collectionImageURL: String = ""
     @Published var collectionName: String = ""
     
+    var apiClient: APIClientType.Type
+    
+    init(apiClient: APIClientType.Type = APIClient.self) {
+        self.apiClient = apiClient
+    }
+    
     func createCollection() {
         let collection = CollectionRequest(collection: Collection(title: collectionName.uppercased(), image: CollectionImage(src: collectionImageURL)))
-        APIClient.createCollection(collection: collection) { [weak self] result in
+        apiClient.createCollection(collection: collection) { [weak self] result in
             switch result {
             case .success(let createdCollection):
                 self?.collections.append(createdCollection.collection)
@@ -29,7 +35,7 @@ class CollectionsViewModel: ObservableObject {
     
     func getCollections() {
         print("Fetching collections...")
-        APIClient.getAllCollections { [weak self] result in
+        apiClient.getAllCollections { [weak self] result in
             switch result {
             case .success(let success):
                 self?.isLoading = false
@@ -41,7 +47,7 @@ class CollectionsViewModel: ObservableObject {
     }
     
     func updateCollection(collection: CollectionRequest) {
-        APIClient.updateCollection(collection: collection) { [weak self] result in
+        apiClient.updateCollection(collection: collection) { [weak self] result in
             switch result {
             case .success(let updatedCollection):
                 self?.getCollections()
@@ -56,7 +62,7 @@ class CollectionsViewModel: ObservableObject {
         if let index = collections.firstIndex(where: { $0.id == collection.id }) {
             collections.remove(at: index)
         }
-        APIClient.deleteCollection(collectionId: "\(collection.id ?? 0)") { result in
+        apiClient.deleteCollection(collectionId: "\(collection.id ?? 0)") { result in
             switch result {
             case .success:
                 print("Collection Deleted Successfully!")

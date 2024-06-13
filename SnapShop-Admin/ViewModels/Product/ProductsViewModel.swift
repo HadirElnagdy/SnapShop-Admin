@@ -14,9 +14,15 @@ class ProductsViewModel: ObservableObject {
     @Published var imageURLs: [String] = []
     @Published var isLoading = true
     
+    var apiClient: APIClientType.Type
+    
+    init(apiClient: APIClientType.Type = APIClient.self) {
+        self.apiClient = apiClient
+    }
+    
     func getProducts() {
         print("Fetching data...")
-        APIClient.getAllProducts{[weak self] result in
+        apiClient.getAllProducts{[weak self] result in
             switch result {
             case .success(let success):
                 self?.isLoading = false
@@ -28,7 +34,7 @@ class ProductsViewModel: ObservableObject {
     }
     
     func createProduct(product: ProductRequest) {
-            APIClient.createProduct(product: product) {[weak self] result in
+        apiClient.createProduct(product: product) {[weak self] result in
                 switch result {
                 case .success(let createdProduct):
                     print("Product created: \(createdProduct.product)")
@@ -40,7 +46,7 @@ class ProductsViewModel: ObservableObject {
         }
     
     func updateProduct(product: ProductRequest) {
-        APIClient.updateProduct(product: product) {[weak self] result in
+        apiClient.updateProduct(product: product) {[weak self] result in
             switch result {
             case .success(let updatedProduct):
                 print("Product updated: \(updatedProduct.product)")
@@ -55,7 +61,7 @@ class ProductsViewModel: ObservableObject {
         if let index = productList.firstIndex(where: { $0.id == product.id }) {
                     productList.remove(at: index)
                 }
-        APIClient.deleteProduct(productId: "\(product.id ?? 0)") { result in
+        apiClient.deleteProduct(productId: "\(product.id ?? 0)") { result in
             switch result {
             case .success(_):
                 print("Product Deleted Successfully!")

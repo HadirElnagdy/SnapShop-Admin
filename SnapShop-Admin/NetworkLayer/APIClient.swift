@@ -11,25 +11,25 @@ import Alamofire
 struct Empty: Codable {}
 
 protocol APIClientType {
-    func getAllProducts(completion: @escaping (Result<ProductsResponse, NetworkError>) -> Void)
-    func getAllCollections(completion: @escaping (Result<CollectionsResponse, NetworkError>) -> Void)
-    func getPriceRules(completion: @escaping (Result<PriceRulesResponse, NetworkError>) -> Void)
-    func getDiscountCodes(ruleId: String, completion: @escaping (Result<DiscountCodesResponse, NetworkError>) -> Void)
-    func deleteProduct(productId: String, completion: @escaping (Result<Empty, NetworkError>) -> Void)
-    func deleteCollection(collectionId: String, completion: @escaping (Result<Empty, NetworkError>) -> Void)
-    func deletePriceRule(ruleId: String, completion: @escaping (Result<Empty, NetworkError>) -> Void)
-    func deleteDiscountCodes(ruleId: String, codeId: String, completion: @escaping (Result<Empty, NetworkError>) -> Void)
-    func createProduct(product: ProductRequest, completion: @escaping (Result<ProductRequest, NetworkError>) -> Void)
-    func createCollection(collection: CollectionRequest, completion: @escaping (Result<CollectionRequest, NetworkError>) -> Void)
-    func createPriceRule(rule: PriceRuleRequest, completion: @escaping (Result<PriceRuleRequest, NetworkError>) -> Void)
-    func createDiscountCodes(codes: DiscountCodesResponse, completion: @escaping (Result<DiscountCodeCreationResponse, NetworkError>) -> Void)
-    func updateProduct(product: ProductRequest, completion: @escaping (Result<ProductRequest, NetworkError>) -> Void)
-    func updateCollection(collection: CollectionRequest, completion: @escaping (Result<CollectionRequest, NetworkError>) -> Void)
+    static func getAllProducts(completion: @escaping (Result<ProductsResponse, NetworkError>) -> Void)
+    static func getAllCollections(completion: @escaping (Result<CollectionsResponse, NetworkError>) -> Void)
+    static func getPriceRules(completion: @escaping (Result<PriceRulesResponse, NetworkError>) -> Void)
+    static func getDiscountCodes(ruleId: String, completion: @escaping (Result<DiscountCodesResponse, NetworkError>) -> Void)
+    static func deleteProduct(productId: String, completion: @escaping (Result<Empty, NetworkError>) -> Void)
+    static func deleteCollection(collectionId: String, completion: @escaping (Result<Empty, NetworkError>) -> Void)
+    static func deletePriceRule(ruleId: String, completion: @escaping (Result<Empty, NetworkError>) -> Void)
+    static func deleteDiscountCodes(ruleId: String, codeId: String, completion: @escaping (Result<Empty, NetworkError>) -> Void)
+    static func createProduct(product: ProductRequest, completion: @escaping (Result<ProductRequest, NetworkError>) -> Void)
+    static func createCollection(collection: CollectionRequest, completion: @escaping (Result<CollectionRequest, NetworkError>) -> Void)
+    static func createPriceRule(rule: PriceRuleRequest, completion: @escaping (Result<PriceRuleRequest, NetworkError>) -> Void)
+    static func createDiscountCodes(codes: DiscountCodesResponse, completion: @escaping (Result<DiscountCodeCreationResponse, NetworkError>) -> Void)
+    static func updateProduct(product: ProductRequest, completion: @escaping (Result<ProductRequest, NetworkError>) -> Void)
+    static func updateCollection(collection: CollectionRequest, completion: @escaping (Result<CollectionRequest, NetworkError>) -> Void)
 }
 
 
-class APIClient {
-    
+class APIClient: APIClientType {
+   
     private static func performRequest<T: Decodable> (route: APIRoute, completion: @escaping (Result<T, NetworkError>) -> Void) {
         guard AppCommon.shared.isNetworkReachable() else {
             completion(.failure(.networkUnreachable))
