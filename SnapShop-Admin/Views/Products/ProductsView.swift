@@ -13,6 +13,7 @@ struct ProductsView: View {
     @State var openAddProductView: Bool = false
     @State var searchQuery = ""
     @ObservedObject var productsViewModel = ProductsViewModel()
+    @ObservedObject var collectionsViewModel = CollectionsViewModel()
     @State var selectedProduct: Product? = nil
     
     var body: some View {

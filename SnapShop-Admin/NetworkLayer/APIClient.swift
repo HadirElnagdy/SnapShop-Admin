@@ -8,6 +8,25 @@
 import Foundation
 import Alamofire
 
+struct Empty: Codable {}
+
+protocol APIClientType {
+    func getAllProducts(completion: @escaping (Result<ProductsResponse, NetworkError>) -> Void)
+    func getAllCollections(completion: @escaping (Result<CollectionsResponse, NetworkError>) -> Void)
+    func getPriceRules(completion: @escaping (Result<PriceRulesResponse, NetworkError>) -> Void)
+    func getDiscountCodes(ruleId: String, completion: @escaping (Result<DiscountCodesResponse, NetworkError>) -> Void)
+    func deleteProduct(productId: String, completion: @escaping (Result<Empty, NetworkError>) -> Void)
+    func deleteCollection(collectionId: String, completion: @escaping (Result<Empty, NetworkError>) -> Void)
+    func deletePriceRule(ruleId: String, completion: @escaping (Result<Empty, NetworkError>) -> Void)
+    func deleteDiscountCodes(ruleId: String, codeId: String, completion: @escaping (Result<Empty, NetworkError>) -> Void)
+    func createProduct(product: ProductRequest, completion: @escaping (Result<ProductRequest, NetworkError>) -> Void)
+    func createCollection(collection: CollectionRequest, completion: @escaping (Result<CollectionRequest, NetworkError>) -> Void)
+    func createPriceRule(rule: PriceRuleRequest, completion: @escaping (Result<PriceRuleRequest, NetworkError>) -> Void)
+    func createDiscountCodes(codes: DiscountCodesResponse, completion: @escaping (Result<DiscountCodeCreationResponse, NetworkError>) -> Void)
+    func updateProduct(product: ProductRequest, completion: @escaping (Result<ProductRequest, NetworkError>) -> Void)
+    func updateCollection(collection: CollectionRequest, completion: @escaping (Result<CollectionRequest, NetworkError>) -> Void)
+}
+
 
 class APIClient {
     

@@ -10,7 +10,6 @@ import SwiftUI
 struct AddProductView: View {
     
     @ObservedObject var productsViewModel = ProductsViewModel()
-    @ObservedObject var collectionsViewModel = CollectionsViewModel()
     @Environment(\.dismiss) var dismiss
     var product: Product? = nil
     @State private var productName: String = ""
@@ -19,6 +18,7 @@ struct AddProductView: View {
     @State private var availableQuantity  = ""
     @State private var selectedProductType: ProductType = .accessories
     @State private var tags = ""
+    @State private var selectedCollection = ""
     @State private var newImageURL: String = ""
     
     var body: some View {
@@ -27,92 +27,19 @@ struct AddProductView: View {
                 VStack(alignment: .center, spacing: 20) {
                     AppImageView(imageURL: productsViewModel.imageURLs.first, imageSide: geo.size.width * 0.92)
                     InputWithTitleView(title: "Name", placeholder: "Product Name", text: $productName)
-                    HStack{
-                        Text("Description")
-                        Spacer()
-                    }
-                    TextEditor(text: $description)
-                        .frame(height: 100)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.gray, lineWidth: 1)
-                        )
-                    
+                    TextEditorWithTitle(title: "Description", text: $description)
                     InputWithTitleView(title: "Price", placeholder: "300", text: $price)
                     InputWithTitleView(title: "Available Quantity", placeholder: "30", text: $availableQuantity)
-                    
-                    HStack {
-                        Text("Collection: ")
-                        Picker("Select a collection", selection: $productsViewModel.selectedCollection) {
-                            ForEach(collectionsViewModel.collections, id: \.title) { collection in
-                                Text(collection.title ?? "")
-                                    .tag(collection.title ?? "")
-                            }
-                        }
-                        .pickerStyle(MenuPickerStyle())
-                        Spacer()
-                    }
-                    
-                    HStack {
-                        Text("Product Type: ")
-                        Picker("Product Type", selection: $selectedProductType) {
-                            ForEach(ProductType.allCases, id: \.self) { productType in
-                                Text(productType.rawValue).tag(productType)
-                            }
-                        }
-                        .pickerStyle(MenuPickerStyle())
-                        Spacer()
-                    }
-                    
+                    InputWithTitleView(title: "Collection", placeholder: "ADIDAS", text: $selectedCollection)
+                    ProductsPickerView(selection: $selectedProductType)
                     InputWithTitleView(title: "Tags", placeholder: "Classic, backpack", text: $tags)
-                    HStack{
-                        Text("Image URL")
-                        Spacer()
-                    }
-                    HStack {
-                        TextField("Image URL", text: $newImageURL)
-                            .padding(10)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 5)
-                                    .stroke(Color.gray, lineWidth: 1.5)
-                            )
-                            .padding(.bottom, 10)
-                        Button {
-                            guard !newImageURL.isEmpty else { return }
-                            productsViewModel.imageURLs.append(newImageURL)
-                            newImageURL = ""
-                        } label: {
-                            Image(systemName: "plus")
-                                .font(.title3)
-                        }
-                    }
-                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
-                        ForEach(productsViewModel.imageURLs, id: \.self) { imageURL in
-                            CellImageView(imageURL: imageURL, imageSide: geo.size.width * 0.3 , deleteAction: {
-                                if let index = productsViewModel.imageURLs.firstIndex(of: imageURL) {
-                                    productsViewModel.imageURLs.remove(at: index)
-                                }
-                            })
-                        }
-                    }
+                    
+                    ImageURLInputView(newImageURL: $newImageURL, imageURLs: $productsViewModel.imageURLs)
+                    
+                    ImageGridView(imageURLs: $productsViewModel.imageURLs, geo: geo)
                     
                     AppButton(text: product == nil ? "Add Product" : "Update Product", width: geo.size.width * 0.9, height: geo.size.height * 0.06, isFilled: true) {
-                        let productId = product == nil ? nil : product?.id
-                        let productImages = productsViewModel.imageURLs.map { ProductImage(src: $0) }
-                        let productRequest = ProductRequest(product: Product(id: productId,
-                            title: "\(productsViewModel.selectedCollection) | \(productName) | ",
-                            description: description,
-                            vendor: productsViewModel.selectedCollection,
-                            productType: selectedProductType.rawValue,
-                            tags: tags,
-                            variants: [Variant(price: "\(price) EGP", inventoryQuantity: Int(availableQuantity))],
-                            images: productImages
-                        ))
-                        if product == nil {
-                            productsViewModel.createProduct(product: productRequest)
-                        }else{
-                            productsViewModel.updateProduct(product: productRequest)
-                        }
+                        saveProduct()
                         dismiss()
                     }
                     .padding(.bottom, 50)
@@ -120,40 +47,138 @@ struct AddProductView: View {
                 .padding()
             }
             .onAppear {
-                collectionsViewModel.getCollections()
-                productsViewModel.imageURLs = []
-                if let firstCollection = collectionsViewModel.collections.first?.title {
-                    productsViewModel.selectedCollection = firstCollection
-                } else {
-                    productsViewModel.selectedCollection = "Loading..."
-                }
-                
-                if let product = product {
-                    productName = extractBrandAndTitle(from: product.title).title ?? ""
-                    description = product.description ?? ""
-                    price = product.variants?.first?.price ?? ""
-                    availableQuantity = "\(product.variants?.first?.inventoryQuantity ?? 0)"
-                    selectedProductType = ProductType(rawValue: product.productType ?? "") ?? .accessories
-                    tags = product.tags ?? ""
-                    productsViewModel.selectedCollection = extractBrandAndTitle(from: product.title).brand ?? ""
-                    if let images = product.images {
-                        productsViewModel.imageURLs = images.map { $0.src ?? "" }
-                    }
-                }
+                setupView()
             }
         }
     }
     
-    func extractBrandAndTitle(from string: String?) -> (brand: String?, title: String?) {
-        let components = string?.split(separator: "|").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
-        
-        let brand = ((components?.indices.contains(0)) != nil) ? components?[0] : nil
-        let title = ((components?.indices.contains(1)) != nil) ? components?[1] : nil
-        
-        return (brand, title)
+    
+    
+    private func setupView() {
+        productsViewModel.imageURLs = []
+        if let product = product {
+            populateFields(with: product)
+        } else {
+            
+        }
+    }
+    
+    private func populateFields(with product: Product) {
+        productName = product.title?.extractBrandAndTitle().title ?? ""
+        description = product.description ?? ""
+        price = product.variants?.first?.price ?? ""
+        availableQuantity = "\(product.variants?.first?.inventoryQuantity ?? 0)"
+        selectedProductType = ProductType(rawValue: product.productType ?? "") ?? .accessories
+        tags = product.tags ?? ""
+        selectedCollection = product.title?.extractBrandAndTitle().brand ?? ""
+        if let images = product.images {
+            productsViewModel.imageURLs = images.map { $0.src ?? "" }
+        }
+    }
+    
+    private func saveProduct() {
+        let productId = product?.id
+        let productImages = productsViewModel.imageURLs.map { ProductImage(src: $0) }
+        let productRequest = ProductRequest(product: Product(id: productId,
+                                                             title: "\(selectedCollection.uppercased()) | \(productName) | ",
+                                                             description: description,
+                                                             vendor: selectedCollection.uppercased(),
+                                                             productType: selectedProductType.rawValue,
+                                                             tags: tags,
+                                                             variants: [Variant(price: "\(price) EGP", inventoryQuantity: Int(availableQuantity) ?? 0)],
+                                                             images: productImages
+                                                            ))
+        if product == nil {
+            productsViewModel.createProduct(product: productRequest)
+        } else {
+            productsViewModel.updateProduct(product: productRequest)
+        }
     }
 }
 
+struct TextEditorWithTitle: View {
+    let title: String
+    @Binding var text: String
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text(title)
+            TextEditor(text: $text)
+                .frame(height: 100)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.gray, lineWidth: 1)
+                )
+        }
+    }
+}
+
+struct ImageGridView: View {
+    @Binding var imageURLs: [String]
+    let geo: GeometryProxy
+    
+    var body: some View {
+        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
+            ForEach(imageURLs, id: \.self) { imageURL in
+                CellImageView(imageURL: imageURL, imageSide: geo.size.width * 0.3, deleteAction: {
+                    if let index = imageURLs.firstIndex(of: imageURL) {
+                        imageURLs.remove(at: index)
+                    }
+                })
+            }
+        }
+    }
+}
+
+struct ImageURLInputView: View {
+    @Binding var newImageURL: String
+    @Binding var imageURLs: [String]
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Image URL")
+            HStack {
+                TextField("Image URL", text: $newImageURL)
+                    .padding(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color.gray, lineWidth: 1.5)
+                    )
+                Button(action: addImageURL) {
+                    Image(systemName: "plus")
+                        .font(.title3)
+                }
+            }
+        }
+        .padding(.bottom, 10)
+    }
+    
+    private func addImageURL() {
+        guard !newImageURL.isEmpty else { return }
+        imageURLs.append(newImageURL)
+        newImageURL = ""
+    }
+}
+
+struct ProductsPickerView: View {
+    
+    
+    @Binding var selection: ProductType
+
+    var body: some View {
+        HStack(spacing: 10) {
+            Text("Product Type")
+            Picker("Product Type", selection: $selection) {
+                ForEach(ProductType.allCases, id: \.self) { type in
+                    Text("\(type.rawValue)")
+                        .tag(type)
+                }
+            }
+            .pickerStyle(MenuPickerStyle())
+            Spacer()
+        }
+    }
+}
 
 #Preview {
     AddProductView(productsViewModel: ProductsViewModel())

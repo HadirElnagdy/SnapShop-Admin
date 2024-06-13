@@ -12,7 +12,6 @@ class ProductsViewModel: ObservableObject {
     @Published var productList = [Product]()
     @Published var featuredImage = ""
     @Published var imageURLs: [String] = []
-    @Published var selectedCollection = ""
     @Published var isLoading = true
     
     func getProducts() {

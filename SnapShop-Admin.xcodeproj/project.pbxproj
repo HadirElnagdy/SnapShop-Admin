@@ -43,6 +43,9 @@
 		04C5994D2C1983F500D8E6EC /* ShoppingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C5994C2C1983F500D8E6EC /* ShoppingAnimation.json */; };
 		04C5994F2C19843000D8E6EC /* LoadingLottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5994E2C19843000D8E6EC /* LoadingLottieView.swift */; };
 		04C599522C19974400D8E6EC /* NetworkStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C599512C19974400D8E6EC /* NetworkStatusView.swift */; };
+		04C5995E2C1B1D1700D8E6EC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5995D2C1B1D1700D8E6EC /* Constants.swift */; };
+		04C599602C1B465E00D8E6EC /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5995F2C1B465E00D8E6EC /* String+Helpers.swift */; };
+		04C599622C1B470600D8E6EC /* AppPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C599612C1B470600D8E6EC /* AppPickerView.swift */; };
 		04CC296A2C149E6A00B8FB47 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC29692C149E6A00B8FB47 /* ListViewModel.swift */; };
 		04CC296C2C1594C100B8FB47 /* CellImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC296B2C1594C100B8FB47 /* CellImageView.swift */; };
 		04CC296E2C15AE4700B8FB47 /* AddPriceRuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC296D2C15AE4700B8FB47 /* AddPriceRuleView.swift */; };
@@ -118,6 +121,9 @@
 		04C5994C2C1983F500D8E6EC /* ShoppingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ShoppingAnimation.json; sourceTree = "<group>"; };
 		04C5994E2C19843000D8E6EC /* LoadingLottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLottieView.swift; sourceTree = "<group>"; };
 		04C599512C19974400D8E6EC /* NetworkStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusView.swift; sourceTree = "<group>"; };
+		04C5995D2C1B1D1700D8E6EC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		04C5995F2C1B465E00D8E6EC /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
+		04C599612C1B470600D8E6EC /* AppPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPickerView.swift; sourceTree = "<group>"; };
 		04CC29692C149E6A00B8FB47 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		04CC296B2C1594C100B8FB47 /* CellImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellImageView.swift; sourceTree = "<group>"; };
 		04CC296D2C15AE4700B8FB47 /* AddPriceRuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPriceRuleView.swift; sourceTree = "<group>"; };
@@ -253,12 +259,14 @@
 		043542802C03244500DE7E6A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				04C5995D2C1B1D1700D8E6EC /* Constants.swift */,
 				043542822C03246E00DE7E6A /* AppColors.swift */,
 				043542A52C0344C800DE7E6A /* AppFonts.swift */,
 				763E52A02C0A8A85002EFF95 /* AppTextFieldValidator.swift */,
 				0400B17B2C12EC7100C307D5 /* Constants.swift */,
 				0400B17D2C12EC9300C307D5 /* AppCommon.swift */,
 				04CC296F2C15BAA800B8FB47 /* DateFormatter.swift */,
+				04C5995F2C1B465E00D8E6EC /* String+Helpers.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -485,6 +493,7 @@
 			isa = PBXGroup;
 			children = (
 				763E529C2C0A8468002EFF95 /* AppButton.swift */,
+				04C599612C1B470600D8E6EC /* AppPickerView.swift */,
 			);
 			path = AppButtons;
 			sourceTree = "<group>";
@@ -746,6 +755,7 @@
 				04C599522C19974400D8E6EC /* NetworkStatusView.swift in Sources */,
 				043542902C03297000DE7E6A /* CustomTabBarView.swift in Sources */,
 				0400B1912C130CCD00C307D5 /* AddCollectionView.swift in Sources */,
+				04C599602C1B465E00D8E6EC /* String+Helpers.swift in Sources */,
 				0400B19E2C13861C00C307D5 /* PriceRules.swift in Sources */,
 				043542AD2C037D1800DE7E6A /* Products.swift in Sources */,
 				04C5994F2C19843000D8E6EC /* LoadingLottieView.swift in Sources */,
@@ -765,12 +775,14 @@
 				0400B1A92C138BAA00C307D5 /* DiscountCodesViewModel.swift in Sources */,
 				04F6B3F92BFE0A3C00EE890A /* ContentView.swift in Sources */,
 				04F6B3F72BFE0A3C00EE890A /* SnapShop_AdminApp.swift in Sources */,
+				04C599622C1B470600D8E6EC /* AppPickerView.swift in Sources */,
 				0400B1892C12FA1A00C307D5 /* AppGridView.swift in Sources */,
 				0400B1A72C138ACD00C307D5 /* DiscountCodesView.swift in Sources */,
 				0400B17E2C12EC9300C307D5 /* AppCommon.swift in Sources */,
 				763E52A32C0A9119002EFF95 /* AppTextField.swift in Sources */,
 				04CC296E2C15AE4700B8FB47 /* AddPriceRuleView.swift in Sources */,
 				0400B1A32C13877B00C307D5 /* DiscountCodes.swift in Sources */,
+				04C5995E2C1B1D1700D8E6EC /* Constants.swift in Sources */,
 				0400B1762C12EBF400C307D5 /* ProductsViewModel.swift in Sources */,
 				04CC296C2C1594C100B8FB47 /* CellImageView.swift in Sources */,
 				043542A42C03440E00DE7E6A /* PriceRulesView.swift in Sources */,

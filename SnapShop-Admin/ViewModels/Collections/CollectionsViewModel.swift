@@ -15,7 +15,7 @@ class CollectionsViewModel: ObservableObject {
     @Published var collectionName: String = ""
     
     func createCollection() {
-        let collection = CollectionRequest(collection: Collection(title: collectionName, image: CollectionImage(src: collectionImageURL)))
+        let collection = CollectionRequest(collection: Collection(title: collectionName.uppercased(), image: CollectionImage(src: collectionImageURL)))
         APIClient.createCollection(collection: collection) { [weak self] result in
             switch result {
             case .success(let createdCollection):
