@@ -26,6 +26,7 @@ final class ProductsViewModel_Tests: XCTestCase {
     func testGetProductsSuccess() {
         // Given
         let expectation = XCTestExpectation(description: "Fetch products successfully")
+        MockAPIClient.shouldReturnError = false
         
         // When
         viewModel.getProducts()
@@ -39,6 +40,25 @@ final class ProductsViewModel_Tests: XCTestCase {
         
         wait(for: [expectation], timeout: 2.0)
     }
+    
+    
+    func testGetProductsFailure() {
+        //Given
+           MockAPIClient.shouldReturnError = true
+           let expectation = self.expectation(description: "Products fetch failed")
+           
+        //When
+           viewModel.getProducts()
+           
+        //Then
+           DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+               XCTAssertTrue(self.viewModel.isLoading)
+               XCTAssertEqual(self.viewModel.productList.count, 0)
+               expectation.fulfill()
+           }
+           
+           waitForExpectations(timeout: 5, handler: nil)
+       }
     
     func testCreateProductSuccess() {
         // Given
@@ -58,23 +78,6 @@ final class ProductsViewModel_Tests: XCTestCase {
         wait(for: [expectation], timeout: 2.0)
     }
     
-    func testUpdateProductSuccess() {
-        // Given
-        let expectation = XCTestExpectation(description: "Create product successfully")
-        
-        // When
-        let updatedProduct = Product(id: 1, title: "Testing Product", description: "Testing Product description", vendor: "Testing Product vendor", productType: "Testing Product type", tags: "Testing Product tags", variants: [Variant(price: "30", inventoryQuantity: 11)], images: nil)
-        viewModel.createProduct(product: ProductRequest(product: updatedProduct))
-        
-        // Then
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            XCTAssertEqual(self.viewModel.productList.last?.id, updatedProduct.id)
-            XCTAssertEqual(self.viewModel.productList.last?.title, updatedProduct.title)
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 2.0)
-    }
     
     func testDeleteProductSuccess() {
         // Given
