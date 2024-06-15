@@ -8,12 +8,14 @@
 import Foundation
 import Reachability
 import SwiftUI
+import Network
 
-class AppCommon{
+class AppCommon: ObservableObject{
     
     public static let shared = AppCommon()
 
     private let reachability = try! Reachability()
+    @Published var networkIsReachable = true
 
     private init() {
         startMonitoring()
@@ -39,9 +41,8 @@ class AppCommon{
     }
     
  
-    
-
 
     
 }
     
+

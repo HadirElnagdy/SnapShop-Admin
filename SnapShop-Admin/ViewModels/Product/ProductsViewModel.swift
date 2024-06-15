@@ -13,6 +13,7 @@ class ProductsViewModel: ObservableObject {
     @Published var featuredImage = ""
     @Published var imageURLs: [String] = []
     @Published var isLoading = true
+    @Published var userError: NetworkError? = nil
     
     var apiClient: APIClientType.Type
     
@@ -26,9 +27,13 @@ class ProductsViewModel: ObservableObject {
             switch result {
             case .success(let success):
                 self?.isLoading = false
+                self?.userError = nil
                 self?.productList = success.products ?? []
             case .failure(let failure):
+                self?.isLoading = false
+                self?.userError = failure
                 print(failure.localizedDescription)
+                
             }
         }
     }
@@ -39,7 +44,9 @@ class ProductsViewModel: ObservableObject {
                 case .success(let createdProduct):
                     print("Product created: \(createdProduct.product)")
                     self?.productList.append(createdProduct.product)
+                    self?.userError = nil
                 case .failure(let error):
+                    self?.userError = error
                     print("Failed to create product: \(error.localizedDescription)")
                 }
             }
@@ -50,22 +57,26 @@ class ProductsViewModel: ObservableObject {
             switch result {
             case .success(let updatedProduct):
                 print("Product updated: \(updatedProduct.product)")
+                self?.userError = nil
                 self?.getProducts()
             case .failure(let error):
+                self?.userError = error
                 print("Failed to update product: \(error.localizedDescription)")
             }
         }
     }
     
     func deleteProduct(product: Product){
-        if let index = productList.firstIndex(where: { $0.id == product.id }) {
-                    productList.remove(at: index)
-                }
-        apiClient.deleteProduct(productId: "\(product.id ?? 0)") { result in
+        apiClient.deleteProduct(productId: "\(product.id ?? 0)") {[weak self] result in
             switch result {
             case .success(_):
                 print("Product Deleted Successfully!")
+                if let index = self?.productList.firstIndex(where: { $0.id == product.id }) {
+                    self?.productList.remove(at: index)
+                        }
+                self?.userError = nil
             case .failure(let error):
+                self?.userError = error
                 print("Failed to delete product: \(error.localizedDescription)")
             }
         }

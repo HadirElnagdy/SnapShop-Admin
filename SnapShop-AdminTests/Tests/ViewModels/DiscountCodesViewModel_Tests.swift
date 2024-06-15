@@ -6,30 +6,115 @@
 //
 
 import XCTest
+@testable import SnapShop_Admin
 
 final class DiscountCodesViewModel_Tests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var viewModel: DiscountCodeViewModel!
+    
+    
+    override func setUp() {
+        super.setUp()
+        viewModel = DiscountCodeViewModel(apiClient: MockAPIClient.self)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    override func tearDown() {
+        viewModel = nil
+        super.tearDown()
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testGetDiscountCodesSuccess() {
+        // Given
+        MockAPIClient.shouldReturnError = false
+        let expectation = XCTestExpectation(description: "Fetch codes successfully")
+        
+        // When
+        viewModel.getDiscountCodes(ruleId: "1")
+        
+        // Then
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            XCTAssertEqual(self.viewModel.discountCodes.count, 1)
+            XCTAssertEqual(self.viewModel.discountCodes.last?.priceRuleId, 1)
+            expectation.fulfill()
         }
+        
+        wait(for: [expectation], timeout: 2.0)
     }
+    
+    func testGetDiscountCodesFailure() {
+        // Given
+        MockAPIClient.shouldReturnError = true
+        let expectation = XCTestExpectation(description: "Fetch codes successfully")
+        
+        // When
+        viewModel.getDiscountCodes(ruleId: "1")
+        
+        // Then
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            XCTAssertEqual(self.viewModel.discountCodes.count, 0)
+            XCTAssertNotNil(self.viewModel.userError)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 2.0)
+    }
+    
+    func testCreateDiscountCodeSuccess() {
+        // Given
+        MockAPIClient.shouldReturnError = false
+        let expectation = XCTestExpectation(description: "Create code successfully")
+        
+        // When
+        viewModel.createDiscountCode(ruleId: 1, code: "TestingCode")
+        
+        // Then
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            XCTAssertEqual(self.viewModel.discountCodes.count, 1)
+            XCTAssertEqual(self.viewModel.discountCodes.last?.code, "TestingCode")
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 2.0)
+    } 
+    
+    func testCreateDiscountCodeFailure() {
+        // Given
+        MockAPIClient.shouldReturnError = true
+        let expectation = XCTestExpectation(description: "Create code failed")
+        
+        // When
+        viewModel.createDiscountCode(ruleId: 1, code: "TestingCode")
+        
+        // Then
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            XCTAssertNotNil(self.viewModel.userError)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 2.0)
+    } 
+    
+    
+    func testDeleteDiscountCodeFailure() {
+        // Given
+        MockAPIClient.shouldReturnError = true
+        let expectation = XCTestExpectation(description: "Delete code failed")
+        
+        // When
+        viewModel.deleteDiscountCode(ruleId: "1", codeId: "1")
+        
+        // Then
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            XCTAssertNotNil(self.viewModel.userError)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 2.0)
+    }
+    
+    
+    
+   
+
 
 }

@@ -24,9 +24,13 @@ struct ProductsView: View {
                         LoadingLottieView()
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }else{
-                        ProductsGrid(screenHeight: geometry.size.height, productsList: productsViewModel.productList, deleteProduct: { product in
-                            selectedProduct = product
-                        })
+                        if productsViewModel.productList.isEmpty {
+                            ContentUnavailableView(title: "No products added yet!", imageName: "cart.badge.plus")
+                        }else{
+                            ProductsGrid(screenHeight: geometry.size.height, productsList: productsViewModel.productList, deleteProduct: { product in
+                                selectedProduct = product
+                            })
+                        }
                     }
                     
                 }
@@ -57,6 +61,7 @@ struct ProductsView: View {
                         secondaryButton: .cancel(Text("Cancel"))
                     )
                 }
+                .showAlert(for: $productsViewModel.userError)
                 .onAppear{
                     productsViewModel.getProducts()
                 }

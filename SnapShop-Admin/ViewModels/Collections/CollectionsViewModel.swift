@@ -13,6 +13,7 @@ class CollectionsViewModel: ObservableObject {
     @Published var isLoading = true
     @Published var collectionImageURL: String = ""
     @Published var collectionName: String = ""
+    @Published var userError: NetworkError? = nil
     
     var apiClient: APIClientType.Type
     
@@ -25,9 +26,11 @@ class CollectionsViewModel: ObservableObject {
         apiClient.createCollection(collection: collection) { [weak self] result in
             switch result {
             case .success(let createdCollection):
+                self?.userError = nil
                 self?.collections.append(createdCollection.collection)
                 print("Collection created: \(createdCollection.collection)")
             case .failure(let error):
+                self?.userError = error
                 print("Failed to create collection: \(error.localizedDescription)")
             }
         }
@@ -38,9 +41,12 @@ class CollectionsViewModel: ObservableObject {
         apiClient.getAllCollections { [weak self] result in
             switch result {
             case .success(let success):
+                self?.userError = nil
                 self?.isLoading = false
                 self?.collections = success.collections ?? []
             case .failure(let failure):
+                self?.userError = failure
+                self?.isLoading = false
                 print(failure.localizedDescription)
             }
         }
@@ -50,9 +56,11 @@ class CollectionsViewModel: ObservableObject {
         apiClient.updateCollection(collection: collection) { [weak self] result in
             switch result {
             case .success(let updatedCollection):
+                self?.userError = nil
                 self?.getCollections()
                 print("Collection updated: \(updatedCollection.collection)")
             case .failure(let error):
+                self?.userError = error
                 print("Failed to update collection: \(error.localizedDescription)")
             }
         }
@@ -62,19 +70,21 @@ class CollectionsViewModel: ObservableObject {
         if let index = collections.firstIndex(where: { $0.id == collection.id }) {
             collections.remove(at: index)
         }
-        apiClient.deleteCollection(collectionId: "\(collection.id ?? 0)") { result in
+        apiClient.deleteCollection(collectionId: "\(collection.id ?? 0)") {[weak self] result in
             switch result {
             case .success:
+                self?.userError = nil
                 print("Collection Deleted Successfully!")
             case .failure(let error):
+                self?.userError = error
                 print("Failed to delete collection: \(error.localizedDescription)")
             }
         }
     }
     
     func clearFields() {
-            collectionName = ""
-            collectionImageURL = ""
-        }
+        collectionName = ""
+        collectionImageURL = ""
+    }
     
 }

@@ -67,7 +67,7 @@ class MockAPIClient: APIClientType {
         if shouldReturnError {
             completion(.failure(.other("Mock error!")))
         } else {
-            let discountCodes = [DiscountCode(id: 1, priceRuleId: 1, code: "MOCKCODE")]
+            let discountCodes = [DiscountCode(id: 1, priceRuleId: Int(ruleId) ?? 0, code: "MOCKCODE")]
             completion(.success(DiscountCodesResponse(discountCodes: discountCodes)))
         }
     }

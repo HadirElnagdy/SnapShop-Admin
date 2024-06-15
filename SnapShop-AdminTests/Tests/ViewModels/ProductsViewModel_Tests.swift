@@ -25,6 +25,7 @@ final class ProductsViewModel_Tests: XCTestCase {
     
     func testGetProductsSuccess() {
         // Given
+        MockAPIClient.shouldReturnError = false
         let expectation = XCTestExpectation(description: "Fetch products successfully")
         MockAPIClient.shouldReturnError = false
         
@@ -52,7 +53,7 @@ final class ProductsViewModel_Tests: XCTestCase {
            
         //Then
            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-               XCTAssertTrue(self.viewModel.isLoading)
+               XCTAssertFalse(self.viewModel.isLoading)
                XCTAssertEqual(self.viewModel.productList.count, 0)
                expectation.fulfill()
            }
@@ -60,8 +61,10 @@ final class ProductsViewModel_Tests: XCTestCase {
            waitForExpectations(timeout: 5, handler: nil)
        }
     
+    
     func testCreateProductSuccess() {
         // Given
+        MockAPIClient.shouldReturnError = false
         let expectation = XCTestExpectation(description: "Create product successfully")
         
         // When
@@ -78,9 +81,50 @@ final class ProductsViewModel_Tests: XCTestCase {
         wait(for: [expectation], timeout: 2.0)
     }
     
+    func testCreateProductFailure() {
+        // Given
+        MockAPIClient.shouldReturnError = true
+        let expectation = XCTestExpectation(description: "Create product failed")
+        
+        // When
+        let newProduct = Product(id: 1, title: "Testing Product", description: "Testing Product description", vendor: "Testing Product vendor", productType: "Testing Product type", tags: "Testing Product tags", variants: [Variant(price: "30", inventoryQuantity: 11)], images: nil)
+        viewModel.createProduct(product: ProductRequest(product: newProduct))
+        
+        // Then
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            XCTAssertNotNil(self.viewModel.userError)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 2.0)
+    }
+    
+    
+    
+    func testUpdateProductFailure() {
+        // Given
+        MockAPIClient.shouldReturnError = true
+        let expectation = XCTestExpectation(description: "Create product failed")
+        
+        // When
+        let newProduct = Product(id: 1, title: "Testing Product", description: "Testing Product description", vendor: "Testing Product vendor", productType: "Testing Product type", tags: "Testing Product tags", variants: [Variant(price: "30", inventoryQuantity: 11)], images: nil)
+        viewModel.updateProduct(product: ProductRequest(product: newProduct))
+        
+        // Then
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            XCTAssertNotNil(self.viewModel.userError)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 2.0)
+    }
+    
+    
+    
     
     func testDeleteProductSuccess() {
         // Given
+        MockAPIClient.shouldReturnError = false
         let expectation = XCTestExpectation(description: "Delete product successfully")
         let productToDelete = Product(id: 1, title: "Testing Product", description: "Testing Product description", vendor: "Testing Product vendor", productType: "Testing Product type", tags: "Testing Product tags", variants: [Variant(price: "30", inventoryQuantity: 11)], images: nil)
         viewModel.productList = [productToDelete]
@@ -91,6 +135,25 @@ final class ProductsViewModel_Tests: XCTestCase {
         // Then
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             XCTAssertTrue(self.viewModel.productList.isEmpty)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 2.0)
+    }
+    func testDeleteProductFailure() {
+        // Given
+        MockAPIClient.shouldReturnError = true
+        let expectation = XCTestExpectation(description: "Delete product successfully")
+        let productToDelete = Product(id: 1, title: "Testing Product", description: "Testing Product description", vendor: "Testing Product vendor", productType: "Testing Product type", tags: "Testing Product tags", variants: [Variant(price: "30", inventoryQuantity: 11)], images: nil)
+        viewModel.productList = [productToDelete]
+        
+        // When
+        viewModel.deleteProduct(product: productToDelete)
+        
+        // Then
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            XCTAssertFalse(self.viewModel.productList.isEmpty)
+            XCTAssertNotNil(self.viewModel.userError)
             expectation.fulfill()
         }
         

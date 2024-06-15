@@ -46,6 +46,7 @@ struct AddProductView: View {
                 }
                 .padding()
             }
+            .showAlert(for: $productsViewModel.userError)
             .onAppear {
                 setupView()
             }

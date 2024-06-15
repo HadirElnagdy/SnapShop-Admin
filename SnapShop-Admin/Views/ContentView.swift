@@ -9,22 +9,27 @@ import SwiftUI
 struct ContentView: View {
     
     @State var selectedTab: Tab = .products
-    
-    
+    @ObservedObject var appCommon = AppCommon.shared
+    @ObservedObject var networkMonitor = NetworkMonitor()
+
     var body: some View {
-        VStack {
-            switch selectedTab{
-            case .products:
-                ProductsView()
-            case .collections:
-                CollectionsView()
-            case .priceRules:
-                PriceRulesView()
-          }
-            Spacer()
-            CustomTabBarView(selectedTab: $selectedTab)
-            
-        }.ignoresSafeArea(edges: .bottom)
+        if networkMonitor.isConnected {
+            VStack {
+                switch selectedTab{
+                case .products:
+                    ProductsView()
+                case .collections:
+                    CollectionsView()
+                case .priceRules:
+                    PriceRulesView()
+              }
+                Spacer()
+                CustomTabBarView(selectedTab: $selectedTab)
+                
+            }.ignoresSafeArea(edges: .bottom)
+        }else{
+            NetworkUnavailableView()
+        }
         
     }
 }
@@ -32,3 +37,5 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+

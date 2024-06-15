@@ -38,12 +38,14 @@ struct AddCollectionView: View {
                     }.padding(.bottom, 50)
                 }
                 .padding()
+                .showAlert(for: $collectionsViewModel.userError)
                 .onAppear {
                     if let collection = collection {
                         collectionsViewModel.collectionName = collection.title ?? ""
                         collectionsViewModel.collectionImageURL = collection.image?.src ?? ""
                     }
                 }
+                
                 .onDisappear {
                     collectionsViewModel.clearFields()
             }

@@ -17,6 +17,7 @@ struct CellImageView: View {
         ZStack(alignment: .topTrailing) {
             AppImageView(imageURL: imageURL, imageSide: imageSide)
             deleteButton
+                .unredacted()
         }
         .background(
             RoundedRectangle(cornerRadius: imageSide/8)

@@ -42,7 +42,6 @@
 		043542B22C0883D500DE7E6A /* CollectionsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043542B12C0883D500DE7E6A /* CollectionsGrid.swift */; };
 		04C5994D2C1983F500D8E6EC /* ShoppingAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 04C5994C2C1983F500D8E6EC /* ShoppingAnimation.json */; };
 		04C5994F2C19843000D8E6EC /* LoadingLottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5994E2C19843000D8E6EC /* LoadingLottieView.swift */; };
-		04C599522C19974400D8E6EC /* NetworkStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C599512C19974400D8E6EC /* NetworkStatusView.swift */; };
 		04C5995E2C1B1D1700D8E6EC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5995D2C1B1D1700D8E6EC /* Constants.swift */; };
 		04C599602C1B465E00D8E6EC /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5995F2C1B465E00D8E6EC /* String+Helpers.swift */; };
 		04C599622C1B470600D8E6EC /* AppPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C599612C1B470600D8E6EC /* AppPickerView.swift */; };
@@ -52,6 +51,12 @@
 		04C599702C1B6C8B00D8E6EC /* CollectionsViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5996F2C1B6C8B00D8E6EC /* CollectionsViewModel_Tests.swift */; };
 		04C599722C1B6C9F00D8E6EC /* PriceRulesViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C599712C1B6C9F00D8E6EC /* PriceRulesViewModel_Tests.swift */; };
 		04C599742C1B6CB100D8E6EC /* DiscountCodesViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C599732C1B6CB000D8E6EC /* DiscountCodesViewModel_Tests.swift */; };
+		04C599762C1CA0AD00D8E6EC /* SnapShop_AdminUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C599752C1CA0AD00D8E6EC /* SnapShop_AdminUITests.swift */; };
+		04C599782C1CA1A900D8E6EC /* SnapShop_AdminUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C599772C1CA1A900D8E6EC /* SnapShop_AdminUITestsLaunchTests.swift */; };
+		04C5997A2C1CBD6100D8E6EC /* View+ShowAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C599792C1CBD6100D8E6EC /* View+ShowAlerts.swift */; };
+		04C5997E2C1D7E3C00D8E6EC /* NetworkUnavailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C5997D2C1D7E3C00D8E6EC /* NetworkUnavailableView.swift */; };
+		04C599812C1D7EBC00D8E6EC /* ContentUnavailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C599802C1D7EBC00D8E6EC /* ContentUnavailableView.swift */; };
+		04C599832C1D87EC00D8E6EC /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C599822C1D87EC00D8E6EC /* NetworkMonitor.swift */; };
 		04CC296C2C1594C100B8FB47 /* CellImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC296B2C1594C100B8FB47 /* CellImageView.swift */; };
 		04CC296E2C15AE4700B8FB47 /* AddPriceRuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC296D2C15AE4700B8FB47 /* AddPriceRuleView.swift */; };
 		04CC29702C15BAA800B8FB47 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC296F2C15BAA800B8FB47 /* DateFormatter.swift */; };
@@ -60,8 +65,6 @@
 		04F6B3FB2BFE0A4000EE890A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F6B3FA2BFE0A4000EE890A /* Assets.xcassets */; };
 		04F6B3FE2BFE0A4000EE890A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F6B3FD2BFE0A4000EE890A /* Preview Assets.xcassets */; };
 		04F6B4082BFE0A4100EE890A /* SnapShop_AdminTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B4072BFE0A4100EE890A /* SnapShop_AdminTests.swift */; };
-		04F6B4122BFE0A4100EE890A /* SnapShop_AdminUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B4112BFE0A4100EE890A /* SnapShop_AdminUITests.swift */; };
-		04F6B4142BFE0A4100EE890A /* SnapShop_AdminUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B4132BFE0A4100EE890A /* SnapShop_AdminUITestsLaunchTests.swift */; };
 		763E529D2C0A8468002EFF95 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763E529C2C0A8468002EFF95 /* AppButton.swift */; };
 		763E529F2C0A8A50002EFF95 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763E529E2C0A8A50002EFF95 /* LoginViewModel.swift */; };
 		763E52A12C0A8A85002EFF95 /* AppTextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763E52A02C0A8A85002EFF95 /* AppTextFieldValidator.swift */; };
@@ -125,7 +128,6 @@
 		043542B12C0883D500DE7E6A /* CollectionsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsGrid.swift; sourceTree = "<group>"; };
 		04C5994C2C1983F500D8E6EC /* ShoppingAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ShoppingAnimation.json; sourceTree = "<group>"; };
 		04C5994E2C19843000D8E6EC /* LoadingLottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLottieView.swift; sourceTree = "<group>"; };
-		04C599512C19974400D8E6EC /* NetworkStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusView.swift; sourceTree = "<group>"; };
 		04C5995D2C1B1D1700D8E6EC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04C5995F2C1B465E00D8E6EC /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		04C599612C1B470600D8E6EC /* AppPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPickerView.swift; sourceTree = "<group>"; };
@@ -135,6 +137,12 @@
 		04C5996F2C1B6C8B00D8E6EC /* CollectionsViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewModel_Tests.swift; sourceTree = "<group>"; };
 		04C599712C1B6C9F00D8E6EC /* PriceRulesViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRulesViewModel_Tests.swift; sourceTree = "<group>"; };
 		04C599732C1B6CB000D8E6EC /* DiscountCodesViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodesViewModel_Tests.swift; sourceTree = "<group>"; };
+		04C599752C1CA0AD00D8E6EC /* SnapShop_AdminUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapShop_AdminUITests.swift; sourceTree = "<group>"; };
+		04C599772C1CA1A900D8E6EC /* SnapShop_AdminUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapShop_AdminUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		04C599792C1CBD6100D8E6EC /* View+ShowAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ShowAlerts.swift"; sourceTree = "<group>"; };
+		04C5997D2C1D7E3C00D8E6EC /* NetworkUnavailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUnavailableView.swift; sourceTree = "<group>"; };
+		04C599802C1D7EBC00D8E6EC /* ContentUnavailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentUnavailableView.swift; sourceTree = "<group>"; };
+		04C599822C1D87EC00D8E6EC /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		04CC296B2C1594C100B8FB47 /* CellImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellImageView.swift; sourceTree = "<group>"; };
 		04CC296D2C15AE4700B8FB47 /* AddPriceRuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPriceRuleView.swift; sourceTree = "<group>"; };
 		04CC296F2C15BAA800B8FB47 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
@@ -146,8 +154,6 @@
 		04F6B4032BFE0A4100EE890A /* SnapShop-AdminTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SnapShop-AdminTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F6B4072BFE0A4100EE890A /* SnapShop_AdminTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapShop_AdminTests.swift; sourceTree = "<group>"; };
 		04F6B40D2BFE0A4100EE890A /* SnapShop-AdminUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SnapShop-AdminUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		04F6B4112BFE0A4100EE890A /* SnapShop_AdminUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapShop_AdminUITests.swift; sourceTree = "<group>"; };
-		04F6B4132BFE0A4100EE890A /* SnapShop_AdminUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapShop_AdminUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		52C7A8B33688BABBBC7A566F /* Pods-SnapShop-AdminTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapShop-AdminTests.release.xcconfig"; path = "Target Support Files/Pods-SnapShop-AdminTests/Pods-SnapShop-AdminTests.release.xcconfig"; sourceTree = "<group>"; };
 		6166A9D94E876846F80A9C3A /* Pods_SnapShop_Admin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapShop_Admin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		729A4D0E58BB203866458A96 /* Pods-SnapShop-AdminTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapShop-AdminTests.debug.xcconfig"; path = "Target Support Files/Pods-SnapShop-AdminTests/Pods-SnapShop-AdminTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -277,6 +283,8 @@
 				0400B17D2C12EC9300C307D5 /* AppCommon.swift */,
 				04CC296F2C15BAA800B8FB47 /* DateFormatter.swift */,
 				04C5995F2C1B465E00D8E6EC /* String+Helpers.swift */,
+				04C599792C1CBD6100D8E6EC /* View+ShowAlerts.swift */,
+				04C599822C1D87EC00D8E6EC /* NetworkMonitor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -324,6 +332,7 @@
 		0435428C2C03271700DE7E6A /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				04C5997F2C1D7E9D00D8E6EC /* ContentUnavailable */,
 				04C599502C19972600D8E6EC /* NetworkStatus */,
 				04C5994B2C197A3800D8E6EC /* Lotties */,
 				0400B1922C130E0A00C307D5 /* AppTextFields */,
@@ -412,7 +421,7 @@
 		04C599502C19972600D8E6EC /* NetworkStatus */ = {
 			isa = PBXGroup;
 			children = (
-				04C599512C19974400D8E6EC /* NetworkStatusView.swift */,
+				04C5997D2C1D7E3C00D8E6EC /* NetworkUnavailableView.swift */,
 			);
 			path = NetworkStatus;
 			sourceTree = "<group>";
@@ -451,6 +460,14 @@
 				04C5996B2C1B65DA00D8E6EC /* APIClient_Tests.swift */,
 			);
 			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		04C5997F2C1D7E9D00D8E6EC /* ContentUnavailable */ = {
+			isa = PBXGroup;
+			children = (
+				04C599802C1D7EBC00D8E6EC /* ContentUnavailableView.swift */,
+			);
+			path = ContentUnavailable;
 			sourceTree = "<group>";
 		};
 		04F6B3EA2BFE0A3C00EE890A = {
@@ -512,8 +529,8 @@
 		04F6B4102BFE0A4100EE890A /* SnapShop-AdminUITests */ = {
 			isa = PBXGroup;
 			children = (
-				04F6B4112BFE0A4100EE890A /* SnapShop_AdminUITests.swift */,
-				04F6B4132BFE0A4100EE890A /* SnapShop_AdminUITestsLaunchTests.swift */,
+				04C599752C1CA0AD00D8E6EC /* SnapShop_AdminUITests.swift */,
+				04C599772C1CA1A900D8E6EC /* SnapShop_AdminUITestsLaunchTests.swift */,
 			);
 			path = "SnapShop-AdminUITests";
 			sourceTree = "<group>";
@@ -638,6 +655,7 @@
 					};
 					04F6B40C2BFE0A4100EE890A = {
 						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
 						TestTargetID = 04F6B3F22BFE0A3C00EE890A;
 					};
 				};
@@ -799,7 +817,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				043542A62C0344C800DE7E6A /* AppFonts.swift in Sources */,
-				04C599522C19974400D8E6EC /* NetworkStatusView.swift in Sources */,
 				043542902C03297000DE7E6A /* CustomTabBarView.swift in Sources */,
 				0400B1912C130CCD00C307D5 /* AddCollectionView.swift in Sources */,
 				04C599602C1B465E00D8E6EC /* String+Helpers.swift in Sources */,
@@ -807,6 +824,7 @@
 				043542AD2C037D1800DE7E6A /* Products.swift in Sources */,
 				04C5994F2C19843000D8E6EC /* LoadingLottieView.swift in Sources */,
 				0400B18F2C13024700C307D5 /* CollectionsViewModel.swift in Sources */,
+				04C5997E2C1D7E3C00D8E6EC /* NetworkUnavailableView.swift in Sources */,
 				763E529D2C0A8468002EFF95 /* AppButton.swift in Sources */,
 				0435427A2C03222700DE7E6A /* AddProductView.swift in Sources */,
 				0400B1A52C13882C00C307D5 /* PriceRuleCell.swift in Sources */,
@@ -816,11 +834,13 @@
 				0400B1852C12F11D00C307D5 /* NetworkError.swift in Sources */,
 				0400B17C2C12EC7100C307D5 /* Constants.swift in Sources */,
 				043542B22C0883D500DE7E6A /* CollectionsGrid.swift in Sources */,
+				04C5997A2C1CBD6100D8E6EC /* View+ShowAlerts.swift in Sources */,
 				7698F4D62C09E2BE00DAB24B /* LoginScreen.swift in Sources */,
 				04CC29702C15BAA800B8FB47 /* DateFormatter.swift in Sources */,
 				043542832C03246E00DE7E6A /* AppColors.swift in Sources */,
 				0400B1A92C138BAA00C307D5 /* DiscountCodesViewModel.swift in Sources */,
 				04F6B3F92BFE0A3C00EE890A /* ContentView.swift in Sources */,
+				04C599832C1D87EC00D8E6EC /* NetworkMonitor.swift in Sources */,
 				04F6B3F72BFE0A3C00EE890A /* SnapShop_AdminApp.swift in Sources */,
 				04C599622C1B470600D8E6EC /* AppPickerView.swift in Sources */,
 				0400B1892C12FA1A00C307D5 /* AppGridView.swift in Sources */,
@@ -831,6 +851,7 @@
 				0400B1A32C13877B00C307D5 /* DiscountCodes.swift in Sources */,
 				04C5995E2C1B1D1700D8E6EC /* Constants.swift in Sources */,
 				0400B1762C12EBF400C307D5 /* ProductsViewModel.swift in Sources */,
+				04C599812C1D7EBC00D8E6EC /* ContentUnavailableView.swift in Sources */,
 				04CC296C2C1594C100B8FB47 /* CellImageView.swift in Sources */,
 				043542A42C03440E00DE7E6A /* PriceRulesView.swift in Sources */,
 				043542A92C034CE600DE7E6A /* CollectionsCustomCell.swift in Sources */,
@@ -866,8 +887,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04F6B4142BFE0A4100EE890A /* SnapShop_AdminUITestsLaunchTests.swift in Sources */,
-				04F6B4122BFE0A4100EE890A /* SnapShop_AdminUITests.swift in Sources */,
+				04C599782C1CA1A900D8E6EC /* SnapShop_AdminUITestsLaunchTests.swift in Sources */,
+				04C599762C1CA0AD00D8E6EC /* SnapShop_AdminUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1021,8 +1042,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1052,8 +1073,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1115,6 +1136,7 @@
 			baseConfigurationReference = F9221337AB79660ACC76979C /* Pods-SnapShop-Admin-SnapShop-AdminUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7N6H592Z8V;
@@ -1123,6 +1145,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hdrnjd.SnapShop-AdminUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "SnapShop-Admin";
@@ -1134,6 +1157,7 @@
 			baseConfigurationReference = 835262A89904DC2490EC3198 /* Pods-SnapShop-Admin-SnapShop-AdminUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7N6H592Z8V;

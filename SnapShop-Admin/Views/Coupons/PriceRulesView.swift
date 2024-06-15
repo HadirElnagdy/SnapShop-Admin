@@ -24,55 +24,59 @@ struct PriceRulesView: View {
                         viewModel.getPriceRules()
                     }
             }else{
-                VStack {
-                    List {
-                        ForEach(viewModel.priceRules) { rule in
-                            PriceRuleCell(priceRule: rule)
-                                .listRowSeparator(.hidden)
+                if viewModel.priceRules.isEmpty {
+                    ContentUnavailableView(title: "No rules added yet!", imageName: "tag")
+                }else{
+                    VStack {
+                        List {
+                            ForEach(viewModel.priceRules) { rule in
+                                PriceRuleCell(priceRule: rule)
+                                    .listRowSeparator(.hidden)
+                            }
+                            .onDelete(perform: { indexSet in
+                                if let index = indexSet.first {
+                                    deletionIndex = index
+                                    showAlert.toggle()
+                                }
+                            })
                         }
-                        .onDelete(perform: { indexSet in
-                            if let index = indexSet.first {
-                                deletionIndex = index
-                                showAlert.toggle()
-                            }
-                        })
-                    }
-                    .listStyle(.plain)
-                    .navigationBarTitle("Price Rules")
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button {
-                                openAddPriceRule.toggle()
-                            } label: {
-                                Image(systemName: "plus.app")
-                                    .font(.system(size: 24))
-                            }
-                            .sheet(isPresented: $openAddPriceRule){
-                                AddPriceRuleView(){ rule in
-                                    viewModel.createPriceRule(rule: rule)
+                        .listStyle(.plain)
+                        .navigationBarTitle("Price Rules")
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Button {
+                                    openAddPriceRule.toggle()
+                                } label: {
+                                    Image(systemName: "plus.app")
+                                        .font(.system(size: 24))
+                                }
+                                .sheet(isPresented: $openAddPriceRule){
+                                    AddPriceRuleView(){ rule in
+                                        viewModel.createPriceRule(rule: rule)
+                                    }
                                 }
                             }
                         }
-                    }
-                    .alert(isPresented: $showAlert) {
-                        Alert(
-                            title: Text("Confirm Deletion"),
-                            message: Text("Are you sure you want to delete this price rule?"),
-                            primaryButton: .destructive(Text("Delete")) {
-                                if let index = deletionIndex {
-                                    let id = "\(viewModel.priceRules[index].id!)"
-                                    viewModel.deletePriceRule(ruleId: id)
-                                    viewModel.priceRules.remove(at: index)
+                        .alert(isPresented: $showAlert) {
+                            Alert(
+                                title: Text("Confirm Deletion"),
+                                message: Text("Are you sure you want to delete this price rule?"),
+                                primaryButton: .destructive(Text("Delete")) {
+                                    if let index = deletionIndex {
+                                        let id = "\(viewModel.priceRules[index].id!)"
+                                        viewModel.deletePriceRule(ruleId: id)
+                                        viewModel.priceRules.remove(at: index)
+                                    }
+                                },
+                                secondaryButton: .cancel(Text("Cancel")) {
+                                    deletionIndex = nil
                                 }
-                            },
-                            secondaryButton: .cancel(Text("Cancel")) {
-                                deletionIndex = nil
-                            }
-                        )
+                            )
+                        }
                     }
                 }
             }
-        }
+        }.showAlert(for: $viewModel.userError)
     }
 }
 

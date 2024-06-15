@@ -6,30 +6,121 @@
 //
 
 import XCTest
+@testable import SnapShop_Admin
 
 final class PriceRulesViewModel_Tests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    var viewModel: PriceRulesViewModel!
+    
+    
+    override func setUp() {
+        super.setUp()
+        viewModel = PriceRulesViewModel(apiClient: MockAPIClient.self)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    override func tearDown() {
+        viewModel = nil
+        super.tearDown()
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testGetPriceRulesSuccess() {
+        // Given
+        MockAPIClient.shouldReturnError = false
+        let expectation = XCTestExpectation(description: "Fetch rules successfully")
+        
+        // When
+        viewModel.getPriceRules()
+        
+        // Then
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            XCTAssertFalse(self.viewModel.isLoading)
+            XCTAssertEqual(self.viewModel.priceRules.count, 1)
+            XCTAssertEqual(self.viewModel.priceRules.last?.id, 1)
+            expectation.fulfill()
         }
+        
+        wait(for: [expectation], timeout: 2.0)
     }
+    
+    
+    func testGetPriceRulesFailure() {
+        // Given
+        MockAPIClient.shouldReturnError = true
+        let expectation = XCTestExpectation(description: "Fetch rules failed")
+        
+        // When
+        viewModel.getPriceRules()
+        
+        // Then
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            XCTAssertFalse(self.viewModel.isLoading)
+            XCTAssertEqual(self.viewModel.priceRules.count, 0)
+            XCTAssertNotNil(self.viewModel.userError)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 2.0)
+    }
+    
+    
+    
+    func testCreatePriceRulesSuccess() {
+        // Given
+        MockAPIClient.shouldReturnError = false
+        let expectation = XCTestExpectation(description: "Create rule successfully")
+        
+        // When
+        let ruleRequest = PriceRuleRequest(priceRule: PriceRule(title: "Testing Rule", valueType: "Percentage", value: "10"))
+        viewModel.createPriceRule(rule: ruleRequest)
+        
+        // Then
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            XCTAssertNotNil(self.viewModel.priceRules)
+            XCTAssertEqual(self.viewModel.priceRules.last?.title, ruleRequest.priceRule.title)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 2.0)
+    }
+    
+    
+    func testCreatePriceRulesFailure() {
+        // Given
+        MockAPIClient.shouldReturnError = true
+        let expectation = XCTestExpectation(description: "Create rule failed")
+        
+        // When
+        let ruleRequest = PriceRuleRequest(priceRule: PriceRule(title: "Testing Rule", valueType: "Percentage", value: "10"))
+        viewModel.createPriceRule(rule: ruleRequest)
+        
+        // Then
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            XCTAssertNotNil(self.viewModel.userError)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 2.0)
+    }
+    
+    
+    func testDeletePriceRulesFailure() {
+        // Given
+        MockAPIClient.shouldReturnError = true
+        let expectation = XCTestExpectation(description: "Delete rule failed")
+        
+        // When
+        viewModel.deletePriceRule(ruleId: "1")
+        
+        // Then
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            XCTAssertNotNil(self.viewModel.userError)
+            expectation.fulfill()
+        }
+        
+        wait(for: [expectation], timeout: 2.0)
+        
+    }
+
 
 }

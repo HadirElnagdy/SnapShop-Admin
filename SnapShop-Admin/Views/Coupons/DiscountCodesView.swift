@@ -16,21 +16,49 @@ struct DiscountCodesView: View {
     @State private var isEditing = false
     @State private var newCodeName = ""
     
-
+    
     var body: some View {
-        VStack{
-            
-            List {
-                ForEach(viewModel.discountCodes, id: \.id) { code in
-                    Text(code.code)
+        if viewModel.isLoading {
+            LoadingLottieView()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .onAppear{
+                    viewModel.getDiscountCodes(ruleId: ruleId)
                 }
-                .onDelete(perform: { indexSet in
-                    if let index = indexSet.first {
-                        deletionIndex = index
-                        showAlert.toggle()
+        }else{
+            VStack{
+                if viewModel.discountCodes.isEmpty {
+                    ContentUnavailableView(title: "No codes added yet!", imageName: "tag")
+                }
+                else{
+                    List {
+                        ForEach(viewModel.discountCodes, id: \.id) { code in
+                            Text(code.code)
+                        }
+                        .onDelete(perform: { indexSet in
+                            if let index = indexSet.first {
+                                deletionIndex = index
+                                showAlert.toggle()
+                            }
+                        })
+                    }.listStyle(.plain)
+                    
+                }
+                if isEditing {
+                    HStack {
+                        TextField("New Code", text: $newCodeName)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                        Button {
+                            guard !newCodeName.isEmpty else { return }
+                            viewModel.createDiscountCode(ruleId: Int(ruleId) ?? 0, code: newCodeName)
+                            newCodeName = ""
+                            isEditing = false
+                        } label: {
+                            Image(systemName: "plus")
+                        }
                     }
-                })
-            }.listStyle(.plain)
+                    .padding()
+                }
+            }
             .alert(isPresented: $showAlert) {
                 Alert(
                     title: Text("Confirm Deletion"),
@@ -51,22 +79,8 @@ struct DiscountCodesView: View {
             }
             
             
-            if isEditing {
-                HStack {
-                    TextField("New Code", text: $newCodeName)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    Button {
-                        guard !newCodeName.isEmpty else { return }
-                        viewModel.createDiscountCode(ruleId: Int(ruleId) ?? 0, code: newCodeName)
-                        newCodeName = ""
-                        isEditing = false
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-                }
-                .padding()
-            }
-        }.navigationTitle("Discount Codes")
+            
+            .navigationTitle("Discount Codes")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
@@ -77,7 +91,7 @@ struct DiscountCodesView: View {
                     }
                 }
             }
-        
+        }
     }
 }
 

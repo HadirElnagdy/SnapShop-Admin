@@ -90,4 +90,24 @@ final class APIClient_Tests: XCTestCase {
         waitForExpectations(timeout: 5, handler: nil)
     }
     
+//    func testCreateProductSuccess() {
+//        
+//        let expectation = self.expectation(description: "Successful createProduct request")
+//        let productRequest = ProductRequest(product: Product(title: "testing product", description: "", vendor: "", productType: "", tags: "", variants: nil, images: nil))
+//  //this will probably fail 
+//
+//        APIClient.createProduct(product: productRequest){ result in
+//            switch result {
+//            case .success(let success):
+//                XCTAssertNotNil(success)
+//                expectation.fulfill()
+//            case .failure(let failure):
+//                XCTFail("Expected success, got failure")
+//            }
+//        }
+//        waitForExpectations(timeout: 5, handler: nil)
+//    }
+    
+    
+    
 }
