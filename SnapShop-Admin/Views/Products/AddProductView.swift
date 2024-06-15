@@ -20,6 +20,8 @@ struct AddProductView: View {
     @State private var tags = ""
     @State private var selectedCollection = ""
     @State private var newImageURL: String = ""
+    @State private var isValid = true
+    @State private var showAlert = false
     
     var body: some View {
         GeometryReader { geo in
@@ -29,7 +31,9 @@ struct AddProductView: View {
                     InputWithTitleView(title: "Name", placeholder: "Product Name", text: $productName)
                     TextEditorWithTitle(title: "Description", text: $description)
                     InputWithTitleView(title: "Price", placeholder: "300", text: $price)
+                        .keyboardType(.numberPad)
                     InputWithTitleView(title: "Available Quantity", placeholder: "30", text: $availableQuantity)
+                        .keyboardType(.numberPad)
                     InputWithTitleView(title: "Collection", placeholder: "ADIDAS", text: $selectedCollection)
                     ProductsPickerView(selection: $selectedProductType)
                     InputWithTitleView(title: "Tags", placeholder: "Classic, backpack", text: $tags)
@@ -39,28 +43,36 @@ struct AddProductView: View {
                     ImageGridView(imageURLs: $productsViewModel.imageURLs, geo: geo)
                     
                     AppButton(text: product == nil ? "Add Product" : "Update Product", width: geo.size.width * 0.9, height: geo.size.height * 0.06, isFilled: true) {
-                        saveProduct()
-                        dismiss()
+                        if validateFields() {
+                            saveProduct()
+                            dismiss()
+                        } else {
+                            showAlert = true
+                        }
                     }
                     .padding(.bottom, 50)
                 }
                 .padding()
             }
-            .showAlert(for: $productsViewModel.userError)
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Validation Error"),
+                    message: Text("Please fill in all fields."),
+                    dismissButton: .default(Text("OK")) {
+                        showAlert = false
+                    }
+                )
+            }
             .onAppear {
                 setupView()
             }
         }
     }
     
-    
-    
     private func setupView() {
         productsViewModel.imageURLs = []
         if let product = product {
             populateFields(with: product)
-        } else {
-            
         }
     }
     
@@ -95,7 +107,19 @@ struct AddProductView: View {
             productsViewModel.updateProduct(product: productRequest)
         }
     }
+    
+    private func validateFields() -> Bool {
+        guard !productName.isEmpty,
+              !price.isEmpty,
+              !availableQuantity.isEmpty,
+              !selectedCollection.isEmpty,
+              !tags.isEmpty else {
+            return false
+        }
+        return true
+    }
 }
+
 
 struct TextEditorWithTitle: View {
     let title: String

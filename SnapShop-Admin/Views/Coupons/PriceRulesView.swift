@@ -24,10 +24,10 @@ struct PriceRulesView: View {
                         viewModel.getPriceRules()
                     }
             }else{
-                if viewModel.priceRules.isEmpty {
-                    ContentUnavailableView(title: "No rules added yet!", imageName: "tag")
-                }else{
-                    VStack {
+                VStack {
+                    if viewModel.priceRules.isEmpty {
+                        ContentUnavailableView(title: "No rules added yet!", imageName: "tag")
+                    }else{
                         List {
                             ForEach(viewModel.priceRules) { rule in
                                 PriceRuleCell(priceRule: rule)

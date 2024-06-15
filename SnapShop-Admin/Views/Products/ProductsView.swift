@@ -20,9 +20,12 @@ struct ProductsView: View {
         NavigationStack {
             GeometryReader { geometry in
                 ScrollView {
-                    if productsViewModel.isLoading{
+                    if productsViewModel.isLoading {
                         LoadingLottieView()
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .onAppear {
+                                productsViewModel.getProducts()
+                            }
                     }else{
                         if productsViewModel.productList.isEmpty {
                             ContentUnavailableView(title: "No products added yet!", imageName: "cart.badge.plus")

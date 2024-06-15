@@ -23,7 +23,6 @@ struct InputWithTitleView: View {
                                    .stroke(Color.gray, lineWidth: 1.5)
                            )
                            .padding(.bottom, 10)
-//            AppTextField(fieldModel: $fieldModel)
         }
     }
 }
