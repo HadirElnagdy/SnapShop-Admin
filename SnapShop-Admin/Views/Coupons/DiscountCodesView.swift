@@ -25,69 +25,58 @@ struct DiscountCodesView: View {
                     viewModel.getDiscountCodes(ruleId: ruleId)
                 }
         }else{
-            VStack{
-                if viewModel.discountCodes.isEmpty {
-                    ContentUnavailableView(title: "No codes added yet!", imageName: "tag")
-                }
-                else{
-                    List {
-                        ForEach(viewModel.discountCodes, id: \.id) { code in
-                            Text(code.code)
-                        }
-                        .onDelete(perform: { indexSet in
-                            if let index = indexSet.first {
-                                deletionIndex = index
-                                showAlert.toggle()
+            GeometryReader { geo in
+                VStack{
+                    if viewModel.discountCodes.isEmpty {
+                        ContentUnavailableView(title: "No codes added yet!", imageName: "tag")
+                    }
+                    else{
+                        List {
+                            ForEach(viewModel.discountCodes, id: \.id) { code in
+                                Text(code.code)
                             }
-                        })
-                    }.listStyle(.plain)
-                    
-                }
-                if isEditing {
-                    HStack {
-                        TextField("New Code", text: $newCodeName)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                        Button {
-                            guard !newCodeName.isEmpty else { return }
-                            viewModel.createDiscountCode(ruleId: Int(ruleId) ?? 0, code: newCodeName)
-                            newCodeName = ""
-                            isEditing = false
-                        } label: {
-                            Image(systemName: "plus")
-                        }
+                            .onDelete(perform: { indexSet in
+                                if let index = indexSet.first {
+                                    deletionIndex = index
+                                    showAlert.toggle()
+                                }
+                            })
+                        }.listStyle(.plain)
+                        
                     }
-                    .padding()
                 }
-            }
-            .alert(isPresented: $showAlert) {
-                Alert(
-                    title: Text("Confirm Deletion"),
-                    message: Text("Are you sure you want to delete this discount code?"),
-                    primaryButton: .destructive(Text("Delete")) {
-                        if let index = deletionIndex {
-                            viewModel.deleteDiscountCode(ruleId: ruleId, codeId: "\(viewModel.discountCodes[index].id!)")
-                            viewModel.discountCodes.remove(at: index)
+                
+                .sheet(isPresented: $isEditing, content: {
+                    BottomSheetView(isPresented: $isEditing, newCodeName: $newCodeName, viewModel: viewModel, ruleId: ruleId, buttonWidth: geo.size.width * 0.9, buttonHeight: geo.size.height * 0.06)
+                        .presentationDetents([.fraction(0.27)])
+                })
+                .alert(isPresented: $showAlert) {
+                    Alert(
+                        title: Text("Confirm Deletion"),
+                        message: Text("Are you sure you want to delete this discount code?"),
+                        primaryButton: .destructive(Text("Delete")) {
+                            if let index = deletionIndex {
+                                viewModel.deleteDiscountCode(ruleId: ruleId, codeId: "\(viewModel.discountCodes[index].id!)")
+                                viewModel.discountCodes.remove(at: index)
+                            }
+                        },
+                        secondaryButton: .cancel(Text("Cancel")) {
+                            deletionIndex = nil
                         }
-                    },
-                    secondaryButton: .cancel(Text("Cancel")) {
-                        deletionIndex = nil
-                    }
-                )
-            }
-            .onAppear {
-                viewModel.getDiscountCodes(ruleId: ruleId)
-            }
-            
-            
-            
-            .navigationTitle("Discount Codes")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        isEditing.toggle()
-                    }) {
-                        Image(systemName: "plus.app")
-                            .font(.system(size: 24))
+                    )
+                }
+                .onAppear {
+                    viewModel.getDiscountCodes(ruleId: ruleId)
+                }
+                .navigationTitle("Discount Codes")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            isEditing.toggle()
+                        }) {
+                            Image(systemName: "plus.app")
+                                .font(.system(size: 24))
+                        }
                     }
                 }
             }
@@ -95,7 +84,27 @@ struct DiscountCodesView: View {
     }
 }
 
-//
-//#Preview {
-//    DiscountCodesView(ruleId: "1119217582259")
-//}
+struct BottomSheetView: View {
+    @Binding var isPresented: Bool
+    @Binding var newCodeName: String
+    @ObservedObject var viewModel: DiscountCodeViewModel
+    let ruleId: String
+    let buttonWidth: Double
+    let buttonHeight: Double
+    
+    var body: some View {
+        VStack {
+            InputWithTitleView(title: "New Code", placeholder: "Code", text: $newCodeName)
+                .padding()
+            AppButton(text: "Add Code", width: buttonWidth, height: buttonHeight, isFilled: true) {
+                guard !newCodeName.isEmpty else { return }
+                viewModel.createDiscountCode(ruleId: Int(ruleId) ?? 0, code: newCodeName)
+                newCodeName = ""
+                isPresented = false
+            }
+            .padding()
+        }
+        .padding()
+    }
+}
+
