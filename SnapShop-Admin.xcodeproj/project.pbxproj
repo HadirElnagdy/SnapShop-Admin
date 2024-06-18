@@ -67,10 +67,8 @@
 		04F6B3FE2BFE0A4000EE890A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F6B3FD2BFE0A4000EE890A /* Preview Assets.xcassets */; };
 		04F6B4082BFE0A4100EE890A /* SnapShop_AdminTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B4072BFE0A4100EE890A /* SnapShop_AdminTests.swift */; };
 		763E529D2C0A8468002EFF95 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763E529C2C0A8468002EFF95 /* AppButton.swift */; };
-		763E529F2C0A8A50002EFF95 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763E529E2C0A8A50002EFF95 /* LoginViewModel.swift */; };
 		763E52A12C0A8A85002EFF95 /* AppTextFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763E52A02C0A8A85002EFF95 /* AppTextFieldValidator.swift */; };
 		763E52A32C0A9119002EFF95 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763E52A22C0A9119002EFF95 /* AppTextField.swift */; };
-		7698F4D62C09E2BE00DAB24B /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7698F4D52C09E2BE00DAB24B /* LoginScreen.swift */; };
 		A4E61E152D060B9212AD197F /* Pods_SnapShop_Admin_SnapShop_AdminUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD43B22F8EDA63CD3E4FE50 /* Pods_SnapShop_Admin_SnapShop_AdminUITests.framework */; };
 		BD7D73A3235B66CCBDB9AC24 /* Pods_SnapShop_AdminTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA85FBAE625C1BCFF69C79F /* Pods_SnapShop_AdminTests.framework */; };
 		CF75DF8DAEA7058D49B2D4C3 /* Pods_SnapShop_Admin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6166A9D94E876846F80A9C3A /* Pods_SnapShop_Admin.framework */; };
@@ -160,10 +158,8 @@
 		6166A9D94E876846F80A9C3A /* Pods_SnapShop_Admin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapShop_Admin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		729A4D0E58BB203866458A96 /* Pods-SnapShop-AdminTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapShop-AdminTests.debug.xcconfig"; path = "Target Support Files/Pods-SnapShop-AdminTests/Pods-SnapShop-AdminTests.debug.xcconfig"; sourceTree = "<group>"; };
 		763E529C2C0A8468002EFF95 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
-		763E529E2C0A8A50002EFF95 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		763E52A02C0A8A85002EFF95 /* AppTextFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextFieldValidator.swift; sourceTree = "<group>"; };
 		763E52A22C0A9119002EFF95 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
-		7698F4D52C09E2BE00DAB24B /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		835262A89904DC2490EC3198 /* Pods-SnapShop-Admin-SnapShop-AdminUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapShop-Admin-SnapShop-AdminUITests.release.xcconfig"; path = "Target Support Files/Pods-SnapShop-Admin-SnapShop-AdminUITests/Pods-SnapShop-Admin-SnapShop-AdminUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AEE50B8F7197CFDA30544DF5 /* Pods-SnapShop-Admin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SnapShop-Admin.debug.xcconfig"; path = "Target Support Files/Pods-SnapShop-Admin/Pods-SnapShop-Admin.debug.xcconfig"; sourceTree = "<group>"; };
 		BFD43B22F8EDA63CD3E4FE50 /* Pods_SnapShop_Admin_SnapShop_AdminUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SnapShop_Admin_SnapShop_AdminUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,14 +196,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0400B1732C12EBCB00C307D5 /* Authentication */ = {
-			isa = PBXGroup;
-			children = (
-				763E529E2C0A8A50002EFF95 /* LoginViewModel.swift */,
-			);
-			path = Authentication;
-			sourceTree = "<group>";
-		};
 		0400B1742C12EBDB00C307D5 /* Product */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,7 +254,6 @@
 			children = (
 				04F6B3F82BFE0A3C00EE890A /* ContentView.swift */,
 				04ED339C2C21F5CC00CB7D7B /* SplashScreenView.swift */,
-				763E529A2C0A7F5B002EFF95 /* Authentication */,
 				043542892C0326DE00DE7E6A /* Products */,
 				0435429B2C03430500DE7E6A /* Collections */,
 				043542A22C0343FC00DE7E6A /* Coupons */,
@@ -318,7 +305,6 @@
 				0400B19F2C13864400C307D5 /* Coupons */,
 				0400B18D2C13022E00C307D5 /* Collections */,
 				0400B1742C12EBDB00C307D5 /* Product */,
-				0400B1732C12EBCB00C307D5 /* Authentication */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -546,14 +532,6 @@
 				ECA85FBAE625C1BCFF69C79F /* Pods_SnapShop_AdminTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		763E529A2C0A7F5B002EFF95 /* Authentication */ = {
-			isa = PBXGroup;
-			children = (
-				7698F4D52C09E2BE00DAB24B /* LoginScreen.swift */,
-			);
-			path = Authentication;
 			sourceTree = "<group>";
 		};
 		763E529B2C0A844D002EFF95 /* AppButtons */ = {
@@ -839,7 +817,6 @@
 				04ED339D2C21F5CC00CB7D7B /* SplashScreenView.swift in Sources */,
 				043542B22C0883D500DE7E6A /* CollectionsGrid.swift in Sources */,
 				04C5997A2C1CBD6100D8E6EC /* View+ShowAlerts.swift in Sources */,
-				7698F4D62C09E2BE00DAB24B /* LoginScreen.swift in Sources */,
 				04CC29702C15BAA800B8FB47 /* DateFormatter.swift in Sources */,
 				043542832C03246E00DE7E6A /* AppColors.swift in Sources */,
 				0400B1A92C138BAA00C307D5 /* DiscountCodesViewModel.swift in Sources */,
@@ -866,7 +843,6 @@
 				043542B02C047E6E00DE7E6A /* ProductsGrid.swift in Sources */,
 				0400B1832C12F11100C307D5 /* APIRouter.swift in Sources */,
 				0435428B2C0326F400DE7E6A /* ProductsView.swift in Sources */,
-				763E529F2C0A8A50002EFF95 /* LoginViewModel.swift in Sources */,
 				0400B1A12C13866100C307D5 /* PriceRulesViewModel.swift in Sources */,
 				0400B1812C12F10300C307D5 /* APIClient.swift in Sources */,
 				043542AB2C0353EF00DE7E6A /* Tab.swift in Sources */,
