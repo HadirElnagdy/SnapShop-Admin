@@ -11,26 +11,42 @@ struct ContentView: View {
     @State var selectedTab: Tab = .products
     @ObservedObject var appCommon = AppCommon.shared
     @ObservedObject var networkMonitor = NetworkMonitor()
+    @State private var showSplash = true
 
     var body: some View {
-        if networkMonitor.isConnected {
-            VStack {
-                switch selectedTab{
-                case .products:
-                    ProductsView()
-                case .collections:
-                    CollectionsView()
-                case .priceRules:
-                    PriceRulesView()
-              }
-                Spacer()
-                CustomTabBarView(selectedTab: $selectedTab)
-                
-            }.ignoresSafeArea(edges: .bottom)
-        }else{
-            NetworkUnavailableView()
-        }
         
+        ZStack{
+            if showSplash {
+                SplashScreenView()
+                    .transition(.opacity)
+                    .animation(.easeOut(duration: 1.5))
+            }else{
+                if networkMonitor.isConnected {
+                    VStack {
+                        switch selectedTab{
+                        case .products:
+                            ProductsView()
+                        case .collections:
+                            CollectionsView()
+                        case .priceRules:
+                            PriceRulesView()
+                        }
+                        Spacer()
+                        CustomTabBarView(selectedTab: $selectedTab)
+                        
+                    }.ignoresSafeArea(edges: .bottom)
+                }else{
+                    NetworkUnavailableView()
+                }
+            }
+        }
+            .onAppear{
+                DispatchQueue.main.asyncAfter(deadline: .now()+3) {
+                    withAnimation {
+                        showSplash = false
+                    }
+                }
+            }
     }
 }
 
