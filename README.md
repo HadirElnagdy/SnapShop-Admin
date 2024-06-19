@@ -31,8 +31,8 @@ Welcome to the SnapShop Admin App repository! This app is part of the SnapShop e
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/snapshop-admin.git
-   cd snapshop-admin
+   [git clone https://github.com/yourusername/snapshop-admin.git](https://github.com/HadirElnagdy/SnapShop-Admin.git)
+   cd SnapShop-Admin
    ```
 
 2. Install dependencies using CocoaPods:
