@@ -26,9 +26,16 @@ struct DiscountCodesView: View {
                 }
         }else{
             GeometryReader { geo in
-                VStack{
+                VStack(alignment: .center) {
                     if viewModel.discountCodes.isEmpty {
-                        ContentUnavailableView(title: "No codes!", imageName: "tag")
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            ContentUnavailableView(title: "No codes!", imageName: "tag")
+                            Spacer()
+                        }
+                        
+                        Spacer()
                     }
                     else{
                         List {
