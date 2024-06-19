@@ -73,6 +73,9 @@ struct PriceRulesView: View {
                                 }
                             )
                         }
+                        .refreshable {
+                            viewModel.getPriceRules()
+                        }
                     }
                 }
             }
