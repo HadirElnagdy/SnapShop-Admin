@@ -34,6 +34,7 @@ class NetworkMonitor: ObservableObject {
             }
         }
     }
+
     
     deinit {
         self.monitor.cancel()
@@ -50,5 +51,7 @@ class NetworkMonitor: ObservableObject {
             return .unknown
         }
     }
+    
+    
 }
 

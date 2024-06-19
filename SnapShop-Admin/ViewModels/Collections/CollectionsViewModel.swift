@@ -14,6 +14,7 @@ class CollectionsViewModel: ObservableObject {
     @Published var collectionImageURL: String = ""
     @Published var collectionName: String = ""
     @Published var userError: NetworkError? = nil
+    @Published var collectionToDelete: Collection? = nil
     
     var apiClient: APIClientType.Type
     

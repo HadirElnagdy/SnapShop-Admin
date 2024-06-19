@@ -11,25 +11,26 @@ struct ProductsView: View {
     
     
     @State var openAddProductView: Bool = false
-    @State var searchQuery = ""
     @ObservedObject var productsViewModel = ProductsViewModel()
-    @ObservedObject var collectionsViewModel = CollectionsViewModel()
     @State var selectedProduct: Product? = nil
     
     var body: some View {
         NavigationStack {
             GeometryReader { geometry in
                 ScrollView {
-                    if productsViewModel.isLoading {
+                    if productsViewModel.isLoading{
                         LoadingLottieView()
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .onAppear {
-                                productsViewModel.getProducts()
-                            }
                     }else{
                         if productsViewModel.productList.isEmpty {
-                            ContentUnavailableView(title: "No products added yet!", imageName: "cart.badge.plus")
-                        }else{
+                            VStack(alignment: .center) {
+                                Spacer()
+                                ContentUnavailableView(title: "No products!", imageName: "cart.badge.plus")
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                Spacer()
+                            }
+                            .frame(width: geometry.size.width, height: geometry.size.height)
+                        } else {
                             ProductsGrid(screenHeight: geometry.size.height, productsList: productsViewModel.productList, deleteProduct: { product in
                                 selectedProduct = product
                             })
@@ -64,7 +65,6 @@ struct ProductsView: View {
                         secondaryButton: .cancel(Text("Cancel"))
                     )
                 }
-                .showAlert(for: $productsViewModel.userError)
                 .onAppear{
                     productsViewModel.getProducts()
                 }
@@ -77,6 +77,5 @@ struct ProductsView: View {
 #Preview {
     ProductsView()
 }
-
 
 

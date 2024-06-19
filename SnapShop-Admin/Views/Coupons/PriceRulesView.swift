@@ -26,7 +26,7 @@ struct PriceRulesView: View {
             }else{
                 VStack {
                     if viewModel.priceRules.isEmpty {
-                        ContentUnavailableView(title: "No rules added yet!", imageName: "tag")
+                        ContentUnavailableView(title: "No rules!", imageName: "tag")
                     }else{
                         List {
                             ForEach(viewModel.priceRules) { rule in

@@ -28,7 +28,7 @@ struct DiscountCodesView: View {
             GeometryReader { geo in
                 VStack{
                     if viewModel.discountCodes.isEmpty {
-                        ContentUnavailableView(title: "No codes added yet!", imageName: "tag")
+                        ContentUnavailableView(title: "No codes!", imageName: "tag")
                     }
                     else{
                         List {
