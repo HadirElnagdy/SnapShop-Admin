@@ -60,7 +60,6 @@ class DiscountCodeViewModel: ObservableObject {
                 self?.userError = nil
                 print("Discount code deleted successfully!")
             case .failure(let error):
-                self?.userError = error
                 print("Failed to delete discount code: \(error.localizedDescription)")
             }
         }

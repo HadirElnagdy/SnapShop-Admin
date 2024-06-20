@@ -18,12 +18,14 @@ struct AddPriceRuleView: View {
     @State private var oncePerCustomer = true
     @Environment(\.dismiss) private var dismiss
     @State private var showAlert = false
+    @State private var alertMessage = ""
     
     var body: some View {
         GeometryReader { geo in
             VStack {
                 InputWithTitleView(title: "Name", placeholder: "Price Rule Name", text: $name)
                 InputWithTitleView(title: "Value", placeholder: "Discount value", text: $discountValue)
+                    .keyboardType(.decimalPad)
                 
                 HStack {
                     Text("Value Type: ")
@@ -36,10 +38,9 @@ struct AddPriceRuleView: View {
                     Spacer()
                 }
                 
-                DatePicker("Start Date", selection: $startDate, displayedComponents: .date)
+                DatePicker("Start Date", selection: $startDate, in: Date()..., displayedComponents: .date)
                     .datePickerStyle(DefaultDatePickerStyle())
-                
-                DatePicker("End Date", selection: $endDate, displayedComponents: .date)
+                DatePicker("End Date", selection: $endDate, in: startDate..., displayedComponents: .date)
                     .datePickerStyle(DefaultDatePickerStyle())
                 
                 Toggle(isOn: $oncePerCustomer) {
@@ -64,7 +65,7 @@ struct AddPriceRuleView: View {
                 .alert(isPresented: $showAlert) {
                     Alert(
                         title: Text("Validation Error"),
-                        message: Text("Please fill in all fields."),
+                        message: Text(alertMessage),
                         dismissButton: .default(Text("OK")) {
                             showAlert = false
                         }
@@ -76,12 +77,31 @@ struct AddPriceRuleView: View {
     }
     
     private func validateFields() -> Bool {
-        guard !name.isEmpty,
-              !discountValue.isEmpty else {
-            return false
+            guard let discountValue = Double(discountValue) else {
+                alertMessage = "Please enter a valid number for discount value."
+                return false
+            }
+            
+            switch selectedValueType {
+            case .percentage:
+                if discountValue < 1 || discountValue > 100 {
+                    alertMessage = "Discount percentage must be between 1 and 100."
+                    return false
+                }
+            case .fixed:
+                if discountValue <= 0 {
+                    alertMessage = "Fixed amount discount must be greater than 0."
+                    return false
+                }
+            }
+            
+            if name.isEmpty {
+                alertMessage = "Rule name cannot be empty."
+                return false
+            }
+            
+            return true
         }
-        return true
-    }
 }
 
 struct AddPriceRuleView_Previews: PreviewProvider {

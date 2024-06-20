@@ -30,8 +30,8 @@ struct AddProductView: View {
                     AppImageView(imageURL: productsViewModel.imageURLs.first, imageSide: geo.size.width * 0.92)
                     InputWithTitleView(title: "Name", placeholder: "Product Name", text: $productName)
                     TextEditorWithTitle(title: "Description", text: $description)
-                    InputWithTitleView(title: "Price", placeholder: "300", text: $price)
-                        .keyboardType(.numberPad)
+                    InputWithTitleView(title: "Price $", placeholder: "Price in dollar", text: $price)
+                        .keyboardType(.decimalPad) // Allowing decimal numbers for price
                     InputWithTitleView(title: "Available Quantity", placeholder: "30", text: $availableQuantity)
                         .keyboardType(.numberPad)
                     InputWithTitleView(title: "Collection", placeholder: "ADIDAS", text: $selectedCollection)
@@ -57,7 +57,7 @@ struct AddProductView: View {
             .alert(isPresented: $showAlert) {
                 Alert(
                     title: Text("Validation Error"),
-                    message: Text("Please fill in all fields."),
+                    message: Text("Please fill in all fields correctly. Price and quantity must be greater than zero."),
                     dismissButton: .default(Text("OK")) {
                         showAlert = false
                     }
@@ -98,7 +98,7 @@ struct AddProductView: View {
                                                              vendor: selectedCollection.uppercased(),
                                                              productType: selectedProductType.rawValue,
                                                              tags: tags,
-                                                             variants: [Variant(price: "\(price) EGP", inventoryQuantity: Int(availableQuantity) ?? 0)],
+                                                             variants: [Variant(price: price, inventoryQuantity: Int(availableQuantity) ?? 0)],
                                                              images: productImages
                                                             ))
         if product == nil {
@@ -113,12 +113,17 @@ struct AddProductView: View {
               !price.isEmpty,
               !availableQuantity.isEmpty,
               !selectedCollection.isEmpty,
-              !tags.isEmpty else {
+              !tags.isEmpty,
+              let priceValue = Double(price),
+              let quantityValue = Int(availableQuantity),
+              priceValue > 0,
+              quantityValue > 0 else {
             return false
         }
         return true
     }
 }
+
 
 
 struct TextEditorWithTitle: View {

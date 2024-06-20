@@ -56,7 +56,6 @@ class PriceRulesViewModel: ObservableObject {
                 self?.userError = nil
                 print("Price rule Deleted Successfully!")
             case .failure(let error):
-                self?.userError = error
                 print("Failed to delete price rule: \(error.localizedDescription)")
             }
         }

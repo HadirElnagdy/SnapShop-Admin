@@ -10,8 +10,8 @@ import Foundation
 class ProductsViewModel: ObservableObject {
     
     @Published var productList = [Product]()
-    @Published var featuredImage = ""
     @Published var imageURLs: [String] = []
+    @Published var featuredImage = ""
     @Published var isLoading = true
     @Published var userError: NetworkError? = nil
     
@@ -19,6 +19,7 @@ class ProductsViewModel: ObservableObject {
     
     init(apiClient: APIClientType.Type = APIClient.self) {
         self.apiClient = apiClient
+        featuredImage = imageURLs.first ?? ""
     }
     
     func getProducts() {
