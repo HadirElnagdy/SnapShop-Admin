@@ -27,18 +27,17 @@ struct CollectionsView: View {
     var body: some View {
         NavigationStack {
             GeometryReader { geometry in
-                VStack {
-                    SearchBar(text: $searchText)
-                        .padding(.top, 10)
-                    
-                    if collectionsViewModel.isLoading {
-                        LoadingLottieView()
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .onAppear {
-                                collectionsViewModel.getCollections()
-                            }
-                    } else {
-                        ScrollView {
+                if collectionsViewModel.isLoading{
+                    LoadingLottieView()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .onAppear{
+                            collectionsViewModel.getCollections()
+                        }
+                }else{
+                    VStack {
+                        SearchBar(text: $searchText)
+                                .padding(.top, 10)
+                        ScrollView{
                             if filteredCollections.isEmpty {
                                 VStack(alignment: .center) {
                                     Spacer()
@@ -59,18 +58,18 @@ struct CollectionsView: View {
                         .navigationBarTitle("Collections")
                         .toolbar {
                             ToolbarItem(placement: .navigationBarTrailing) {
-                                Button {
+                                Button{
                                     openAddCollectionView.toggle()
-                                } label: {
+                                }label: {
                                     Image(systemName: "plus.app")
                                         .font(.system(size: 24))
                                 }
-                                .sheet(isPresented: $openAddCollectionView) {
+                                .sheet(isPresented: $openAddCollectionView){
                                     AddCollectionView(collectionsViewModel: collectionsViewModel)
                                 }
+                                
                             }
-                        }
-                        .alert(item: $selectedCollection) { collection in
+                        }.alert(item: $selectedCollection) { collection in
                             Alert(
                                 title: Text("Confirm Deletion"),
                                 message: Text("Are you sure you want to delete this collection?"),
@@ -79,8 +78,9 @@ struct CollectionsView: View {
                                 },
                                 secondaryButton: .cancel(Text("Cancel"))
                             )
-                        }
                     }
+                    }
+                   
                 }
             }
         }
@@ -90,3 +90,5 @@ struct CollectionsView: View {
 #Preview {
     CollectionsView()
 }
+
+

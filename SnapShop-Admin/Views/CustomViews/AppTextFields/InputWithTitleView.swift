@@ -16,7 +16,12 @@ struct InputWithTitleView: View {
     var body: some View {
         VStack(alignment: .leading){
             Text(title)
-            TextField(placeholder, text: $text)
+            TextField(placeholder, text: Binding(
+                get: { text },
+                set: { newValue in
+                    text = newValue.replacingOccurrences(of: "^\\s+", with: "", options: .regularExpression)
+                }
+            ))
                            .padding(10)
                            .overlay(
                                RoundedRectangle(cornerRadius: 5)

@@ -15,7 +15,12 @@ struct SearchBar: View {
 
     var body: some View {
         HStack {
-            TextField("Search ...", text: $text)
+            TextField("Search ...", text: Binding(
+                get: { text },
+                set: { newValue in
+                    text = newValue.replacingOccurrences(of: "^\\s+", with: "", options: .regularExpression)
+                }
+            ))
                 .padding(7)
                 .padding(.horizontal, 25)
                 .background(Color(.systemGray6))
